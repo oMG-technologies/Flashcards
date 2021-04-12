@@ -8,14 +8,14 @@
 .App {
   font-family: 'New Tegomin', serif;
   background-color: #282c34;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
 .mainContainer {
@@ -23,13 +23,12 @@
   width: 650px;
   height: 320px;
 }
-.mainContainer_text{
+.mainContainer_text {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .theCard {
   position: absolute;
-  display: flex;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;

@@ -4,7 +4,7 @@ const TheFront = () => {
     return (
         <div className='theFront'>Front
         
-        
+            
         </div>
     )
 }

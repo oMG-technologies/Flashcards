@@ -1,5 +1,5 @@
 import './App.css';
-import FlashCard from './Components/FlashCard'
+import FlashCard from './components/FlashCard'
 
 function App() {
   return (

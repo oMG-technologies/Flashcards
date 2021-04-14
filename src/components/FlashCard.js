@@ -1,13 +1,12 @@
 import React from 'react'
 import TheFront from './TheFront'
 import TheBack from './TheBack'
-import {useSelector, useDispatch} from 'react-redux';
-import { incrament,decrament } from '../redux/actions';
+import {useSelector} from 'react-redux';
+
 
 const FlashCard = () => {
 
   const state = useSelector(state => state.counterReducer)
-  const dispatch = useDispatch()
 
   return (
     <div className='mainContainer'>
@@ -20,11 +19,7 @@ const FlashCard = () => {
         <TheFront />
         <TheBack />
       </div>
-         <div className = 'mainContainer_button'>
-            <button className = 'btn_Iknow' onClick = {() => dispatch(incrament())}>I know</button>
-            <button className = 'btn_IDonTknow' onClick = {() => dispatch(decrament())}>I don't know</button>
-        </div>
-      
+
     </div>
   );
 };

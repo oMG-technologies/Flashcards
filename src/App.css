@@ -63,10 +63,14 @@
   font-weight: 800;
 }
 
+.polishMeaning, .eanglishMeaning{
+  margin-top: 50px;
+}
+
 .mainContainer_button{
   width: 100%;
   height: 60px;
-  margin-top: 400px;
+  margin-top: 60px;
 }
 
 .btn_Iknow{

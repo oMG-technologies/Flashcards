@@ -108,9 +108,6 @@
 }
 
 .btn_Next{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 70%;
   height: 50px;
   background-color: lightgreen;

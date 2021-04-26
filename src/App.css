@@ -27,6 +27,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+
 .theCard {
   position: absolute;
   width: 100%;
@@ -89,6 +91,29 @@
   width: 150px;
   height: 50px;
   background-color: red;
+  font-family: 'New Tegomin', serif;
+  margin: 10px;
+  border:none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.mainContainer_button-next{
+  margin-top: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_Next{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 50px;
+  background-color: lightgreen;
   font-family: 'New Tegomin', serif;
   margin: 10px;
   border:none;

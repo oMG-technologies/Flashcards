@@ -1,12 +1,10 @@
 import './App.css';
-import FlashCard from './components/FlashCard'
+import FlashCard from './components/FlashCard';
 
 function App() {
   return (
-    <div className="App">
-
+    <div className='App'>
       <FlashCard />
-
     </div>
   );
 }

@@ -1,25 +1,23 @@
-import React from 'react'
-import TheFront from './TheFront'
-import TheBack from './TheBack'
-import {useSelector} from 'react-redux';
-
+import React from 'react';
+import TheFront from './TheFront';
+import TheBack from './TheBack';
 
 const FlashCard = () => {
-
-  const state = useSelector(state => state.counterReducer)
-
   return (
     <div className='mainContainer'>
-      <div className='mainContainer_text'>Mouse to the card to check answer:</div>
-      <div className='mainContainer_result'>
-        Result: {state}
+        <div className='mainContainer_text'>
+          Mouse to the card to check answer:
+        </div>
+      <div className='mainContainer_result'>Result: </div>
+        <div className='theCard'>
+          <TheFront />
+          <TheBack />
+        </div>
+      <div className='mainContainer_button-next'>
+        
+        <button className='btn_Next'>Next </button>
 
       </div>
-      <div className='theCard'>
-        <TheFront />
-        <TheBack />
-      </div>
-
     </div>
   );
 };

@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
 const TheFront = () => {
-    return (
-        <div className='theFront'>Front
+  return (
+    <div className='theFront'>
+      Front
+      <p className='eanglishMeaning'>Cat</p>
+    </div>
+  );
+};
 
-        <p className = 'eanglishMeaning'>Cat</p>
-            
-        </div>
-    )
-}
-
-export default TheFront
+export default TheFront;

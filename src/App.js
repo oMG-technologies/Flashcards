@@ -33,7 +33,6 @@ function App() {
   };
 
   const questionsRandom = randomQuestion();
-  console.log('questionsRandom in app', questionsRandom);
 
   return (
     <MainContext.Provider value={questionsRandom}>

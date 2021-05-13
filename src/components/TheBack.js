@@ -1,11 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { MainContext } from '../context/MainContext';
-
-const TheBack = () => {
-  const currentQuestion = useContext(MainContext);
-  console.log('singleQuestion the back', currentQuestion);
-
+const TheBack = ({ currentQuestion }) => {
   return (
     <div className='theBack'>
       Back

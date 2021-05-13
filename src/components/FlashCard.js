@@ -5,8 +5,8 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
+
   const questionsRandom = useContext(MainContext);
-  console.log('question random in flash card', questionsRandom);
 
   const [flip, setFlip] = useState(false);
 
@@ -20,8 +20,6 @@ const FlashCard = () => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
-
-  console.log('currentQuestion', currentQuestion);
 
   // Changed Page
   const nextPage = () => {
@@ -37,7 +35,6 @@ const FlashCard = () => {
   };
 
   return (
-    <MainContext.Provider value={currentQuestion}>
       <div className='mainContainer'>
         <div className='mainContainer_text'>
           Mouse to the card to check answer:
@@ -47,8 +44,8 @@ const FlashCard = () => {
           className={`theCard ${flip ? 'flip' : ''}`}
           onClick={() => setFlip(!flip)}
         >
-          <TheFront />
-          <TheBack />
+          <TheFront currentQuestion = {currentQuestion}/>
+          <TheBack currentQuestion = {currentQuestion}/>
         </div>
         <div className='mainContainer_button-next'>
           <button className='btn_Next' onClick={prevPage}>
@@ -59,7 +56,6 @@ const FlashCard = () => {
           </button>
         </div>
       </div>
-    </MainContext.Provider>
   );
 };
 

@@ -3,30 +3,42 @@ import './App.css';
 
 import FlashCard from './components/FlashCard';
 
-import {MainContext} from './context/MainContext';
+import { MainContext } from './context/MainContext';
 
-import {getAllQuestions, getQuestionById} from './services/ApiService';
+import { getAllQuestions } from './services/ApiService';
 
 function App() {
-
-  const [questions, setQuestion] = useState([])
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     getQuestions();
   }, []);
 
-  const getQuestions = async() => {
-    const dataQuestions = await getAllQuestions()
-    setQuestion(dataQuestions)
-  }
-  // console.log(questions)
+  const getQuestions = async () => {
+    const dataQuestions = await getAllQuestions();
+    setQuestions(dataQuestions);
+  };
+
+  const randomQuestion = () => {
+    let newArrQuestions = [];
+    for (let i = 0; i < questions.length; i++) {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+
+      const item = questions[randomIndex];
+
+      newArrQuestions.push(item);
+    }
+
+    return newArrQuestions;
+  };
+
+  const questionsRandom = randomQuestion();
+  console.log('questionsRandom in app', questionsRandom);
 
   return (
-    <MainContext.Provider value={questions}>
-      <div className='App'>
-        <FlashCard />
-      </div>
-    </MainContext.Provider> 
+    <MainContext.Provider value={questionsRandom}>
+      <FlashCard questionsRandom={questionsRandom} />
+    </MainContext.Provider>
   );
 }
 

@@ -19,6 +19,36 @@
             "id": 4,
             "frontCard": "Ball",
             "backCard": "Piłka"
+        },
+        {
+            "id": 5,
+            "frontCard": "Small",
+            "backCard": "Mały"
+        },
+        {
+            "id": 6,
+            "frontCard": "Up",
+            "backCard": "Góra"
+        },
+        {
+            "id": 7,
+            "frontCard": "Down",
+            "backCard": "Dół"
+        },
+        {
+            "id": 8,
+            "frontCard": "Spring",
+            "backCard": "Wiosna"
+        },
+        {
+            "id": 9,
+            "frontCard": "Summer",
+            "backCard": "Lato"
+        },
+        {
+            "id": 10,
+            "frontCard": "Winter",
+            "backCard": "Zima"
         }
     ]
 }

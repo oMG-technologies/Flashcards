@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 
 import FlashCard from './components/FlashCard';
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <MainContext.Provider value={questionsRandom}>
-      <FlashCard questionsRandom={questionsRandom} />
+      <FlashCard  />
     </MainContext.Provider>
   );
 }

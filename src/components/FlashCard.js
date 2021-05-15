@@ -5,19 +5,26 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
-  // const iknow = useContext(MainContext);
 
-  // console.log('iknow in app',iknow)
   const questionsRandom = useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
 
-  const [curreatPage, setCurreatPage] = useState(1);
-  const [questionsPerPage] = useState(1);
-
   const [iknow, setIknow] = useState(0);
   const [iDontknow, setIDontknow] = useState(0);
 
+  const [curreatPage, setCurreatPage] = useState(1);
+  const [questionsPerPage] = useState(1);
+
+  // Get current Question
+  const indexOfLastQuestion = curreatPage * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestion = questionsRandom.slice(
+    indexOfFirstQuestion,
+    indexOfLastQuestion
+  );
+  
+  // Create Result
   const IknowClick = () => {
     setIknow(iknow + 1);
   };
@@ -25,14 +32,6 @@ const FlashCard = () => {
   const IDontknowClick = () => {
     setIDontknow(iDontknow + 1);
   };
-
-  // Get current post
-  const indexOfLastQuestion = curreatPage * questionsPerPage;
-  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
-  const currentQuestion = questionsRandom.slice(
-    indexOfFirstQuestion,
-    indexOfLastQuestion
-  );
 
   // Changed Page
   const nextPage = () => {
@@ -76,6 +75,7 @@ const FlashCard = () => {
           Next
         </button>
       </div>
+      {}
     </div>
   );
 };

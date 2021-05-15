@@ -63,7 +63,7 @@ const FlashCard = () => {
         <TheBack currentQuestion={currentQuestion} />
       </div>
       <div className='mainContainer_button-next'>
-        <button className='btn_Next' onClick={prevPage}>
+        <button className='btn_prevPage' onClick={prevPage}>
           Prev
         </button>
         <button className='btn_IDonTknow' onClick={IDontknowClick}>

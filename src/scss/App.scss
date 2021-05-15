@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+@import './buttons';
+@import './FlashCard.scss';
+@import './TheFront.scss';
+@import './TheBack.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'New Tegomin', serif;
+  background-color: #282c34;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+}

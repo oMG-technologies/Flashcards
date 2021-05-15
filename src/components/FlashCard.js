@@ -1,4 +1,7 @@
 import React, { useState, useContext } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import TheFront from './TheFront';
 import TheBack from './TheBack';
 
@@ -23,7 +26,7 @@ const FlashCard = () => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
-  
+
   // Create Result
   const IknowClick = () => {
     setIknow(iknow + 1);
@@ -75,7 +78,8 @@ const FlashCard = () => {
           Next
         </button>
       </div>
-      {}
+      <Link to='.'> Back home</Link>
+      <Link to='./Results'> Results</Link>
     </div>
   );
 };

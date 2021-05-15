@@ -10,6 +10,7 @@ import { getAllQuestions } from './services/ApiService';
 function App() {
   const [questions, setQuestions] = useState([]);
 
+
   useEffect(() => {
     getQuestions();
   }, []);
@@ -23,12 +24,9 @@ function App() {
     let newArrQuestions = [];
     for (let i = 0; i < questions.length; i++) {
       const randomIndex = Math.floor(Math.random() * questions.length);
-
       const item = questions[randomIndex];
-
       newArrQuestions.push(item);
     }
-
     return newArrQuestions;
   };
 

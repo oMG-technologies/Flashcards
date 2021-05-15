@@ -39,7 +39,12 @@ body {
    cursor: pointer;
 }
 
-.theCard.flip {
+/* .theCard.flip {
+  transform: rotateY(180deg);
+  cursor: pointer;
+} */
+
+.theCard:hover {
   transform: rotateY(180deg);
   cursor: pointer;
 }

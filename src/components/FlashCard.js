@@ -9,13 +9,23 @@ const FlashCard = () => {
 
   // console.log('iknow in app',iknow)
   const questionsRandom = useContext(MainContext);
-  
+
   const [flip, setFlip] = useState(false);
-  
+
   const [curreatPage, setCurreatPage] = useState(1);
   const [questionsPerPage] = useState(1);
-  
-  
+
+  const [iknow, setIknow] = useState(0);
+  const [iDontknow, setIDontknow] = useState(0);
+
+  const IknowClick = () => {
+    setIknow(iknow + 1);
+  };
+
+  const IDontknowClick = () => {
+    setIDontknow(iDontknow + 1);
+  };
+
   // Get current post
   const indexOfLastQuestion = curreatPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
@@ -42,7 +52,9 @@ const FlashCard = () => {
       <div className='mainContainer_text'>
         Click to the card to check the answer:
       </div>
-      <div className='mainContainer_result'>Result: </div>
+      <div className='mainContainer_result'>
+        Result: {iknow} / {iDontknow}
+      </div>
       <div
         className={`theCard ${flip ? 'flip' : ''}`}
         onClick={() => setFlip(!flip)}
@@ -53,6 +65,12 @@ const FlashCard = () => {
       <div className='mainContainer_button-next'>
         <button className='btn_Next' onClick={prevPage}>
           Prev
+        </button>
+        <button className='btn_IDonTknow' onClick={IDontknowClick}>
+          I don't know
+        </button>
+        <button className='btn_Iknow' onClick={IknowClick}>
+          I know
         </button>
         <button className='btn_Next' onClick={nextPage}>
           Next

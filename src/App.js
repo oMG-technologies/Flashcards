@@ -1,7 +1,11 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import './css/App.css';
 
+import Dashboard from './components/Dashboard';
 import FlashCard from './components/FlashCard';
+import Results from './components/Results';
 
 import { MainContext } from './context/MainContext';
 
@@ -9,19 +13,20 @@ import { getAllQuestions } from './services/ApiService';
 
 function App() {
   const [questions, setQuestions] = useState([]);
-  console.log(questions)
+  console.log(questions);
 
   const [numerElemetInFlashCard] = useState(8);
 
   // Slice questions Arr
-  const indexOfLastMainArrQuestion =  numerElemetInFlashCard;
-  const indexOfFirstMainQuestion = indexOfLastMainArrQuestion - numerElemetInFlashCard;
+  const indexOfLastMainArrQuestion = numerElemetInFlashCard;
+  const indexOfFirstMainQuestion =
+    indexOfLastMainArrQuestion - numerElemetInFlashCard;
   const currentArr = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
   );
 
-  console.log('currentArr',currentArr)
+  console.log('currentArr', currentArr);
 
   useEffect(() => {
     getQuestions();
@@ -45,9 +50,15 @@ function App() {
   const questionsRandom = randomQuestion();
 
   return (
-    <MainContext.Provider value={questionsRandom}>
-      <FlashCard  />
-    </MainContext.Provider>
+    <Router>
+      <MainContext.Provider value={questionsRandom}>
+        <Switch>
+          <Route exact path='/' component={Dashboard} />
+          <Route path='/FlashCard' component={FlashCard} />
+          <Route path='/Results' component={Results} />
+        </Switch>
+      </MainContext.Provider>
+    </Router>
   );
 }
 

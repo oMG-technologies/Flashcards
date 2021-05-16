@@ -49,6 +49,56 @@
             "id": 10,
             "frontCard": "Winter",
             "backCard": "Zima"
+        },
+        {
+            "id": 11,
+            "frontCard": "Red",
+            "backCard": "Czerwony"
+        },
+        {
+            "id": 12,
+            "frontCard": "You",
+            "backCard": "Ty"
+        },
+        {
+            "id": 13,
+            "frontCard": "Blue",
+            "backCard": "Niebieski"
+        },
+        {
+            "id": 14,
+            "frontCard": "Good",
+            "backCard": "Dobrze"
+        },
+        {
+            "id": 15,
+            "frontCard": "Gender",
+            "backCard": "Płeć"
+        },
+        {
+            "id": 16,
+            "frontCard": "Mountain",
+            "backCard": "Góry"
+        },
+        {
+            "id": 17,
+            "frontCard": "Picture",
+            "backCard": "Obraz"
+        },
+        {
+            "id": 18,
+            "frontCard": "Horse",
+            "backCard": "Koń"
+        },
+        {
+            "id": 19,
+            "frontCard": "Black",
+            "backCard": "Czarny"
+        },
+        {
+            "id": 20,
+            "frontCard": "Mornig",
+            "backCard": "Poranek"
         }
     ]
 }

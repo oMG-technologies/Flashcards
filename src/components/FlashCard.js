@@ -78,8 +78,8 @@ const FlashCard = () => {
           Next
         </button>
       </div>
-      <Link to='.'> Back home</Link>
-      <Link to='./Results'> Results</Link>
+      <Link to='.' className = 'btn_home'> Back home</Link>
+      <Link to='./Results' className = 'btn_results'> Results</Link>
     </div>
   );
 };

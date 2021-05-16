@@ -22,10 +22,10 @@ const TheBack = ({ currentQuestion }) => {
         ))}
       </p>
       <div className='mainContainer_button'>
-        <button className='btn_IDonTknow' onClick={IDontknowClick}>
+        <button className='btn_IDonTknow-onCard' onClick={IDontknowClick}>
           I don't know
         </button>
-        <button className='btn_Iknow' onClick={IknowClick}>
+        <button className='btn_Iknow-onCard' onClick={IknowClick}>
           I know
         </button>
       </div>

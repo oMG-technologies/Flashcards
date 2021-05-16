@@ -12,15 +12,19 @@ import { MainContext } from './context/MainContext';
 import { getAllQuestions } from './services/ApiService';
 
 function App() {
+
   const [questions, setQuestions] = useState([]);
   console.log(questions);
+ 
+  const [step, setStep] = useState(1)
+  const [answers, setAnswers] = useState(0)
 
-  const [numerElemetInFlashCard] = useState(8);
+  
+  const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(5);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
-  const indexOfFirstMainQuestion =
-    indexOfLastMainArrQuestion - numerElemetInFlashCard;
+  const indexOfFirstMainQuestion = indexOfLastMainArrQuestion - numerElemetInFlashCard;
   const currentArr = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
@@ -37,6 +41,7 @@ function App() {
     setQuestions(dataQuestions);
   };
 
+
   const randomQuestion = () => {
     let newArrQuestions = [];
     for (let i = 0; i < currentArr.length; i++) {
@@ -49,24 +54,45 @@ function App() {
 
   const questionsRandom = randomQuestion();
 
+  // // Changed Step
+  // const nextStep = () => {
+  //     setStep(step + 1);
+  // };
+
+  // const prevStep = () => {
+  //   setStep(step - 1);
+  // };
+
   return (
+
+    // <MainContext.Provider value={{ step: step, questions: questions, questionsRandom:questionsRandom, nextStep:nextStep, prevStep:prevStep }}>
+
+    //   {step === 1 && <Dashboard />}
+    //   {step === 2 && <FlashCard />}
+    //   {step === 3 && <Results />}
+
+    // </MainContext.Provider>
     <Router>
-      <MainContext.Provider value={questionsRandom}>
+        <MainContext.Provider value={{ questionsRandom:questionsRandom, }}>
+          
         <Switch>
-          <Route exact path='/'  >
-            <Dashboard />
+          <Route path='/' exact>
+            <Dashboard 
+            numerElemetInFlashCard = {numerElemetInFlashCard} 
+            setNumerElemetInFlashCard={setNumerElemetInFlashCard}/>
           </Route>
-          {/* <Route path='/FlashCard' component={FlashCard} /> */}
-          <Route exact path='/FlashCard'  >
+          <Route path='/FlashCard' exact>
             <FlashCard />
           </Route>
-          <Route exact path='/Results'  >
+          <Route path='/Results' exact>
             <Results />
           </Route>
-          {/* <Route path='/Results' component={Results} /> */}
         </Switch>
-      </MainContext.Provider>
+          
+        </MainContext.Provider>
+
     </Router>
+
   );
 }
 

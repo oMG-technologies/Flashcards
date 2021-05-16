@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 import TheFront from './TheFront';
 import TheBack from './TheBack';
@@ -8,8 +7,8 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
+  const { questionsRandom, nextStep, prevStep } = useContext(MainContext);
 
-  const questionsRandom = useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
 
@@ -78,8 +77,11 @@ const FlashCard = () => {
           Next
         </button>
       </div>
-      <Link to='.' className = 'btn_home'> Back home</Link>
-      <Link to='./Results' className = 'btn_results'> Results</Link>
+      <Link to = './' className = 'btn_home'>Back home</Link>
+      <Link to = './Results' className = 'btn_results'>Results</Link>
+      {/* <button className = 'btn_home' onClick={prevStep}> Back home </button>
+      <button className = 'btn_results' onClick={nextStep}>Results</button> */}
+
     </div>
   );
 };

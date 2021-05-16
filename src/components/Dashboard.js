@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div>
-            DashBoard
-            <Link to='./FlashCard'> The the FlashCard</Link>
+        <div className = 'Container'>
+            <div className = 'Container_header'>
+                DashBoard
+            </div>
+
+            <div className = 'Container_button'>
+                <Link to='./FlashCard' className = 'btn_toTheFlashCard'> To the Flash Card</Link>
+            </div>
 
         </div>
     )

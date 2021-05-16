@@ -53,9 +53,17 @@ function App() {
     <Router>
       <MainContext.Provider value={questionsRandom}>
         <Switch>
-          <Route exact path='/' component={Dashboard} />
-          <Route path='/FlashCard' component={FlashCard} />
-          <Route path='/Results' component={Results} />
+          <Route exact path='/'  >
+            <Dashboard />
+          </Route>
+          {/* <Route path='/FlashCard' component={FlashCard} /> */}
+          <Route exact path='/FlashCard'  >
+            <FlashCard />
+          </Route>
+          <Route exact path='/Results'  >
+            <Results />
+          </Route>
+          {/* <Route path='/Results' component={Results} /> */}
         </Switch>
       </MainContext.Provider>
     </Router>

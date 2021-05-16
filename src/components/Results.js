@@ -5,12 +5,12 @@ const Results = ({ iknow, iDontknow }) => {
   // console.log('iknow in result', iknow)
   // console.log('iDontknow in result', iDontknow)
   return (
-    <div className='Container'>
-      <div className='Container_header'>Results</div>
+    <div className='ContainerResults'>
+      <div className='ContainerResults_header'>Results</div>
       Results
-      <div className='Container_button'>
-        <Link to='.'> Back home</Link>
-        <Link to='./FlashCard'> The the FlashCard</Link>
+      <div className='ContainerResults_button'>
+        <Link to='./FlashCard' className = 'btn_toTheFlashCard'> The the FlashCard</Link>
+        <Link to='.' className = 'btn_home' > Back home</Link>
       </div>
     </div>
   );

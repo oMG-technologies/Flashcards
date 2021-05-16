@@ -29,7 +29,7 @@ const TheBack = ({ currentQuestion }) => {
           I know
         </button>
       </div>
-      <Results iknow={iknow} iDontknow={iDontknow} />
+      {/* <Results iknow={iknow} iDontknow={iDontknow} /> */}
     </div>
   );
 };

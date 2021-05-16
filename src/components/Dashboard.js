@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div className = 'Container'>
-            <div className = 'Container_header'>
+        <div className = 'ContainerDashboard'>
+            <div className = 'ContainerDashboard_header'>
                 DashBoard
             </div>
 
-            <div className = 'Container_button'>
+            <div className = 'ContainerDashboard_button'>
                 <Link to='./FlashCard' className = 'btn_toTheFlashCard'> To the Flash Card</Link>
             </div>
 

@@ -1,4 +1,4 @@
-.ContainerDashboard {
+.ContainerResults {
   width: 600px;
   height: 600px;
   background-color: #fff;
@@ -9,14 +9,14 @@
   justify-content: space-between;
   margin-top: 150px;
 }
-.ContainerDashboard_header {
+.ContainerResults_header {
   width: 100%;
   height: 50px;
   background-color: black;
   color: #fff;
   align-items: center;
 }
-.ContainerDashboard_button {
+.ContainerResults_button {
   width: 100%;
   height: 60px;
   background-color: black;

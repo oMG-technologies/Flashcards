@@ -17,7 +17,7 @@ function App() {
 
   const [answers, setAnswers] = useState(0);
 
-  const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(5);
+  const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(10);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
@@ -63,7 +63,7 @@ function App() {
 
   return (
     <Router>
-      <MainContext.Provider value={{ questionsRandom: questionsRandom, answers:answers, IknowClick:IknowClick, IDontknowClick:IDontknowClick, numerElemetInFlashCard:numerElemetInFlashCard}}>
+      <MainContext.Provider value={{ questionsRandom: questionsRandom, answers:answers, IknowClick:IknowClick, IDontknowClick:IDontknowClick, numerElemetInFlashCard:numerElemetInFlashCard, numerElemetInFlashCard: numerElemetInFlashCard}}>
         <Switch>
           <Route path='/' exact>
             <Dashboard

@@ -242,15 +242,15 @@
 }
 
 .ContainerResults {
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 90%;
   background-color: #fff;
   color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 150px;
+  margin-top: 10px;
 }
 .ContainerResults_header {
   width: 100%;
@@ -258,6 +258,9 @@
   background-color: black;
   color: #fff;
   align-items: center;
+}
+.ContainerResults_tabel {
+  font-size: 16px;
 }
 .ContainerResults_button {
   width: 100%;

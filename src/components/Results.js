@@ -3,11 +3,17 @@ import {Link} from 'react-router-dom'
 import { MainContext } from '../context/MainContext';
 
 const Results = () => {
-  const { questionsRandom, prevStep } = useContext(MainContext);
+  const { questionsRandom,answers, numerElemetInFlashCard } = useContext(MainContext);
 
   return (
     <div className='ContainerResults'>
       <div className='ContainerResults_header'>Results</div>
+      <div className='ContainerResults_results'>
+      <h3>Your result:</h3>
+      <p> {answers} of {numerElemetInFlashCard}</p>
+      <p><strong>{answers*100 / numerElemetInFlashCard}%</strong></p>
+      <p><strong>Your time:</strong> 15s</p>
+      </div>
       <div className='ContainerResults_tabel'>
         <table>
           <thead>

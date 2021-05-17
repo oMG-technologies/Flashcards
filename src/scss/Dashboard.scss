@@ -1,27 +1,53 @@
-.ContainerDashboard{
-    width: 600px;
-    height: 600px;
-    background-color: #fff;
-    color: black;
+.ContainerDashboard {
+  width: 600px;
+  height: 600px;
+  background-color: #fff;
+  color: black;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 150px;
+
+  &_header {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: #fff;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 150px;
-    
-    &_header{
-        width: 100%;
-        height: 50px;
-        background-color: black;
-        color: #fff;
-        align-items: center;
+  }
 
+  &_main {
+    &-rangeSlider {
+      position: relative;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      &::before {
+        position: absolute;
+        color: #000;
+        font-size: 0.9rem;
+        content: attr(data-min);
+        left: 10px;
+      }
+      &::after {
+        position: absolute;
+        color: #000;
+        font-size: 0.9rem;
+        content: attr(data-max);
+        right: 10px;
+      }
     }
-    &_button{
-        width: 100%;
-        height: 60px;
-        background-color: black;
-        align-items: center;
-    }
+  }
+
+  &_button {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    align-items: center;
+  }
 }

@@ -1,8 +1,15 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 
 import { Link } from 'react-router-dom';
 
 const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard }) => {
+  
+  const startClick = () => {
+    console.log('click')
+  }
+  
+
+
   return (
     <div className='ContainerDashboard'>
       <div className='ContainerDashboard_header'>Settings:</div>
@@ -29,7 +36,7 @@ const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard }) => {
       </div>
 
       <div className='ContainerDashboard_button'>
-        <Link to='./FlashCard' className='btn_toTheFlashCard'>
+        <Link to='./FlashCard' onClick ={startClick} className='btn_toTheFlashCard'>
           Start
         </Link>
       </div>

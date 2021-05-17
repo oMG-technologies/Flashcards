@@ -19,6 +19,8 @@ function App() {
 
   const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(10);
 
+  const [time, setTime] = useState({ ms: 0, s: 0, m:0, h: 0 });
+
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
   const indexOfFirstMainQuestion =
@@ -32,7 +34,7 @@ function App() {
 
   useEffect(() => {
     getQuestions();
-    setAnswers(0)
+    setAnswers(0);
   }, []);
 
   const getQuestions = async () => {
@@ -61,9 +63,27 @@ function App() {
     setAnswers(answers - 1);
   };
 
+  // Timer
+  let interval;
+  const startTime = () => {
+    setInterval(() => {
+      setTime(time + 1);
+    }, 1000);
+  };
+
   return (
     <Router>
-      <MainContext.Provider value={{ questionsRandom: questionsRandom, answers:answers, IknowClick:IknowClick, IDontknowClick:IDontknowClick, numerElemetInFlashCard:numerElemetInFlashCard, numerElemetInFlashCard: numerElemetInFlashCard}}>
+      <MainContext.Provider
+        value={{
+          questionsRandom: questionsRandom,
+          answers: answers,
+          IknowClick: IknowClick,
+          IDontknowClick: IDontknowClick,
+          numerElemetInFlashCard: numerElemetInFlashCard,
+          numerElemetInFlashCard: numerElemetInFlashCard,
+          time: time,
+        }}
+      >
         <Switch>
           <Route path='/' exact>
             <Dashboard
@@ -72,7 +92,7 @@ function App() {
             />
           </Route>
           <Route path='/FlashCard' exact>
-            <FlashCard  />
+            <FlashCard />
           </Route>
           <Route path='/Results' exact>
             <Results />

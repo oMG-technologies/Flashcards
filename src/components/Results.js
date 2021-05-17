@@ -1,18 +1,30 @@
 import React, { useContext } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 
 const Results = () => {
-  const { questionsRandom,answers, numerElemetInFlashCard } = useContext(MainContext);
+  const { questionsRandom, answers, numerElemetInFlashCard, time } =
+    useContext(MainContext);
 
   return (
     <div className='ContainerResults'>
       <div className='ContainerResults_header'>Results</div>
       <div className='ContainerResults_results'>
-      <h3>Your result:</h3>
-      <p> {answers} of {numerElemetInFlashCard}</p>
-      <p><strong>{answers*100 / numerElemetInFlashCard}%</strong></p>
-      <p><strong>Your time:</strong> 15s</p>
+        <h3>Your result:</h3>
+        <p>
+          {' '}
+          {answers} of {numerElemetInFlashCard}
+        </p>
+        <p>
+          <strong>{(answers * 100) / numerElemetInFlashCard}%</strong>
+        </p>
+        <p>
+          <strong>Your time: </strong>
+          {time.h >= 10 ? time.h : '0' + time.h}:
+          {time.m >= 10 ? time.m : '0' + time.m}:
+          {time.s >= 10 ? time.s : '0' + time.s}:
+          {time.ms >= 10 ? time.ms : '0' + time.ms}
+        </p>
       </div>
       <div className='ContainerResults_tabel'>
         <table>
@@ -37,9 +49,13 @@ const Results = () => {
       <div className='ContainerResults_button'>
         {/* <button className='btn_toTheFlashCard' onClick={prevStep}> To the FlashCard</button>
         <button className='btn_home'>Home</button> */}
-        <Link to = './FlashCard' className='btn_toTheFlashCard'> To the FlashCard</Link>
-        <Link to = './' className = 'btn_home'>Back home</Link>
-
+        <Link to='./FlashCard' className='btn_toTheFlashCard'>
+          {' '}
+          To the FlashCard
+        </Link>
+        <Link to='./' className='btn_home'>
+          Back home
+        </Link>
       </div>
     </div>
   );

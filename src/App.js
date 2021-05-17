@@ -80,7 +80,6 @@ function App() {
           IknowClick: IknowClick,
           IDontknowClick: IDontknowClick,
           numerElemetInFlashCard: numerElemetInFlashCard,
-          numerElemetInFlashCard: numerElemetInFlashCard,
           time: time,
         }}
       >
@@ -89,6 +88,7 @@ function App() {
             <Dashboard
               numerElemetInFlashCard={numerElemetInFlashCard}
               setNumerElemetInFlashCard={setNumerElemetInFlashCard}
+              setAnswers={setAnswers}
             />
           </Route>
           <Route path='/FlashCard' exact>

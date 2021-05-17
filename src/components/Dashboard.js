@@ -2,13 +2,16 @@ import React,{useState, useEffect} from 'react';
 
 import { Link } from 'react-router-dom';
 
-const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard }) => {
+const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard, setAnswers }) => {
   
-  const startClick = () => {
+  const startTimerClick = () => {
     console.log('click')
   }
   
-
+  const onchangeEventChandlerAndCleanup = (e) => {
+    setNumerElemetInFlashCard(e.target.value)
+    setAnswers(0)
+  }
 
   return (
     <div className='ContainerDashboard'>
@@ -26,7 +29,7 @@ const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard }) => {
             min='1'
             max='20'
             value={numerElemetInFlashCard}
-            onChange={(e) => setNumerElemetInFlashCard(e.target.value)}
+            onChange={onchangeEventChandlerAndCleanup}
             style={{ marginTop: '10px' }}
           />
           <div className='ContainerDashboard_main-rangeSlider-result'>
@@ -36,7 +39,7 @@ const Dashboard = ({ numerElemetInFlashCard, setNumerElemetInFlashCard }) => {
       </div>
 
       <div className='ContainerDashboard_button'>
-        <Link to='./FlashCard' onClick ={startClick} className='btn_toTheFlashCard'>
+        <Link to='./FlashCard' onClick ={startTimerClick} className='btn_toTheFlashCard'>
           Start
         </Link>
       </div>

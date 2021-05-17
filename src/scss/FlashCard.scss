@@ -32,12 +32,12 @@
   transition: all 0.5s ease;
   cursor: pointer;
 
-  &:hover {
-    transform: rotateY(180deg);
-    cursor: pointer;
-  }
-  // &.flip {
+  // &:hover {
   //   transform: rotateY(180deg);
   //   cursor: pointer;
-  // } 
+  // }
+  &.flip {
+    transform: rotateY(180deg);
+    cursor: pointer;
+  } 
 }

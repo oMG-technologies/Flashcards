@@ -6,8 +6,8 @@ import TheBack from './TheBack';
 
 import { MainContext } from '../context/MainContext';
 
-const FlashCard = () => {
-  const { questionsRandom, nextStep, prevStep } = useContext(MainContext);
+const FlashCard = ( {IknowClick, IDontknowClick}) => {
+  const { questionsRandom, answers, numerElemetInFlashCard } = useContext(MainContext);
 
 
   const [flip, setFlip] = useState(false);
@@ -27,13 +27,13 @@ const FlashCard = () => {
   );
 
   // Create Result
-  const IknowClick = () => {
-    setIknow(iknow + 1);
-  };
+  // const IknowClick = () => {
+  //   setIknow(iknow + 1);
+  // };
 
-  const IDontknowClick = () => {
-    setIDontknow(iDontknow + 1);
-  };
+  // const IDontknowClick = () => {
+  //   setIDontknow(iDontknow + 1);
+  // };
 
   // Changed Page
   const nextPage = () => {
@@ -51,37 +51,35 @@ const FlashCard = () => {
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
-        Click to the card to check the answer:
+        Move to the card to check the answer:
       </div>
-      <div className='mainContainer_result'>
-        Result: {iknow} / {iDontknow}
+      <div className='mainContainer_question'>
+        Question: {curreatPage} / {numerElemetInFlashCard}
       </div>
       <div
         className={`theCard ${flip ? 'flip' : ''}`}
         onClick={() => setFlip(!flip)}
       >
         <TheFront currentQuestion={currentQuestion} />
-        <TheBack currentQuestion={currentQuestion} />
+        <TheBack currentQuestion={currentQuestion} nextPage={nextPage}/>
       </div>
       <div className='mainContainer_button-next'>
         <button className='btn_prevPage' onClick={prevPage}>
           Prev
         </button>
-        <button className='btn_IDonTknow' onClick={IDontknowClick}>
+        {/* <button className='btn_IDonTknow' onClick={IDontknowClick}>
           I don't know
         </button>
         <button className='btn_Iknow' onClick={IknowClick}>
           I know
-        </button>
+        </button> */}
         <button className='btn_Next' onClick={nextPage}>
           Next
         </button>
       </div>
       <Link to = './' className = 'btn_home'>Back home</Link>
       <Link to = './Results' className = 'btn_results'>Results</Link>
-      {/* <button className = 'btn_home' onClick={prevStep}> Back home </button>
-      <button className = 'btn_results' onClick={nextStep}>Results</button> */}
-
+      {answers}
     </div>
   );
 };

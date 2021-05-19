@@ -1,19 +1,15 @@
 import React, { useState, useContext } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import TheFront from './TheFront';
 import TheBack from './TheBack';
 
 import { MainContext } from '../context/MainContext';
 
-const FlashCard = ( {IknowClick, IDontknowClick}) => {
-  const { questionsRandom, answers, numerElemetInFlashCard } = useContext(MainContext);
-
+const FlashCard = () => {
+  const { questionsRandom, numerElemetInFlashCard } = useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
-
-  const [iknow, setIknow] = useState(0);
-  const [iDontknow, setIDontknow] = useState(0);
 
   const [curreatPage, setCurreatPage] = useState(1);
   const [questionsPerPage] = useState(1);
@@ -25,15 +21,6 @@ const FlashCard = ( {IknowClick, IDontknowClick}) => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
-
-  // Create Result
-  // const IknowClick = () => {
-  //   setIknow(iknow + 1);
-  // };
-
-  // const IDontknowClick = () => {
-  //   setIDontknow(iDontknow + 1);
-  // };
 
   // Changed Page
   const nextPage = () => {
@@ -61,25 +48,22 @@ const FlashCard = ( {IknowClick, IDontknowClick}) => {
         onClick={() => setFlip(!flip)}
       >
         <TheFront currentQuestion={currentQuestion} />
-        <TheBack currentQuestion={currentQuestion} nextPage={nextPage}/>
+        <TheBack currentQuestion={currentQuestion} nextPage={nextPage} />
       </div>
       <div className='mainContainer_button-next'>
         <button className='btn_prevPage' onClick={prevPage}>
           Prev
         </button>
-        {/* <button className='btn_IDonTknow' onClick={IDontknowClick}>
-          I don't know
-        </button>
-        <button className='btn_Iknow' onClick={IknowClick}>
-          I know
-        </button> */}
         <button className='btn_Next' onClick={nextPage}>
           Next
         </button>
       </div>
-      <Link to = './' className = 'btn_home'>Back home</Link>
-      <Link to = './Results' className = 'btn_results'>Results</Link>
-      {answers}
+      <Link to='./' className='btn_home'>
+        Back home
+      </Link>
+      <Link to='./Results' className='btn_results'>
+        Results
+      </Link>
     </div>
   );
 };

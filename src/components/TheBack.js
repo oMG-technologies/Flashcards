@@ -1,23 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { MainContext } from '../context/MainContext';
 
 const TheBack = ({ currentQuestion, nextPage }) => {
-  const { IknowClick, IDontknowClick } = useContext(MainContext);
+  const { IknowClick, IdontknowClick } = useContext(MainContext);
 
-  // const [iknow, setIknow] = useState(0);
-  // const [iDontknow, setIDontknow] = useState(0);
-
-  // const IknowClick = () => {
-  //   setIknow(iknow + 1);
-  // };
-
-  // const IDontknowClick = () => {
-  //   setIDontknow(iDontknow + 1);
-  // };
-  const henadleClick = () => {
-    IknowClick() 
-    nextPage()
-  }
+  const clickNextAndIKnow = () => {
+    nextPage();
+    IknowClick();
+  };
+  const clickNextAndIDontKnow = () => {
+    nextPage();
+    IdontknowClick()
+  };
 
   return (
     <div className='theBack'>
@@ -28,14 +22,16 @@ const TheBack = ({ currentQuestion, nextPage }) => {
         ))}
       </p>
       <div className='mainContainer_button'>
-        <button className='btn_IDonTknow-onCard' onClick={IDontknowClick}>
+        <button
+          className='btn_IDonTknow-onCard'
+          onClick={clickNextAndIDontKnow}
+        >
           I don't know
         </button>
-        <button className='btn_Iknow-onCard' onClick={henadleClick}>
+        <button className='btn_Iknow-onCard' onClick={clickNextAndIKnow}>
           I know
         </button>
       </div>
-      {/* <Results iknow={iknow} iDontknow={iDontknow} /> */}
     </div>
   );
 };

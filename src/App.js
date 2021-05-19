@@ -13,13 +13,26 @@ import { getAllQuestions } from './services/ApiService';
 
 function App() {
   const [questions, setQuestions] = useState([]);
-  console.log(questions);
 
-  const [answers, setAnswers] = useState(0);
+  const [answersGood, setAnswersGood] = useState(0);
+  const [answersBad, setAnswersBad] = useState(0);
 
   const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(10);
 
-  const [time, setTime] = useState({ ms: 0, s: 0, m:0, h: 0 });
+  // Timer
+  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
+
+  const getQuestions = async () => {
+    const dataQuestions = await getAllQuestions();
+    setQuestions(dataQuestions);
+  };
+
+  useEffect(() => {
+    getQuestions();
+    setAnswersGood(0);
+    setAnswersBad(0);
+  }, []);
+
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
@@ -29,18 +42,6 @@ function App() {
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
   );
-
-  console.log('currentArr', currentArr);
-
-  useEffect(() => {
-    getQuestions();
-    setAnswers(0);
-  }, []);
-
-  const getQuestions = async () => {
-    const dataQuestions = await getAllQuestions();
-    setQuestions(dataQuestions);
-  };
 
   const randomQuestion = () => {
     let newArrQuestions = [];
@@ -54,21 +55,45 @@ function App() {
 
   const questionsRandom = randomQuestion();
 
+
   // Create Result
   const IknowClick = () => {
-    setAnswers(answers + 1);
+    if (answersGood + answersBad < numerElemetInFlashCard) {
+      setAnswersGood(answersGood + 1);
+    }
+  };
+  const IdontknowClick = () => {
+    if (answersGood + answersBad < numerElemetInFlashCard) {
+      setAnswersBad(answersBad + 1);
+    }
   };
 
-  const IDontknowClick = () => {
-    setAnswers(answers - 1);
-  };
-
-  // Timer
-  let interval;
   const startTime = () => {
-    setInterval(() => {
-      setTime(time + 1);
-    }, 1000);
+    console.log('start');
+    run();
+    // setInterval(run)
+  };
+
+  let updatedMs = time.ms,
+    updatedS = time.s,
+    updatedM = time.m,
+    updatedH = time.h;
+
+  const run = () => {
+    if (updatedM === 60) {
+      updatedH++;
+      updatedM = 0;
+    }
+    if (updatedS === 60) {
+      updatedM++;
+      updatedS = 0;
+    }
+    if (updatedMs === 100) {
+      updatedS++;
+      updatedMs = 0;
+    }
+    updatedMs++;
+    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
   };
 
   return (
@@ -76,9 +101,10 @@ function App() {
       <MainContext.Provider
         value={{
           questionsRandom: questionsRandom,
-          answers: answers,
+          answersGood: answersGood,
+          answersBad: answersBad,
+          IdontknowClick: IdontknowClick,
           IknowClick: IknowClick,
-          IDontknowClick: IDontknowClick,
           numerElemetInFlashCard: numerElemetInFlashCard,
           time: time,
         }}
@@ -88,7 +114,9 @@ function App() {
             <Dashboard
               numerElemetInFlashCard={numerElemetInFlashCard}
               setNumerElemetInFlashCard={setNumerElemetInFlashCard}
-              setAnswers={setAnswers}
+              setAnswersGood={setAnswersGood}
+              setAnswersBad={setAnswersBad}
+              startTime={startTime}
             />
           </Route>
           <Route path='/FlashCard' exact>

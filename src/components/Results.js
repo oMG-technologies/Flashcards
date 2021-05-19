@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 
 const Results = () => {
-  const { questionsRandom, answers, numerElemetInFlashCard, time } =
-    useContext(MainContext);
+  const { questionsRandom, numerElemetInFlashCard, time, answersBad, answersGood } = useContext(MainContext);
 
   return (
     <div className='ContainerResults'>
@@ -12,11 +11,12 @@ const Results = () => {
       <div className='ContainerResults_results'>
         <h3>Your result:</h3>
         <p>
-          {' '}
-          {answers} of {numerElemetInFlashCard}
+          Total flip cards: {numerElemetInFlashCard}
+          <p>Good answers: {answersGood}</p>
+          <p>Bad answers: {answersBad}</p>
         </p>
         <p>
-          <strong>{(answers * 100) / numerElemetInFlashCard}%</strong>
+          <strong>You know: {((answersGood * 100) / numerElemetInFlashCard).toFixed(2)}%</strong>
         </p>
         <p>
           <strong>Your time: </strong>

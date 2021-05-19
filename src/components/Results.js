@@ -10,13 +10,21 @@ const Results = () => {
       <div className='ContainerResults_header'>Results</div>
       <div className='ContainerResults_results'>
         <h3>Your result:</h3>
+
+        <strong>Total flip cards: </strong>
+        {numerElemetInFlashCard}
         <p>
-          Total flip cards: {numerElemetInFlashCard}
-          <p>Good answers: {answersGood}</p>
-          <p>Bad answers: {answersBad}</p>
+          <strong>Good answers: </strong>
+          {answersGood}
         </p>
         <p>
-          <strong>You know: {((answersGood * 100) / numerElemetInFlashCard).toFixed(2)}%</strong>
+          <strong>Bad answers: </strong>
+          {answersBad}
+        </p>
+
+        <p>
+          <strong>You know: </strong>
+          {((answersGood * 100) / numerElemetInFlashCard).toFixed(2)}%
         </p>
         <p>
           <strong>Your time: </strong>
@@ -26,8 +34,8 @@ const Results = () => {
           {time.ms >= 10 ? time.ms : '0' + time.ms}
         </p>
       </div>
-      <div className='ContainerResults_tabel'>
-        <table>
+      <div className='ContainerResults_tabela'>
+        <table className='ContainerResults_tabela-main'>
           <thead>
             <tr>
               <th>ID</th>
@@ -48,7 +56,6 @@ const Results = () => {
       </div>
       <div className='ContainerResults_button'>
         <Link to='./FlashCard' className='btn_toTheFlashCard'>
-          {' '}
           To the FlashCard
         </Link>
         <Link to='./' className='btn_home'>

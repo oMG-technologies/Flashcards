@@ -47,8 +47,6 @@ const Results = () => {
         </table>
       </div>
       <div className='ContainerResults_button'>
-        {/* <button className='btn_toTheFlashCard' onClick={prevStep}> To the FlashCard</button>
-        <button className='btn_home'>Home</button> */}
         <Link to='./FlashCard' className='btn_toTheFlashCard'>
           {' '}
           To the FlashCard

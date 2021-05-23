@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 
 const Results = () => {
-  const { questionsRandom, numerElemetInFlashCard, time, answersBad, answersGood } = useContext(MainContext);
+  const {
+    questionsRandom,
+    numerElemetInFlashCard,
+    answersBad,
+    answersGood,
+    startTime,
+    stopTime,
+  } = useContext(MainContext);
 
   return (
     <div className='ContainerResults'>
@@ -28,10 +35,8 @@ const Results = () => {
         </p>
         <p>
           <strong>Your time: </strong>
-          {time.h >= 10 ? time.h : '0' + time.h}:
-          {time.m >= 10 ? time.m : '0' + time.m}:
-          {time.s >= 10 ? time.s : '0' + time.s}:
-          {time.ms >= 10 ? time.ms : '0' + time.ms}
+  
+          {((stopTime - startTime)/1000).toFixed(2)}s <br />
         </p>
       </div>
       <div className='ContainerResults_tabela'>

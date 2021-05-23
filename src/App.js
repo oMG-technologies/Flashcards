@@ -20,7 +20,8 @@ function App() {
   const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(10);
 
   // Timer
-  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
+  const [startTime, setStartTime] = useState();
+  const [stopTime, setStopTime] = useState();
 
   const getQuestions = async () => {
     const dataQuestions = await getAllQuestions();
@@ -32,7 +33,6 @@ function App() {
     setAnswersGood(0);
     setAnswersBad(0);
   }, []);
-
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
@@ -55,7 +55,6 @@ function App() {
 
   const questionsRandom = randomQuestion();
 
-
   // Create Result
   const IknowClick = () => {
     if (answersGood + answersBad < numerElemetInFlashCard) {
@@ -68,32 +67,16 @@ function App() {
     }
   };
 
-  const startTime = () => {
-    console.log('start');
-    run();
-    // setInterval(run)
+  const start = () => {
+    let start = Date.now();
+
+    setStartTime(start);
   };
 
-  let updatedMs = time.ms,
-    updatedS = time.s,
-    updatedM = time.m,
-    updatedH = time.h;
+  const stop = () => {
+    let stop = Date.now();
 
-  const run = () => {
-    if (updatedM === 60) {
-      updatedH++;
-      updatedM = 0;
-    }
-    if (updatedS === 60) {
-      updatedM++;
-      updatedS = 0;
-    }
-    if (updatedMs === 100) {
-      updatedS++;
-      updatedMs = 0;
-    }
-    updatedMs++;
-    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
+    setStopTime(stop);
   };
 
   return (
@@ -106,7 +89,9 @@ function App() {
           IdontknowClick: IdontknowClick,
           IknowClick: IknowClick,
           numerElemetInFlashCard: numerElemetInFlashCard,
-          time: time,
+          stop: stop,
+          startTime: startTime,
+          stopTime: stopTime,
         }}
       >
         <Switch>
@@ -116,7 +101,7 @@ function App() {
               setNumerElemetInFlashCard={setNumerElemetInFlashCard}
               setAnswersGood={setAnswersGood}
               setAnswersBad={setAnswersBad}
-              startTime={startTime}
+              start={start}
             />
           </Route>
           <Route path='/FlashCard' exact>

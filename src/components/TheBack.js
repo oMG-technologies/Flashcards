@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { MainContext } from '../context/MainContext';
 
 const TheBack = ({ currentQuestion, nextPage }) => {
-  const { IknowClick, IdontknowClick } = useContext(MainContext);
+  const { IknowClick } = useContext(MainContext);
 
   const clickNextAndIKnow = () => {
     nextPage();
@@ -10,7 +10,6 @@ const TheBack = ({ currentQuestion, nextPage }) => {
   };
   const clickNextAndIDontKnow = () => {
     nextPage();
-    IdontknowClick()
   };
 
   return (

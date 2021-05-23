@@ -7,10 +7,10 @@ const Dashboard = ({
   setNumerElemetInFlashCard,
   setAnswersBad,
   setAnswersGood,
-  startTime,
+  start,
 }) => {
   const startTimerClick = () => {
-    startTime();
+    start();
     setAnswersGood(0);
     setAnswersBad(0);
   };

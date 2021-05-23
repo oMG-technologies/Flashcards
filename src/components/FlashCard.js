@@ -7,7 +7,7 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
-  const { questionsRandom, numerElemetInFlashCard } = useContext(MainContext);
+  const { questionsRandom, numerElemetInFlashCard, stop } = useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
 
@@ -33,6 +33,10 @@ const FlashCard = () => {
     if (curreatPage > 1) {
       setCurreatPage(curreatPage - 1);
     }
+  };
+
+  const resultTime = () => {
+    stop();
   };
 
   return (
@@ -61,7 +65,7 @@ const FlashCard = () => {
       <Link to='./' className='btn_home'>
         Back home
       </Link>
-      <Link to='./Results' className='btn_results'>
+      <Link to='./Results' onClick={resultTime} className='btn_results'>
         Results
       </Link>
     </div>

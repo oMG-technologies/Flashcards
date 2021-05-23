@@ -1,4 +1,4 @@
-# Flash card - app
+# Flashcard - app
 
 After starting the application, you can display the dashboard and set how many words you want to learn in one session. When done, hit the score button to view your achievements.
 

@@ -1,142 +1,76 @@
-.btn_Iknow {
+.btn-onCard {
   width: 150px;
   height: 50px;
   background-color: transparent;
-  color: #fff; 
-  border: 1px solid green;
-  border-radius: 5px;
+  color: #000;
 
+  border-radius: 5px;
 
   font-family: 'New Tegomin', serif;
   margin: 10px;
 
   outline: none;
   cursor: pointer;
+}
+.btn-navigation {
+  width: 70%;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid lightgreen;
+  border-radius: 5px;
+  color: #fff;
+
+  font-family: 'New Tegomin', serif;
+  margin: 10px;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-navigation-link {
+  width: 70%;
+  height: 50px;
+  background-color: transparent;
+  font-family: 'New Tegomin', serif;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn_Iknow-onCard {
-  width: 150px;
-  height: 50px;
-  background-color: transparent;
-  color: #000;
+  @extend .btn-onCard;
   border: 1px solid green;
-  border-radius: 5px;
-
-
-  font-family: 'New Tegomin', serif;
-  margin: 10px;
-
-  outline: none;
-  cursor: pointer;
 }
 
 .btn_IDonTknow-onCard {
-  width: 150px;
-  height: 50px;
-  background-color: transparent;
-  color: #000;
+  @extend .btn-onCard;
   border: 1px solid red;
-  border-radius: 5px;
-
-
-  font-family: 'New Tegomin', serif;
-  margin: 10px;
-
-  outline: none;
-  cursor: pointer;
-}
-
-.btn_IDonTknow {
-  width: 150px;
-  height: 50px;
-  background-color: transparent;
-  color: #fff; 
-  border: 1px solid red;
-  border-radius: 5px;
-
-  font-family: 'New Tegomin', serif;
-  margin: 10px;
-
-  outline: none;
-  cursor: pointer;
 }
 
 .btn_Next {
-  width: 70%;
-  height: 50px;
-  background-color: transparent;
-  border: 1px solid lightgreen;
-  border-radius: 5px;
-  color: #fff; 
-
-  font-family: 'New Tegomin', serif;
-  margin: 10px;
-
-  outline: none;
-  cursor: pointer;
+  @extend .btn-navigation;
 }
 
 .btn_prevPage {
-  width: 70%;
-  height: 50px;
-  background-color: transparent;
-  border: 1px solid lightgreen;
-  border-radius: 5px;
-  color: #fff; 
-
-  font-family: 'New Tegomin', serif;
-  margin: 10px;
-
-  outline: none;
-  cursor: pointer;
+  @extend .btn-navigation;
 }
 
 .btn_toTheFlashCard {
-  width: 70%;
-  height: 50px;
-  background-color: transparent;
-  font-family: 'New Tegomin', serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
-  border: none;
-  color: #fff;
-  border: 1px solid blue; 
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;  
-  text-decoration: none;
+  @extend .btn-navigation-link;
+  border: 1px solid blue;
 }
-.btn_home{
-  width: 70%;
-  height: 50px;
-  background-color: transparent;
-  font-family: 'New Tegomin', serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
-  border: none;
-  color: #fff;
-  border: 1px solid rgb(251, 255, 0); 
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;  
-  text-decoration: none;
+.btn_home {
+  @extend .btn-navigation-link;
+  border: 1px solid rgb(251, 255, 0);
 }
 
-.btn_results{
-  width: 70%;
-  height: 50px;
-  background-color: transparent;
-  font-family: 'New Tegomin', serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
-  border: none;
-  color: #fff;
-  border: 1px solid rgb(175, 96, 22); 
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;  
-  text-decoration: none;
+.btn_results {
+  @extend .btn-navigation-link;
+  border: 1px solid rgb(175, 96, 22);
 }

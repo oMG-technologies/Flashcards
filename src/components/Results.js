@@ -35,8 +35,7 @@ const Results = () => {
         </p>
         <p>
           <strong>Your time: </strong>
-  
-          {((stopTime - startTime)/1000).toFixed(2)}s <br />
+          {((stopTime - startTime)/1000).toFixed(2)}s 
         </p>
       </div>
       <div className='ContainerResults_tabela'>

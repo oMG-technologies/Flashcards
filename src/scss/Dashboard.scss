@@ -1,6 +1,7 @@
 .ContainerDashboard {
   width: 600px;
   height: 600px;
+  min-width: 300px;
   background-color: #fff;
   color: black;
 
@@ -9,6 +10,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 150px;
+
 
   &_header {
     width: 100%;

@@ -1,6 +1,7 @@
 .ContainerDashboard {
   width: 600px;
   height: 600px;
+  min-width: 300px;
   background-color: #fff;
   color: black;
   display: flex;

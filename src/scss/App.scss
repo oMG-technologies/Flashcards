@@ -15,12 +15,31 @@
 body {
   font-family: 'New Tegomin', serif;
   background-color: #282c34;
-  width: 100vw;
-  height: 100vh;
 
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
   font-size: calc(10px + 2vmin);
   color: #fff;
+}
+
+$phone-width: 466px;
+$phone-width-1: 465px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@media (min-width: $phone-width-1) and (max-width: $tablet-width) {
+  body {
+    background-color: pink;
+  }
+  .container {
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  body {
+    background-color: black;
+  }
 }

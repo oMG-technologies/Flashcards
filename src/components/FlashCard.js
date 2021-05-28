@@ -54,7 +54,7 @@ const FlashCard = () => {
         <TheFront currentQuestion={currentQuestion} />
         <TheBack currentQuestion={currentQuestion} nextPage={nextPage} />
       </div>
-      <div className='mainContainer_button-next'>
+      <div className='mainContainer_button-next-prev'>
         <button className='btn_prevPage' onClick={prevPage}>
           Prev
         </button>
@@ -62,12 +62,14 @@ const FlashCard = () => {
           Next
         </button>
       </div>
-      <Link to='./' className='btn_home'>
-        Back home
-      </Link>
-      <Link to='./Results' onClick={resultTime} className='btn_results'>
-        Results
-      </Link>
+      <div className='mainContainer_button-back-results'>
+        <Link to='./' className='btn_home'>
+          Back home
+        </Link>
+        <Link to='./Results' onClick={resultTime} className='btn_results'>
+          Results
+        </Link>
+      </div>
     </div>
   );
 };

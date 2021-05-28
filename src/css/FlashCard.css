@@ -11,9 +11,24 @@
   width: 100%;
   height: 60px;
   margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.mainContainer_button-next {
+.mainContainer_button-next-prev {
   margin-top: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer_button-back-results {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer_button-back-results {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,4 +47,57 @@
 .theCard.flip {
   transform: rotateY(180deg);
   cursor: pointer;
+}
+
+@media (max-width: 466px) {
+  .mainContainer {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+  }
+  .mainContainer_text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .mainContainer_button {
+    width: 100%;
+    height: 60px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainContainer_button-next-prev {
+    margin-top: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .mainContainer_button-back-results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .mainContainer_button-back-results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theCard {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    margin-top: 50px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  .theCard.flip {
+    transform: rotateY(180deg);
+    cursor: pointer;
+  }
 }

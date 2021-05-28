@@ -114,3 +114,55 @@ $desktop-width: 1024px;
     }
   }
 }
+@media (min-width: $phone-width-1) and (max-width: $tablet-width) {
+.ContainerDashboard {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    &_header {
+      width: 100%;
+      height: 50px;
+      background-color: black;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_main {
+      &-rangeSlider {
+        position: relative;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &::before {
+          position: absolute;
+          color: #000;
+          font-size: 0.9rem;
+          content: attr(data-min);
+          left: 10px;
+        }
+        &::after {
+          position: absolute;
+          color: #000;
+          font-size: 0.9rem;
+          content: attr(data-max);
+          right: 10px;
+        }
+      }
+    }
+
+    &_button {
+      width: 100%;
+      height: 60px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

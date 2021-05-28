@@ -94,3 +94,52 @@ $desktop-width: 1024px;
     }
   }
 }
+
+@media (min-width: $phone-width-1) and (max-width: $tablet-width) {
+.ContainerResults {
+    width: 100vw;
+    height: 100%;
+    background-color: #fff;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    &_header {
+      width: 100%;
+      height: 60px;
+      background-color: black;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &_results {
+      h3 {
+        color: red;
+      }
+    }
+    &_tabela {
+      &-main {
+        width: 100%;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+      }
+    }
+    &_button {
+      width: 100%;
+      height: 60px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

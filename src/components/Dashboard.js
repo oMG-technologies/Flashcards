@@ -27,13 +27,13 @@ const Dashboard = ({
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'
-          data-max='20'
+          data-max='50'
         >
           <label style={{ margin: '15px' }}>Choose size of flip card:</label>
           <input
             type='range'
             min='1'
-            max='20'
+            max='50'
             value={numerElemetInFlashCard}
             onChange={onchangeEventChandlerAndCleanup}
             style={{ marginTop: '10px' }}

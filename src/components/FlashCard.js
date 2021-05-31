@@ -74,4 +74,8 @@ const FlashCard = () => {
   );
 };
 
+fetch('https://words-translation.herokuapp.com/translations/')
+ .then(response => response.json())
+ .then(json => console.log(json))
+
 export default FlashCard;

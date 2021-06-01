@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://127.0.0.1:8000/`,
+  baseURL: `https://words-translation.herokuapp.com/`,
 });
 
 /**
@@ -10,16 +10,15 @@ const api = axios.create({
 
 export const getAllQuestions = async () => {
   try {
-    return await api.get(`translations/`).then(({ data }) => data);
+    return await api.get(`translations/`).then(({ data }) => data['questions']);
   } catch (err) {
     console.log(err);
   }
 };
 
-
-export const getQuestionById = async (id) => {
+export const getQuestionById = async (questionsId) => {
   return await api
-    .get(`translations/questions/${id}`)
+    .get(`translations/`)
 
     .then(({ data }) => data['questions'])
 

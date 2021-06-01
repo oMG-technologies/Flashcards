@@ -38,6 +38,7 @@ function App() {
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
   const indexOfFirstMainQuestion =
     indexOfLastMainArrQuestion - numerElemetInFlashCard;
+  console.log(questions) 
   const currentArr = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion

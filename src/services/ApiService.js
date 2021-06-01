@@ -15,12 +15,3 @@ export const getAllQuestions = async () => {
     console.log(err);
   }
 };
-
-export const getQuestionById = async (questionsId) => {
-  return await api
-    .get(`translations/`)
-
-    .then(({ data }) => data['questions'])
-
-    .catch((err) => console.log(err));
-};

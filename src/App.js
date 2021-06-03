@@ -32,24 +32,30 @@ function App() {
     getQuestions();
     setAnswersGood(0);
     setAnswersBad(0);
+    randomQuestion();
   }, []);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
   const indexOfFirstMainQuestion =
     indexOfLastMainArrQuestion - numerElemetInFlashCard;
-  const currentArr = questions.slice(
+  const sliceArrQuestions = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
   );
 
   const randomQuestion = () => {
     let newArrQuestions = [];
-    for (let i = 0; i < currentArr.length; i++) {
-      const randomIndex = Math.floor(Math.random() * questions.length);
-      const item = questions[randomIndex];
-      newArrQuestions.push(item);
+
+    let i = sliceArrQuestions.length;
+    let numberOfIndexOfSliceQuestion = 0;
+
+    while (i--) {
+      numberOfIndexOfSliceQuestion = Math.floor(Math.random() * (i + 1));
+      newArrQuestions.push(sliceArrQuestions[numberOfIndexOfSliceQuestion]);
+      sliceArrQuestions.splice(numberOfIndexOfSliceQuestion, 1);
     }
+
     return newArrQuestions;
   };
 

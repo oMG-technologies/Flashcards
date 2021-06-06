@@ -7,7 +7,7 @@ const api = axios.create({
 /**
  * API questions
  */
-
+//https://words-translation.herokuapp.com/translation/languages/${languagesID}/?conversion=${languages}
 export const getAllLanguages = async () => {
   try {
     return await api
@@ -18,7 +18,7 @@ export const getAllLanguages = async () => {
   }
 };
 
-export const getAllQuestions = async(languages) => {
+export const getAllQuestionsByLanguage = async (languages) => {
   try {
     return await api
       .get(`translation/?conversion=${languages}`)

@@ -14,7 +14,7 @@ import Results from './components/Results';
 
 import { MainContext } from './context/MainContext';
 
-import { getAllQuestions } from './services/ApiService';
+import { getAllQuestionsByLanguage } from './services/ApiService';
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
   const [stopTime, setStopTime] = useState();
 
   const getQuestions = async (languages) => {
-    const dataQuestions = await getAllQuestions(languages);
+    const dataQuestions = await getAllQuestionsByLanguage(languages);
     setQuestions(dataQuestions);
   };
 

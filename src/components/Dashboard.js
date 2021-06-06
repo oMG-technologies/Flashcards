@@ -26,10 +26,14 @@ const Dashboard = ({
       <div className='ContainerDashboard_header'>Settings:</div>
 
       <div className='ContainerDashboard_main'>
+
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language:</label>
-          <select id='language' onChange={handleChangeSelectLanguage}>
-            <option>Language ...</option>
+          <select
+            className='ContainerDashboard_main-select'
+            onChange={handleChangeSelectLanguage}
+          >
+            <option >Language ...</option>
             <option value='en-pl'>en-pl</option>
             <option value='en-de'>en-de</option>
             <option value='en-fr'>en-fr</option>

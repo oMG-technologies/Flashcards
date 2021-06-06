@@ -86,6 +86,16 @@
   justify-content: center;
   align-items: center;
 }
+.ContainerDashboard_main-selectLanguage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.ContainerDashboard_main-selectLanguage-select {
+  display: flex;
+}
 .ContainerDashboard_main-rangeSlider {
   position: relative;
   width: 100%;

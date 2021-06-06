@@ -21,13 +21,16 @@
   }
 
   &_main {
-    &-selectLanguage{
+    &-selectLanguage {
       position: relative;
       width: 100%;
 
       display: flex;
       justify-content: center;
       flex-direction: column;
+      &-select {
+        display: flex;
+      }
     }
     &-rangeSlider {
       position: relative;
@@ -122,7 +125,7 @@ $desktop-width: 1024px;
   }
 }
 @media (min-width: $phone-width-1) and (max-width: $tablet-width) {
-.ContainerDashboard {
+  .ContainerDashboard {
     width: 100vw;
     height: 100vh;
     margin: 0;

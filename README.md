@@ -1,6 +1,6 @@
 # Flashcard - app
 
-After starting the application, you can display the dashboard and set how many words you want to learn in one session. When done, hit the score button to view your achievements.
+After starting the application, you can display the dashboard and set language to learn and how many words you want to learn in one session. When done, hit the score button to view your achievements.
 
 If you want to check. Download project on yours PC. Open the terminal and install packages:
 

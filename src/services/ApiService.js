@@ -10,7 +10,7 @@ const api = axios.create({
 
 export const getAllQuestions = async () => {
   try {
-    return await api.get(`translations/`).then(({ data }) => data);
+    return await api.get(`translation/?conversion=en-pl`).then(({ data }) => data);
   } catch (err) {
     console.log(err);
   }

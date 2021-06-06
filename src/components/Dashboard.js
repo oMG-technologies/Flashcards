@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Dashboard = ({
+  handleChangeSelectLanguage,
   numerElemetInFlashCard,
   setNumerElemetInFlashCard,
   setAnswersBad,
@@ -19,11 +20,27 @@ const Dashboard = ({
     setNumerElemetInFlashCard(e.target.value);
   };
 
+
   return (
     <div className='ContainerDashboard'>
       <div className='ContainerDashboard_header'>Settings:</div>
 
       <div className='ContainerDashboard_main'>
+        <div className='ContainerDashboard_main-selectLanguage'>
+          <label style={{ margin: '15px' }}>Choose language:</label>
+          <select id='language' onChange={handleChangeSelectLanguage}>
+            <option>Language ...</option>
+            <option value='en-pl'>en-pl</option>
+            <option value='en-de'>en-de</option>
+            <option value='en-fr'>en-fr</option>
+            <option value='en-es'>en-es</option>
+            <option value='en-ru'>en-ru</option>
+            <option value='en-it'>en-it</option>
+            <option value='en-sv'>en-sv</option>
+            <option value='en-zh'>en-zh</option>
+          </select>
+        </div>
+
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'

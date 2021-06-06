@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+
+} from 'react-router-dom';
 
 import './css/App.css';
 
@@ -12,7 +17,9 @@ import { MainContext } from './context/MainContext';
 import { getAllQuestions } from './services/ApiService';
 
 function App() {
+
   const [questions, setQuestions] = useState([]);
+  const [languages, setLanguages] = useState('');
 
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
@@ -23,17 +30,17 @@ function App() {
   const [startTime, setStartTime] = useState();
   const [stopTime, setStopTime] = useState();
 
-  const getQuestions = async () => {
-    const dataQuestions = await getAllQuestions();
+  const getQuestions = async (languages) => {
+    const dataQuestions = await getAllQuestions(languages);
     setQuestions(dataQuestions);
   };
 
+
   useEffect(() => {
-    getQuestions();
+    getQuestions(languages);
     setAnswersGood(0);
     setAnswersBad(0);
-    randomQuestion();
-  }, []);
+  }, [languages]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numerElemetInFlashCard;
@@ -55,7 +62,6 @@ function App() {
       newArrQuestions.push(sliceArrQuestions[numberOfIndexOfSliceQuestion]);
       sliceArrQuestions.splice(numberOfIndexOfSliceQuestion, 1);
     }
-
     return newArrQuestions;
   };
 
@@ -85,6 +91,11 @@ function App() {
     setStopTime(stop);
   };
 
+  const handleChangeSelectLanguage = (e) => {
+      const selectedLanguage = e.target.value;
+      setLanguages(selectedLanguage);
+  };
+
   return (
     <Router>
       <MainContext.Provider
@@ -103,6 +114,8 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <Dashboard
+              languages={languages}
+              handleChangeSelectLanguage={handleChangeSelectLanguage}
               numerElemetInFlashCard={numerElemetInFlashCard}
               setNumerElemetInFlashCard={setNumerElemetInFlashCard}
               setAnswersGood={setAnswersGood}

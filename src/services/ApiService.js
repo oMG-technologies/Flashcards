@@ -8,9 +8,21 @@ const api = axios.create({
  * API questions
  */
 
-export const getAllQuestions = async () => {
+export const getAllLanguages = async () => {
   try {
-    return await api.get(`translation/?conversion=en-pl`).then(({ data }) => data);
+    return await api
+      .get(`translation/?languages_list`)
+      .then(({ data }) => data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getAllQuestions = async(languages) => {
+  try {
+    return await api
+      .get(`translation/?conversion=${languages}`)
+      .then(({ data }) => data);
   } catch (err) {
     console.log(err);
   }

@@ -9,4 +9,6 @@ If you want to check. Download project on yours PC. Open the terminal and instal
 3. npm run start:dev
 4. Open the browsers at http://localhost:3000.
 
-React application using: React Hooks ( useState, useEffect, useContex ) React Router, JavaScript ES6, SCSS.
+React application using: 
+Frontend: React Hooks ( useState, useEffect, useContex ) React Router, JavaScript ES6, SCSS.
+Backend: Django REST framework

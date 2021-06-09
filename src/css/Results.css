@@ -20,10 +20,10 @@
 .ContainerResults_results h3 {
   color: red;
 }
-.ContainerResults_tabela {
+.ContainerResults_table {
   font-size: 16px;
 }
-.ContainerResults_tabela-main {
+.ContainerResults_table-main {
   width: 800px;
   padding: 10px;
 }
@@ -60,8 +60,8 @@
   .ContainerResults_results h3 {
     color: red;
   }
-  .ContainerResults_tabela-main {
-    width: 100%;
+  .ContainerResults_table-main {
+    width: 100vw;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -102,7 +102,7 @@
   .ContainerResults_results h3 {
     color: red;
   }
-  .ContainerResults_tabela-main {
+  .ContainerResults_table-main {
     width: 100%;
     font-size: 16px;
     display: flex;

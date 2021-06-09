@@ -24,7 +24,7 @@ function App() {
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
 
-  const [numerElemetInFlashCard, setNumerElemetInFlashCard] = useState(10);
+  const [numberElementInFlashCard, setNumberElementInFlashCard] = useState(10);
 
   // Timer
   const [startTime, setStartTime] = useState();
@@ -43,9 +43,9 @@ function App() {
   }, [languages]);
 
   // Slice questions Arr
-  const indexOfLastMainArrQuestion = numerElemetInFlashCard;
+  const indexOfLastMainArrQuestion = numberElementInFlashCard;
   const indexOfFirstMainQuestion =
-    indexOfLastMainArrQuestion - numerElemetInFlashCard;
+    indexOfLastMainArrQuestion - numberElementInFlashCard;
   const sliceArrQuestions = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
@@ -69,12 +69,12 @@ function App() {
 
   // Create Result
   const IknowClick = () => {
-    if (answersGood + answersBad < numerElemetInFlashCard) {
+    if (answersGood + answersBad < numberElementInFlashCard) {
       setAnswersGood(answersGood + 1);
     }
   };
   const IdontknowClick = () => {
-    if (answersGood + answersBad < numerElemetInFlashCard) {
+    if (answersGood + answersBad < numberElementInFlashCard) {
       setAnswersBad(answersBad + 1);
     }
   };
@@ -105,7 +105,7 @@ function App() {
           answersBad: answersBad,
           IdontknowClick: IdontknowClick,
           IknowClick: IknowClick,
-          numerElemetInFlashCard: numerElemetInFlashCard,
+          numberElementInFlashCard: numberElementInFlashCard,
           stop: stop,
           startTime: startTime,
           stopTime: stopTime,
@@ -116,8 +116,8 @@ function App() {
             <Dashboard
               languages={languages}
               handleChangeSelectLanguage={handleChangeSelectLanguage}
-              numerElemetInFlashCard={numerElemetInFlashCard}
-              setNumerElemetInFlashCard={setNumerElemetInFlashCard}
+              numberElementInFlashCard={numberElementInFlashCard}
+              setNumberElementInFlashCard={setNumberElementInFlashCard}
               setAnswersGood={setAnswersGood}
               setAnswersBad={setAnswersBad}
               start={start}

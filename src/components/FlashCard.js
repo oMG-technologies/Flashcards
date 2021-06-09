@@ -7,15 +7,16 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
-  const { questionsRandom, numerElemetInFlashCard, stop } = useContext(MainContext);
+  const { questionsRandom, numberElementInFlashCard, stop } =
+    useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
 
-  const [curreatPage, setCurreatPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [questionsPerPage] = useState(1);
 
   // Get current Question
-  const indexOfLastQuestion = curreatPage * questionsPerPage;
+  const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestion = questionsRandom.slice(
     indexOfFirstQuestion,
@@ -24,14 +25,14 @@ const FlashCard = () => {
 
   // Changed Page
   const nextPage = () => {
-    if (curreatPage < questionsRandom.length) {
-      setCurreatPage(curreatPage + 1);
+    if (currentPage < questionsRandom.length) {
+      setCurrentPage(currentPage + 1);
     }
   };
 
   const prevPage = () => {
-    if (curreatPage > 1) {
-      setCurreatPage(curreatPage - 1);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -45,7 +46,7 @@ const FlashCard = () => {
         Move to the card to check the answer:
       </div>
       <div className='mainContainer_question'>
-        Question: {curreatPage} / {numerElemetInFlashCard}
+        Question: {currentPage} / {numberElementInFlashCard}
       </div>
       <div
         className={`theCard ${flip ? 'flip' : ''}`}

@@ -23,7 +23,7 @@
       color: red;
     }
   }
-  &_tabela {
+  &_table {
     font-size: 16px;
     &-main {
       width: 800px;
@@ -72,9 +72,9 @@ $desktop-width: 1024px;
         color: red;
       }
     }
-    &_tabela {
+    &_table {
       &-main {
-        width: 100%;
+        width: 100vw;
         font-size: 16px;
         display: flex;
         align-items: center;
@@ -121,7 +121,7 @@ $desktop-width: 1024px;
         color: red;
       }
     }
-    &_tabela {
+    &_table {
       &-main {
         width: 100%;
         font-size: 16px;

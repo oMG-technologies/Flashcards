@@ -5,7 +5,7 @@ import { MainContext } from '../context/MainContext';
 const Results = () => {
   const {
     questionsRandom,
-    numerElemetInFlashCard,
+    numberElementInFlashCard,
     answersBad,
     answersGood,
     startTime,
@@ -19,7 +19,7 @@ const Results = () => {
         <h3>Your result:</h3>
 
         <strong>Total flip cards: </strong>
-        {numerElemetInFlashCard}
+        {numberElementInFlashCard}
         <p>
           <strong>Good answers: </strong>
           {answersGood}
@@ -31,15 +31,15 @@ const Results = () => {
 
         <p>
           <strong>You know: </strong>
-          {((answersGood * 100) / numerElemetInFlashCard).toFixed(2)}%
+          {((answersGood * 100) / numberElementInFlashCard).toFixed(2)}%
         </p>
         <p>
           <strong>Your time: </strong>
-          {((stopTime - startTime)/1000).toFixed(2)}s 
+          {((stopTime - startTime) / 1000).toFixed(2)}s
         </p>
       </div>
-      <div className='ContainerResults_tabela'>
-        <table className='ContainerResults_tabela-main'>
+      <div className='ContainerResults_table'>
+        <table className='ContainerResults_table-main'>
           <thead>
             <tr>
               <th>ID</th>

@@ -8,7 +8,7 @@ const TheBack = ({ currentQuestion, nextPage }) => {
     nextPage();
     IknowClick();
   };
-  const clickNextAndIDontKnow = () => {
+  const clickNextAndIDonTKnow = () => {
     nextPage();
     IdontknowClick()
   };
@@ -16,7 +16,7 @@ const TheBack = ({ currentQuestion, nextPage }) => {
   return (
     <div className='theBack'>
       Back
-      <p className='eanglishMeaning'>
+      <p className='englishMeaning'>
         {currentQuestion.map((el) => (
           <span key={el.id}>{el.backCard}</span>
         ))}
@@ -24,7 +24,7 @@ const TheBack = ({ currentQuestion, nextPage }) => {
       <div className='mainContainer_button'>
         <button
           className='btn_IDonTknow-onCard'
-          onClick={clickNextAndIDontKnow}
+          onClick={clickNextAndIDonTKnow}
         >
           I don't know
         </button>

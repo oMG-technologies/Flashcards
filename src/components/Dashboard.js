@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = ({
   handleChangeSelectLanguage,
-  numerElemetInFlashCard,
-  setNumerElemetInFlashCard,
+  numberElementInFlashCard,
+  setNumberElementInFlashCard,
   setAnswersBad,
   setAnswersGood,
   start,
@@ -16,24 +16,22 @@ const Dashboard = ({
     setAnswersBad(0);
   };
 
-  const onchangeEventChandlerAndCleanup = (e) => {
-    setNumerElemetInFlashCard(e.target.value);
+  const onChangeEventChandlerAndCleanup = (e) => {
+    setNumberElementInFlashCard(e.target.value);
   };
-
 
   return (
     <div className='ContainerDashboard'>
       <div className='ContainerDashboard_header'>Settings:</div>
 
       <div className='ContainerDashboard_main'>
-
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language:</label>
           <select
             className='ContainerDashboard_main-select'
             onChange={handleChangeSelectLanguage}
           >
-            <option >Language ...</option>
+            <option>Language ...</option>
             <option value='en-pl'>en-pl</option>
             <option value='en-de'>en-de</option>
             <option value='en-fr'>en-fr</option>
@@ -55,12 +53,12 @@ const Dashboard = ({
             type='range'
             min='1'
             max='50'
-            value={numerElemetInFlashCard}
-            onChange={onchangeEventChandlerAndCleanup}
+            value={numberElementInFlashCard}
+            onChange={onChangeEventChandlerAndCleanup}
             style={{ marginTop: '10px' }}
           />
           <div className='ContainerDashboard_main-rangeSlider-result'>
-            {numerElemetInFlashCard}
+            {numberElementInFlashCard}
           </div>
         </div>
       </div>

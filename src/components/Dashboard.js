@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 
 const Dashboard = ({
   handleChangeSelectLanguage,
@@ -27,19 +28,27 @@ const Dashboard = ({
       <div className='ContainerDashboard_main'>
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language:</label>
+          {getUnicodeFlagIcon('PL')}
+          {getUnicodeFlagIcon('DE')}
+          {getUnicodeFlagIcon('FR')}
+          {getUnicodeFlagIcon('ES')}
+          {getUnicodeFlagIcon('RU')}
+          {getUnicodeFlagIcon('IT')}
+          {getUnicodeFlagIcon('SV')}
+          {getUnicodeFlagIcon('CN')}
           <select
             className='ContainerDashboard_main-select'
             onChange={handleChangeSelectLanguage}
           >
             <option>Language ...</option>
-            <option value='en-pl'>en-pl</option>
-            <option value='en-de'>en-de</option>
-            <option value='en-fr'>en-fr</option>
-            <option value='en-es'>en-es</option>
-            <option value='en-ru'>en-ru</option>
-            <option value='en-it'>en-it</option>
-            <option value='en-sv'>en-sv</option>
-            <option value='en-zh'>en-zh</option>
+            <option value='en-pl'>POLISH {getUnicodeFlagIcon('PL')}</option>
+            <option value='en-de'>GERMAN {getUnicodeFlagIcon('DE')}</option>
+            <option value='en-fr'>FRENCH {getUnicodeFlagIcon('FR')}</option>
+            <option value='en-es'>SPANISH {getUnicodeFlagIcon('ES')}</option>
+            <option value='en-ru'>RUSSIAN {getUnicodeFlagIcon('RU')}</option>
+            <option value='en-it'>ITALIAN {getUnicodeFlagIcon('IT')}</option>
+            <option value='en-sv'>LATVIAN {getUnicodeFlagIcon('SV')}</option>
+            <option value='en-zh'>CHINESE {getUnicodeFlagIcon('CN')}</option>
           </select>
         </div>
 

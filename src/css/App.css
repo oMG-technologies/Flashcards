@@ -95,6 +95,7 @@
 }
 .ContainerDashboard_main-selectLanguage-select {
   display: flex;
+  width: 100vw;
 }
 .ContainerDashboard_main-rangeSlider {
   position: relative;
@@ -467,6 +468,10 @@
   .ContainerResults_table-main {
     width: 100vw;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 10px;
   }
   .ContainerResults_button {

@@ -27,6 +27,7 @@
 }
 .ContainerDashboard_main-selectLanguage-select {
   display: flex;
+  width: 100vw;
 }
 .ContainerDashboard_main-rangeSlider {
   position: relative;

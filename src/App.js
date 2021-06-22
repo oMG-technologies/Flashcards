@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './css/App.css';
 
@@ -18,7 +13,6 @@ import { getAllQuestionsByLanguage } from './services/ApiService';
 import Loaded from './components/Loaded';
 
 function App() {
-
   const [questions, setQuestions] = useState([]);
   const [languages, setLanguages] = useState('');
 
@@ -27,7 +21,7 @@ function App() {
 
   const [numberElementInFlashCard, setNumberElementInFlashCard] = useState(10);
 
-  // Loader 
+  // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
   // Timer
@@ -39,8 +33,7 @@ function App() {
     setQuestions(dataQuestions);
     setIsLoaded(false);
   };
-  
-  
+
   useEffect(() => {
     getQuestions(languages);
     setAnswersGood(0);
@@ -97,14 +90,17 @@ function App() {
   };
 
   const handleChangeSelectLanguage = (e) => {
-      const selectedLanguage = e.target.value;
-      setLanguages(selectedLanguage);
+    const selectedLanguage = e.target.value;
+    console.log(selectedLanguage);
+    if (selectedLanguage == '') {
+      return <h1>Please choose language</h1>;
+    } else {
+      return setLanguages(selectedLanguage);
+    }
   };
 
   if (isLoaded) {
-    return (
-      <Loaded />
-    );
+    return <Loaded />;
   }
 
   return (

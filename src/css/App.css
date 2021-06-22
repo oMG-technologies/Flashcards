@@ -87,15 +87,18 @@
   align-items: center;
 }
 .ContainerDashboard_main-selectLanguage {
-  position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  font-family: Arial;
 }
-.ContainerDashboard_main-selectLanguage-select {
-  display: flex;
-  width: 100vw;
+.ContainerDashboard_main-selectLanguage-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+.ContainerDashboard_main-selectLanguage-select select-selected {
+  background-color: #ff1e7c;
 }
 .ContainerDashboard_main-rangeSlider {
   position: relative;

@@ -36,7 +36,7 @@ const Dashboard = ({
           {languagesArr.map((flag) => (getUnicodeFlagIcon(flag)))}
         
           <select
-            className='ContainerDashboard_main-select'
+            // className='ContainerDashboard_main-select'
             onChange={handleChangeSelectLanguage}
           >
             <option>Language ...</option>

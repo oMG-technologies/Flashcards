@@ -86,12 +86,26 @@
   justify-content: center;
   align-items: center;
 }
-.ContainerDashboard_main-selectLanguage {
+.ContainerDashboard_main-rangeSlider {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
-  font-family: Arial;
+}
+.ContainerDashboard_main-rangeSlider::before {
+  position: absolute;
+  color: #000;
+  font-size: 0.9rem;
+  content: attr(data-min);
+  left: 10px;
+}
+.ContainerDashboard_main-rangeSlider::after {
+  position: absolute;
+  color: #000;
+  font-size: 0.9rem;
+  content: attr(data-max);
+  right: 10px;
 }
 .ContainerDashboard_button {
   width: 100%;
@@ -651,7 +665,8 @@
   animation-delay: 0.25s;
 }
 
-.dot-pulse::before, .dot-pulse::after {
+.dot-pulse::before,
+.dot-pulse::after {
   content: "";
   display: inline-block;
   position: absolute;

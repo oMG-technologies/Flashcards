@@ -20,16 +20,31 @@
     align-items: center;
   }
 
-  &_main {
-    &-selectLanguage {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+&_main {
+      &-rangeSlider {
+        position: relative;
+        width: 100%;
 
-      position: relative;
-      font-family: Arial;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &::before {
+          position: absolute;
+          color: #000;
+          font-size: 0.9rem;
+          content: attr(data-min);
+          left: 10px;
+        }
+        &::after {
+          position: absolute;
+          color: #000;
+          font-size: 0.9rem;
+          content: attr(data-max);
+          right: 10px;
+        }
+      }
     }
-  }
 
   &_button {
     width: 100%;

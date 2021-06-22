@@ -11,8 +11,7 @@ const Dashboard = ({
   setAnswersGood,
   start,
 }) => {
-
-  const initialLanguagesArr = ['PL', 'DE', 'FR','ES','RU','IT', 'SV', 'CN']
+  const initialLanguagesArr = ['PL', 'DE', 'FR', 'ES', 'RU', 'IT', 'SV', 'CN'];
   const [languagesArr, setLanguagesArr] = useState(initialLanguagesArr);
 
   const startTimerClick = () => {
@@ -30,10 +29,11 @@ const Dashboard = ({
       <div className='ContainerDashboard_header'>Settings:</div>
 
       <div className='ContainerDashboard_main'>
-        <div className='ContainerDashboard_main-selectLanguage'>
-          <label style={{ margin: '15px' }}>Choose language:</label>
+        {languagesArr.map((flag) => getUnicodeFlagIcon(flag))}
 
-          {languagesArr.map((flag) => getUnicodeFlagIcon(flag))}
+        <div className='ContainerDashboard_main-selectLanguage'>
+
+          <label style={{ margin: '15px' }}>Choose language:</label>
 
           <select
             className='ContainerDashboard_main-select'

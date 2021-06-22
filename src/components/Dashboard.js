@@ -33,13 +33,13 @@ const Dashboard = ({
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language:</label>
 
-          {languagesArr.map((flag) => (getUnicodeFlagIcon(flag)))}
-        
+          {languagesArr.map((flag) => getUnicodeFlagIcon(flag))}
+
           <select
-            // className='ContainerDashboard_main-select'
+            className='ContainerDashboard_main-select'
             onChange={handleChangeSelectLanguage}
           >
-            <option>Language ...</option>
+            <option value=''>Language ...</option>
             <option value='en-pl'>POLISH {getUnicodeFlagIcon('PL')}</option>
             <option value='en-de'>GERMAN {getUnicodeFlagIcon('DE')}</option>
             <option value='en-fr'>FRENCH {getUnicodeFlagIcon('FR')}</option>

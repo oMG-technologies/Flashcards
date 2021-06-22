@@ -15,6 +15,7 @@ import Results from './components/Results';
 import { MainContext } from './context/MainContext';
 
 import { getAllQuestionsByLanguage } from './services/ApiService';
+import Loaded from './components/Loaded';
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
 
   const [numberElementInFlashCard, setNumberElementInFlashCard] = useState(10);
 
+  // Loader 
+  const [isLoaded, setIsLoaded] = useState(true);
+
   // Timer
   const [startTime, setStartTime] = useState();
   const [stopTime, setStopTime] = useState();
@@ -33,9 +37,10 @@ function App() {
   const getQuestions = async (languages) => {
     const dataQuestions = await getAllQuestionsByLanguage(languages);
     setQuestions(dataQuestions);
+    setIsLoaded(false);
   };
-
-
+  
+  
   useEffect(() => {
     getQuestions(languages);
     setAnswersGood(0);
@@ -95,6 +100,12 @@ function App() {
       const selectedLanguage = e.target.value;
       setLanguages(selectedLanguage);
   };
+
+  if (isLoaded) {
+    return (
+      <Loaded />
+    );
+  }
 
   return (
     <Router>

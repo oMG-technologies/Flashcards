@@ -10,7 +10,11 @@ const Dashboard = ({
   setAnswersBad,
   setAnswersGood,
   start,
+  errors,
+  isErrorValidation,
+  setErrorValidation,
 }) => {
+  
   const initialLanguagesArr = ['PL', 'DE', 'FR', 'ES', 'RU', 'IT', 'SV', 'CN'];
   const [languagesArr, setLanguagesArr] = useState(initialLanguagesArr);
 
@@ -18,6 +22,7 @@ const Dashboard = ({
     start();
     setAnswersGood(0);
     setAnswersBad(0);
+    setErrorValidation(!isErrorValidation);
   };
 
   const onChangeEventChandlerAndCleanup = (e) => {
@@ -32,7 +37,6 @@ const Dashboard = ({
         {languagesArr.map((flag) => getUnicodeFlagIcon(flag))}
 
         <div className='ContainerDashboard_main-selectLanguage'>
-
           <label style={{ margin: '15px' }}>Choose language:</label>
 
           <select
@@ -51,6 +55,9 @@ const Dashboard = ({
           </select>
         </div>
 
+        <span style={{ color: 'red', fontSize: '14px' }}>
+          {errors.selectError}
+        </span>
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'
@@ -72,13 +79,22 @@ const Dashboard = ({
       </div>
 
       <div className='ContainerDashboard_button'>
-        <Link
-          to='./FlashCard'
-          onClick={startTimerClick}
-          className='btn_toTheFlashCard'
-        >
-          Start
-        </Link>
+        {!isErrorValidation ? (
+          <Link
+            to='./FlashCard'
+            onClick={startTimerClick}
+            className='btn_toTheFlashCard'
+          >
+            Start
+          </Link>
+        ) : (
+          <Link
+            to='./'
+            className='btn_toTheFlashCard'
+          >
+            Choses language and size to started
+          </Link>
+        )}
       </div>
     </div>
   );

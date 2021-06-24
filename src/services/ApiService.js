@@ -7,12 +7,12 @@ const api = axios.create({
 /**
  * API questions
  */
-//https://words-translation.herokuapp.com/translation/languages/${languagesID}/?conversion=${languages}
+
 export const getAllLanguages = async () => {
   try {
     return await api
-      .get(`translation/?languages_list`)
-      .then(({ data }) => data);
+      .get(`/available_conversions/`)
+      .then(({ data }) => data.available_conversions);
   } catch (err) {
     console.log(err);
   }

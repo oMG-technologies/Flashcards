@@ -9,15 +9,21 @@ import Results from './components/Results';
 
 import { MainContext } from './context/MainContext';
 
-import { getAllQuestionsByLanguage } from './services/ApiService';
+import {
+  getAllLanguages,
+  getAllQuestionsByLanguage,
+} from './services/ApiService';
+
 import Loaded from './components/Loaded';
 
 function App() {
+
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
   const [questions, setQuestions] = useState([]);
-  const [languages, setLanguages] = useState('');
+  const [languages, setLanguages] = useState([]);
+  const [languageSetByUser, setLanguageSetByUser] = useState('')
 
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
@@ -36,17 +42,29 @@ function App() {
   const [startTime, setStartTime] = useState();
   const [stopTime, setStopTime] = useState();
 
-  const getQuestions = async (languages) => {
-    const dataQuestions = await getAllQuestionsByLanguage(languages);
+  const getQuestions = async (languageSetByUser) => {
+    const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
     setQuestions(dataQuestions);
     setIsLoaded(false);
   };
 
+
+  const getLanguages = async () => {
+    const dataLanguages = await getAllLanguages();
+    setLanguages(dataLanguages);
+    setIsLoaded(false);
+  };
+
   useEffect(() => {
-    getQuestions(languages);
+    getLanguages();
+  }, []);
+  
+  
+  useEffect(() => {
+    getQuestions(languageSetByUser);
     setAnswersGood(0);
     setAnswersBad(0);
-  }, [languages]);
+  }, [languageSetByUser]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlashCard;
@@ -103,12 +121,12 @@ function App() {
     if (selectedLanguage === '') {
       selectError = 'Please choose language';
 
-      setLanguages(selectedLanguage);
+      setLanguageSetByUser(selectedLanguage);
       setErrorValidation(true);
     } else {
       selectError = '';
 
-      setLanguages(selectedLanguage);
+      setLanguageSetByUser(selectedLanguage);
       setErrorValidation(false);
     }
 
@@ -125,6 +143,8 @@ function App() {
 
   const handleChangeSelectLanguage = (e) => {
     const selectedLanguage = e.target.value;
+
+    setLanguageSetByUser(selectedLanguage);
 
     validation(selectedLanguage);
   };
@@ -152,6 +172,7 @@ function App() {
           <Route path='/' exact>
             <Dashboard
               languages={languages}
+              setLanguageSetByUser={setLanguageSetByUser}
               handleChangeSelectLanguage={handleChangeSelectLanguage}
               numberElementInFlashCard={numberElementInFlashCard}
               setNumberElementInFlashCard={setNumberElementInFlashCard}

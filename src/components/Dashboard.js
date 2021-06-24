@@ -13,9 +13,9 @@ const Dashboard = ({
   errors,
   isErrorValidation,
   setErrorValidation,
+  languages,
 }) => {
-  
-  const initialLanguagesArr = ['PL', 'DE', 'FR', 'ES', 'RU', 'IT', 'SV', 'CN'];
+  const initialLanguagesArr = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'cn'];
   const [languagesArr, setLanguagesArr] = useState(initialLanguagesArr);
 
   const startTimerClick = () => {
@@ -44,14 +44,15 @@ const Dashboard = ({
             onChange={handleChangeSelectLanguage}
           >
             <option value=''>Language ...</option>
-            <option value='en-pl'>POLISH {getUnicodeFlagIcon('PL')}</option>
-            <option value='en-de'>GERMAN {getUnicodeFlagIcon('DE')}</option>
-            <option value='en-fr'>FRENCH {getUnicodeFlagIcon('FR')}</option>
-            <option value='en-es'>SPANISH {getUnicodeFlagIcon('ES')}</option>
-            <option value='en-ru'>RUSSIAN {getUnicodeFlagIcon('RU')}</option>
-            <option value='en-it'>ITALIAN {getUnicodeFlagIcon('IT')}</option>
-            <option value='en-sv'>LATVIAN {getUnicodeFlagIcon('SV')}</option>
-            <option value='en-zh'>CHINESE {getUnicodeFlagIcon('CN')}</option>
+            {languages.map((language) => (
+              <option key={language.id} value={language.conversion}>
+                {language.conversion}
+                {getUnicodeFlagIcon(`${language.name}`)}
+              </option>
+            ))}
+
+            {/* <option value='en-pl'>POLISH {getUnicodeFlagIcon('PL')}</option> */}
+           
           </select>
         </div>
 
@@ -88,10 +89,7 @@ const Dashboard = ({
             Start
           </Link>
         ) : (
-          <Link
-            to='./'
-            className='btn_toTheFlashCard'
-          >
+          <Link to='./' className='btn_toTheFlashCard'>
             Choses language and size to started
           </Link>
         )}

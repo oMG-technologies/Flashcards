@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
@@ -15,9 +15,6 @@ const Dashboard = ({
   setErrorValidation,
   languages,
 }) => {
-  const initialLanguagesArr = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'cn'];
-  const [languagesArr, setLanguagesArr] = useState(initialLanguagesArr);
-
   const startTimerClick = () => {
     start();
     setAnswersGood(0);
@@ -34,7 +31,9 @@ const Dashboard = ({
       <div className='ContainerDashboard_header'>Settings:</div>
 
       <div className='ContainerDashboard_main'>
-        {languagesArr.map((flag) => getUnicodeFlagIcon(flag))}
+        {languages.map((language) =>
+          getUnicodeFlagIcon(`${language.target_language}`)
+        )}
 
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language:</label>
@@ -46,13 +45,10 @@ const Dashboard = ({
             <option value=''>Language ...</option>
             {languages.map((language) => (
               <option key={language.id} value={language.conversion}>
-                {language.conversion}
-                {getUnicodeFlagIcon(`${language.name}`)}
+                { language.name } 
+                { getUnicodeFlagIcon(`${language.target_language}`) }
               </option>
             ))}
-
-            {/* <option value='en-pl'>POLISH {getUnicodeFlagIcon('PL')}</option> */}
-           
           </select>
         </div>
 

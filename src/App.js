@@ -13,7 +13,6 @@ import { getAllQuestionsByLanguage } from './services/ApiService';
 import Loaded from './components/Loaded';
 
 function App() {
-
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
@@ -32,7 +31,7 @@ function App() {
   // Errors
   const [errors, setErrors] = useState(initialError);
   const [isErrorValidation, setErrorValidation] = useState(true);
-  
+
   // Timer
   const [startTime, setStartTime] = useState();
   const [stopTime, setStopTime] = useState();
@@ -106,7 +105,6 @@ function App() {
 
       setLanguages(selectedLanguage);
       setErrorValidation(true);
-
     } else {
       selectError = '';
 
@@ -115,11 +113,11 @@ function App() {
     }
 
     if (selectError) {
-      setErrors({selectError});
+      setErrors({ selectError });
 
       return false;
     } else {
-      setErrors({selectError});
+      setErrors({ selectError });
 
       return true;
     }
@@ -131,52 +129,50 @@ function App() {
     validation(selectedLanguage);
   };
 
-
   if (isLoaded) {
     return <Loaded />;
-     
   }
-  
-    return (
-      <Router>
-        <MainContext.Provider
-          value={{
-            questionsRandom: questionsRandom,
-            answersGood: answersGood,
-            answersBad: answersBad,
-            IdontknowClick: IdontknowClick,
-            IknowClick: IknowClick,
-            numberElementInFlashCard: numberElementInFlashCard,
-            stop: stop,
-            startTime: startTime,
-            stopTime: stopTime,
-          }}
-        >
-          <Switch>
-            <Route path='/' exact>
-              <Dashboard
-                languages={languages}
-                handleChangeSelectLanguage={handleChangeSelectLanguage}
-                numberElementInFlashCard={numberElementInFlashCard}
-                setNumberElementInFlashCard={setNumberElementInFlashCard}
-                setAnswersGood={setAnswersGood}
-                setAnswersBad={setAnswersBad}
-                start={start}
-                errors={errors}
-                isErrorValidation={isErrorValidation}
-                setErrorValidation={setErrorValidation}
-              />
-            </Route>
-            <Route path='/FlashCard' exact>
-              <FlashCard />
-            </Route>
-            <Route path='/Results' exact>
-              <Results />
-            </Route>
-          </Switch>
-        </MainContext.Provider>
-      </Router>
-    );
+
+  return (
+    <Router>
+      <MainContext.Provider
+        value={{
+          questionsRandom: questionsRandom,
+          answersGood: answersGood,
+          answersBad: answersBad,
+          IdontknowClick: IdontknowClick,
+          IknowClick: IknowClick,
+          numberElementInFlashCard: numberElementInFlashCard,
+          stop: stop,
+          startTime: startTime,
+          stopTime: stopTime,
+        }}
+      >
+        <Switch>
+          <Route path='/' exact>
+            <Dashboard
+              languages={languages}
+              handleChangeSelectLanguage={handleChangeSelectLanguage}
+              numberElementInFlashCard={numberElementInFlashCard}
+              setNumberElementInFlashCard={setNumberElementInFlashCard}
+              setAnswersGood={setAnswersGood}
+              setAnswersBad={setAnswersBad}
+              start={start}
+              errors={errors}
+              isErrorValidation={isErrorValidation}
+              setErrorValidation={setErrorValidation}
+            />
+          </Route>
+          <Route path='/FlashCard' exact>
+            <FlashCard />
+          </Route>
+          <Route path='/Results' exact>
+            <Results />
+          </Route>
+        </Switch>
+      </MainContext.Provider>
+    </Router>
+  );
 }
 
 export default App;

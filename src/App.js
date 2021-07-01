@@ -17,13 +17,14 @@ import {
 import Loaded from './components/Loaded';
 
 function App() {
-
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
   const [questions, setQuestions] = useState([]);
+  const [questionsRandom, setQuestionsRandom] = useState([]);
+
   const [languages, setLanguages] = useState([]);
-  const [languageSetByUser, setLanguageSetByUser] = useState('')
+  const [languageSetByUser, setLanguageSetByUser] = useState('');
 
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
@@ -48,7 +49,6 @@ function App() {
     setIsLoaded(false);
   };
 
-
   const getLanguages = async () => {
     const dataLanguages = await getAllLanguages();
     setLanguages(dataLanguages);
@@ -58,13 +58,17 @@ function App() {
   useEffect(() => {
     getLanguages();
   }, []);
-  
-  
+
   useEffect(() => {
     getQuestions(languageSetByUser);
     setAnswersGood(0);
     setAnswersBad(0);
   }, [languageSetByUser]);
+
+  // Create random questions
+  useEffect(() => {
+    randomQuestions();
+  }, [questions]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlashCard;
@@ -75,21 +79,21 @@ function App() {
     indexOfLastMainArrQuestion
   );
 
-  const randomQuestion = () => {
+  const randomQuestions = () => {
     let newArrQuestions = [];
 
-    let i = sliceArrQuestions.length;
+    let lengthSliceArrQuestions = sliceArrQuestions.length;
     let numberOfIndexOfSliceQuestion = 0;
 
-    while (i--) {
-      numberOfIndexOfSliceQuestion = Math.floor(Math.random() * (i + 1));
+    while (lengthSliceArrQuestions--) {
+      numberOfIndexOfSliceQuestion = Math.floor(
+        Math.random() * (lengthSliceArrQuestions + 1)
+      );
       newArrQuestions.push(sliceArrQuestions[numberOfIndexOfSliceQuestion]);
       sliceArrQuestions.splice(numberOfIndexOfSliceQuestion, 1);
     }
-    return newArrQuestions;
+    return setQuestionsRandom(newArrQuestions);
   };
-
-  const questionsRandom = randomQuestion();
 
   // Create Result
   const IknowClick = () => {

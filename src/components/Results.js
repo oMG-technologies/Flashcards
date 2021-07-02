@@ -13,8 +13,6 @@ const Results = () => {
     arrOfAnswers,
   } = useContext(MainContext);
 
-  // console.log('arrOfAnswers[0]', arrOfAnswers[0]);
-
   return (
     <div className='ContainerResults'>
       <div className='ContainerResults_header'>Results</div>

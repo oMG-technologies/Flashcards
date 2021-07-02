@@ -21,7 +21,7 @@ const Dashboard = ({
     setAnswersGood(0);
     setAnswersBad(0);
     setErrorValidation(!isErrorValidation);
-    setArrOfAnswers([])
+    setArrOfAnswers([]);
   };
 
   const onChangeEventChandlerAndCleanup = (e) => {

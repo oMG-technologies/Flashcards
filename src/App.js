@@ -17,6 +17,7 @@ import {
 import Loaded from './components/Loaded';
 
 function App() {
+  
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 

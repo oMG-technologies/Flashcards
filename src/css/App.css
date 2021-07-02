@@ -310,20 +310,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  }
-  .theCard.flip {
-    transform: rotateY(180deg);
-    cursor: pointer;
-  }
 }
 @media (min-width: 465px) and (max-width: 768px) {
   .mainContainer {
@@ -361,20 +347,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  }
-  .theCard.flip {
-    transform: rotateY(180deg);
-    cursor: pointer;
   }
 }
 .theFront {
@@ -432,6 +404,11 @@
 }
 .ContainerResults_table {
   font-size: 16px;
+}
+.ContainerResults_table tr,
+.ContainerResults_table th,
+.ContainerResults_table td {
+  width: 100vw;
 }
 .ContainerResults_table-main {
   width: 800px;
@@ -554,6 +531,11 @@
 }
 .ContainerResults_table {
   font-size: 16px;
+}
+.ContainerResults_table tr,
+.ContainerResults_table th,
+.ContainerResults_table td {
+  width: 100vw;
 }
 .ContainerResults_table-main {
   width: 800px;

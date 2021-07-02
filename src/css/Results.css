@@ -23,6 +23,11 @@
 .ContainerResults_table {
   font-size: 16px;
 }
+.ContainerResults_table tr,
+.ContainerResults_table th,
+.ContainerResults_table td {
+  width: 100vw;
+}
 .ContainerResults_table-main {
   width: 800px;
   padding: 10px;

@@ -17,13 +17,13 @@ import {
 import Loaded from './components/Loaded';
 
 function App() {
-  
+
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
   const [questions, setQuestions] = useState([]);
   const [questionsRandom, setQuestionsRandom] = useState([]);
-  const [arrOfAnswers, setArrOfAnswers] = useState([true, false, true]);
+  const [arrOfAnswers, setArrOfAnswers] = useState([]);
 
   const [languages, setLanguages] = useState([]);
   const [languageSetByUser, setLanguageSetByUser] = useState('');
@@ -173,7 +173,6 @@ function App() {
           startTime: startTime,
           stopTime: stopTime,
           arrOfAnswers: arrOfAnswers,
-          setArrOfAnswers: setArrOfAnswers,
         }}
       >
         <Switch>

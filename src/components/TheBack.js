@@ -2,19 +2,25 @@ import React, { useContext } from 'react';
 import { MainContext } from '../context/MainContext';
 
 const TheBack = ({ currentQuestion, nextPage }) => {
-  const { IknowClick, IdontknowClick, arrOfAnswers } = useContext(MainContext);
+  const { IknowClick, IdontknowClick, arrOfAnswers, numberElementInFlashCard } =
+    useContext(MainContext);
 
   const clickNextAndIKnow = () => {
     nextPage();
     IknowClick();
 
-    arrOfAnswers.push(true);
+    if (arrOfAnswers.length < numberElementInFlashCard) {
+      arrOfAnswers.push(true);
+    }
   };
 
   const clickNextAndIDonTKnow = () => {
     nextPage();
     IdontknowClick();
-    arrOfAnswers.push(false);
+
+    if (arrOfAnswers.length < numberElementInFlashCard) {
+      arrOfAnswers.push(false);
+    }
   };
 
   return (

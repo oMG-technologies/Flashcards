@@ -14,7 +14,7 @@
   font-size: calc(15px + 2vmin);
 }
 .mainContainer_boxIcon-check {
-  color: greenyellow;
+  color: #31da31;
 }
 .mainContainer_boxIcon-remove {
   color: #f50202;
@@ -102,25 +102,11 @@
     align-items: center;
     justify-content: center;
   }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  }
-  .theCard.flip {
-    transform: rotateY(180deg);
-    cursor: pointer;
-  }
 }
 @media (min-width: 465px) and (max-width: 768px) {
   .mainContainer {
     position: relative;
-    width: 100vw;
+    width: 99vw;
     height: 50vh;
   }
   .mainContainer_text {
@@ -153,19 +139,5 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 95%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  }
-  .theCard.flip {
-    transform: rotateY(180deg);
-    cursor: pointer;
   }
 }

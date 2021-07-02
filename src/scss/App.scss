@@ -16,7 +16,7 @@
 
 body {
   font-family: 'New Tegomin', serif;
-  background-color: #282c34;
+  background-color:  rgb(0, 0, 0);
 
   display: flex;
   justify-content: center;
@@ -29,11 +29,18 @@ body {
 $phone-width: 466px;
 $phone-width-1: 465px;
 $tablet-width: 768px;
+$tablet-width-1: 767px;
 $desktop-width: 1024px;
 
+@media (max-width: $phone-width) {
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+}
 
 @media (min-width: $tablet-width) {
   body {
     background-color: rgb(0, 0, 0);
   }
 }
+

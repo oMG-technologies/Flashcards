@@ -8,20 +8,19 @@
     margin-bottom: 10px;
   }
 
-  &_boxIcon{
+  &_boxIcon {
     width: 100%;
     height: 40px;
     padding: 5px;
     font-size: calc(15px + 2vmin);
 
-    &-check{
-      color: rgb(0, 128, 0)
+    &-check {
+      color: rgb(49, 218, 49);
     }
-    &-remove{
+    &-remove {
       color: rgb(245, 2, 2);
     }
   }
-  
 
   &_button {
     width: 100%;
@@ -66,19 +65,20 @@
   //   transform: rotateY(180deg);
   //   cursor: pointer;
   // }
-  
+
   &.flip {
     transform: rotateY(180deg);
     cursor: pointer;
   }
 }
-.fa fa-check{
-    color: rgb(127, 255, 0);
-  }
+.fa fa-check {
+  color: rgb(127, 255, 0);
+}
 
 $phone-width: 466px;
 $phone-width-1: 465px;
 $tablet-width: 768px;
+$tablet-width-1: 767px;
 $desktop-width: 1024px;
 
 @media (max-width: $phone-width) {
@@ -121,27 +121,12 @@ $desktop-width: 1024px;
       }
     }
   }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-
-    &.flip {
-      transform: rotateY(180deg);
-      cursor: pointer;
-    }
-  }
 }
 
 @media (min-width: $phone-width-1) and (max-width: $tablet-width) {
   .mainContainer {
     position: relative;
-    width: 100vw;
+    width: 99vw;
     height: 50vh;
 
     &_text {
@@ -176,21 +161,6 @@ $desktop-width: 1024px;
         align-items: center;
         justify-content: center;
       }
-    }
-  }
-
-  .theCard {
-    position: absolute;
-    width: 100%;
-    height: 95%;
-    margin-top: 50px;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    cursor: pointer;
-
-    &.flip {
-      transform: rotateY(180deg);
-      cursor: pointer;
     }
   }
 }

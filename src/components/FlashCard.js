@@ -7,7 +7,7 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
-  const { questionsRandom, numberElementInFlashCard, stop } =
+  const { questionsRandom, numberElementInFlashCard, stop, arrOfAnswers } =
     useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
@@ -43,7 +43,7 @@ const FlashCard = () => {
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
-        Move to the card to check the answer:
+        Click on the card to check the answer:
       </div>
       <div className='mainContainer_question'>
         Question: {currentPage} / {numberElementInFlashCard}
@@ -55,6 +55,21 @@ const FlashCard = () => {
         <TheFront currentQuestion={currentQuestion} />
         <TheBack currentQuestion={currentQuestion} nextPage={nextPage} />
       </div>
+
+      <div className='mainContainer_boxIcon'>
+        {arrOfAnswers.map((answer, i) =>
+          answer ? (
+            <span className='mainContainer_boxIcon-check' key={i}>
+              <i className='fa fa-check'></i>
+            </span>
+          ) : (
+            <span className='mainContainer_boxIcon-remove' key={i}>
+              <i className='fa fa-remove'></i>
+            </span>
+          )
+        )}
+      </div>
+
       <div className='mainContainer_button-next-prev'>
         <button className='btn_prevPage' onClick={prevPage}>
           Prev
@@ -63,6 +78,7 @@ const FlashCard = () => {
           Next
         </button>
       </div>
+
       <div className='mainContainer_button-back-results'>
         <Link to='./' className='btn_home'>
           Back home

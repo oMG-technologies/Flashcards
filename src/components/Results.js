@@ -10,7 +10,10 @@ const Results = () => {
     answersGood,
     startTime,
     stopTime,
+    arrOfAnswers,
   } = useContext(MainContext);
+
+  // console.log('arrOfAnswers[0]', arrOfAnswers[0]);
 
   return (
     <div className='ContainerResults'>
@@ -42,9 +45,9 @@ const Results = () => {
         <table className='ContainerResults_table-main'>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Front card</th>
-              <th>Back Card</th>
+              <th>No:</th>
+              <th>Front card:</th>
+              <th>Back Card:</th>
             </tr>
           </thead>
           <tbody>

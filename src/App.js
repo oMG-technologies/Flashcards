@@ -22,6 +22,7 @@ function App() {
 
   const [questions, setQuestions] = useState([]);
   const [questionsRandom, setQuestionsRandom] = useState([]);
+  const [arrOfAnswers, setArrOfAnswers] = useState([true, false, true]);
 
   const [languages, setLanguages] = useState([]);
   const [languageSetByUser, setLanguageSetByUser] = useState('');
@@ -68,7 +69,7 @@ function App() {
   // Create random questions
   useEffect(() => {
     randomQuestions();
-  }, [questions]);
+  }, [questions, numberElementInFlashCard]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlashCard;
@@ -170,6 +171,8 @@ function App() {
           stop: stop,
           startTime: startTime,
           stopTime: stopTime,
+          arrOfAnswers: arrOfAnswers,
+          setArrOfAnswers: setArrOfAnswers,
         }}
       >
         <Switch>
@@ -186,6 +189,7 @@ function App() {
               errors={errors}
               isErrorValidation={isErrorValidation}
               setErrorValidation={setErrorValidation}
+              setArrOfAnswers={setArrOfAnswers}
             />
           </Route>
           <Route path='/FlashCard' exact>

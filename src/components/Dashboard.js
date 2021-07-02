@@ -14,12 +14,14 @@ const Dashboard = ({
   isErrorValidation,
   setErrorValidation,
   languages,
+  setArrOfAnswers,
 }) => {
   const startTimerClick = () => {
     start();
     setAnswersGood(0);
     setAnswersBad(0);
     setErrorValidation(!isErrorValidation);
+    setArrOfAnswers([])
   };
 
   const onChangeEventChandlerAndCleanup = (e) => {
@@ -45,8 +47,8 @@ const Dashboard = ({
             <option value=''>Language ...</option>
             {languages.map((language) => (
               <option key={language.id} value={language.conversion}>
-                { language.name } 
-                { getUnicodeFlagIcon(`${language.target_language}`) }
+                {language.name}
+                {getUnicodeFlagIcon(`${language.target_language}`)}
               </option>
             ))}
           </select>

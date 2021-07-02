@@ -215,6 +215,18 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.mainContainer_boxIcon {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  font-size: calc(15px + 2vmin);
+}
+.mainContainer_boxIcon-check {
+  color: greenyellow;
+}
+.mainContainer_boxIcon-remove {
+  color: #f50202;
+}
 .mainContainer_button {
   width: 100%;
   height: 60px;
@@ -224,7 +236,7 @@
   align-items: center;
 }
 .mainContainer_button-next-prev {
-  margin-top: 400px;
+  margin-top: 350px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -247,7 +259,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  margin-top: 50px;
+  margin-top: 60px;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
   cursor: pointer;
@@ -255,6 +267,10 @@
 .theCard.flip {
   transform: rotateY(180deg);
   cursor: pointer;
+}
+
+.fa fa-check {
+  color: chartreuse;
 }
 
 @media (max-width: 466px) {

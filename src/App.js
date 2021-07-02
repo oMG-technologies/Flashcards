@@ -17,17 +17,16 @@ import {
 import Loaded from './components/Loaded';
 
 function App() {
-
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
 
   const [questions, setQuestions] = useState([]);
   const [questionsRandom, setQuestionsRandom] = useState([]);
-  const [arrOfAnswers, setArrOfAnswers] = useState([]);
 
   const [languages, setLanguages] = useState([]);
   const [languageSetByUser, setLanguageSetByUser] = useState('');
 
+  const [arrOfAnswers, setArrOfAnswers] = useState([]);
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
 
@@ -42,8 +41,8 @@ function App() {
   const [isErrorValidation, setErrorValidation] = useState(true);
 
   // Timer
-  const [startTime, setStartTime] = useState();
-  const [stopTime, setStopTime] = useState();
+  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
+  const [intervalTime, setIntervalTime] = useState();
 
   const getQuestions = async (languageSetByUser) => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
@@ -109,16 +108,40 @@ function App() {
     }
   };
 
-  const start = () => {
-    let start = Date.now();
+  let updatedMs = time.ms,
+    updatedS = time.s,
+    updatedM = time.m,
+    updatedH = time.h;
 
-    setStartTime(start);
+  const run = () => {
+    if (updatedM === 60) {
+      updatedH++;
+      updatedM = 0;
+    }
+    if (updatedS === 60) {
+      updatedM++;
+      updatedS = 0;
+    }
+    if (updatedMs === 100) {
+      updatedS++;
+      updatedMs = 0;
+    }
+    updatedMs++;
+    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
+  };
+
+  const start = () => {
+    run();
+    setIntervalTime(setInterval(run, 10));
   };
 
   const stop = () => {
-    let stop = Date.now();
+    clearInterval(intervalTime);
+  };
 
-    setStopTime(stop);
+  const reset = () => {
+    clearInterval(intervalTime);
+    setTime({ ms: 0, s: 0, m: 0, h: 0 });
   };
 
   const validation = (selectedLanguage) => {
@@ -169,10 +192,10 @@ function App() {
           IdontknowClick: IdontknowClick,
           IknowClick: IknowClick,
           numberElementInFlashCard: numberElementInFlashCard,
+          reset: reset,
           stop: stop,
-          startTime: startTime,
-          stopTime: stopTime,
           arrOfAnswers: arrOfAnswers,
+          time: time,
         }}
       >
         <Switch>
@@ -186,6 +209,7 @@ function App() {
               setAnswersGood={setAnswersGood}
               setAnswersBad={setAnswersBad}
               start={start}
+              reset={reset}
               errors={errors}
               isErrorValidation={isErrorValidation}
               setErrorValidation={setErrorValidation}

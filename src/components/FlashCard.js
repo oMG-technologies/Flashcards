@@ -7,8 +7,13 @@ import TheBack from './TheBack';
 import { MainContext } from '../context/MainContext';
 
 const FlashCard = () => {
-  const { questionsRandom, numberElementInFlashCard, stop, arrOfAnswers } =
-    useContext(MainContext);
+  const {
+    questionsRandom,
+    numberElementInFlashCard,
+    stop,
+    reset,
+    arrOfAnswers,
+  } = useContext(MainContext);
 
   const [flip, setFlip] = useState(false);
 
@@ -38,6 +43,10 @@ const FlashCard = () => {
 
   const resultTime = () => {
     stop();
+  };
+
+  const backHome = () => {
+    reset();
   };
 
   return (
@@ -80,7 +89,7 @@ const FlashCard = () => {
       </div>
 
       <div className='mainContainer_button-back-results'>
-        <Link to='./' className='btn_home'>
+        <Link to='./' onClick={backHome} className='btn_home'>
           Back home
         </Link>
         <Link to='./Results' onClick={resultTime} className='btn_results'>

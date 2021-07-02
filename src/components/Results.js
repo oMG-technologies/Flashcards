@@ -8,10 +8,17 @@ const Results = () => {
     numberElementInFlashCard,
     answersBad,
     answersGood,
-    startTime,
-    stopTime,
     arrOfAnswers,
+    time,
   } = useContext(MainContext);
+
+  const h = () => {
+    if (time.h === 0) {
+      return '';
+    } else {
+      return <span>{time.h >= 10 ? time.h : '0' + time.h}</span>;
+    }
+  };
 
   return (
     <div className='ContainerResults'>
@@ -36,7 +43,10 @@ const Results = () => {
         </p>
         <p>
           <strong>Your time: </strong>
-          {((stopTime - startTime) / 1000).toFixed(2)}s
+          {h()} &nbsp;&nbsp;
+          <span>{time.m >= 10 ? time.m : '0' + time.m}</span>&nbsp;:&nbsp;
+          <span>{time.s >= 10 ? time.s : '0' + time.s}</span>&nbsp;:&nbsp;
+          <span>{time.ms >= 10 ? time.ms : '0' + time.ms} s</span>
         </p>
       </div>
       <div className='ContainerResults_table'>

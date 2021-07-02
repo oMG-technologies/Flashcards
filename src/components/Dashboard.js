@@ -10,6 +10,7 @@ const Dashboard = ({
   setAnswersBad,
   setAnswersGood,
   start,
+  reset,
   errors,
   isErrorValidation,
   setErrorValidation,
@@ -17,6 +18,7 @@ const Dashboard = ({
   setArrOfAnswers,
 }) => {
   const startTimerClick = () => {
+    reset()
     start();
     setAnswersGood(0);
     setAnswersBad(0);

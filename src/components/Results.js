@@ -48,6 +48,7 @@ const Results = () => {
               <th>No:</th>
               <th>Front card:</th>
               <th>Back Card:</th>
+              <th>Your answer:</th>
             </tr>
           </thead>
           <tbody>
@@ -56,6 +57,20 @@ const Results = () => {
                 <th key={el.id}>{i + 1}</th>
                 <td key={el.name}>{el.frontCard}</td>
                 <td key={el.email}>{el.backCard}</td>
+
+                {arrOfAnswers[i] ? (
+                  <td>
+                    <span className='mainContainer_boxIcon-check' key={i}>
+                      <i className='fa fa-check'></i>
+                    </span>
+                  </td>
+                ) : (
+                  <td>
+                    <span className='mainContainer_boxIcon-remove' key={i}>
+                      <i className='fa fa-remove'></i>
+                    </span>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

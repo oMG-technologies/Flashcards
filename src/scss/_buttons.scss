@@ -18,7 +18,7 @@
   height: 50px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid lightgreen;
+  border: 1px solid rgb(144, 238, 144);
   border-radius: 5px;
 
   font-family: 'New Tegomin', serif;
@@ -54,12 +54,12 @@
 
 .btn_Iknow-onCard {
   @extend .btn-onCard;
-  border: 1px solid green;
+  border: 1px solid rgb(0, 128, 0);
 }
 
 .btn_IDonTknow-onCard {
   @extend .btn-onCard;
-  border: 1px solid red;
+  border: 1px solid rgb(255, 0, 0);
 }
 
 .btn_Next {
@@ -72,7 +72,7 @@
 
 .btn_toTheFlashCard {
   @extend .btn-navigation-link;
-  border: 1px solid blue;
+  border: 1px solid rgb(0, 0, 255);
 }
 .btn_home {
   @extend .btn-navigation-link;

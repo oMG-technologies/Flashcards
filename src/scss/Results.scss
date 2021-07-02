@@ -2,7 +2,7 @@
   width: 800px;
   height: 100%;
   background-color: #fff;
-  color: black;
+  color: #000;
 
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   &_header {
     width: 100%;
     height: 60px;
-    background-color: black;
+    background-color: #000;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@
   }
   &_results {
     h3 {
-      color: red;
+      color: rgb(245, 3, 3);
     }
   }
   &_table {
@@ -50,7 +50,7 @@ $desktop-width: 1024px;
     width: 100vw;
     height: 100%;
     background-color: #fff;
-    color: black;
+    color: #000;
 
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ $desktop-width: 1024px;
     &_header {
       width: 100%;
       height: 60px;
-      background-color: black;
+      background-color: #000;
       color: #fff;
       display: flex;
       justify-content: center;
@@ -69,7 +69,7 @@ $desktop-width: 1024px;
     }
     &_results {
       h3 {
-        color: red;
+        color: rgb(255, 0, 0);
       }
     }
     &_table {
@@ -99,7 +99,7 @@ $desktop-width: 1024px;
     width: 100vw;
     height: 100%;
     background-color: #fff;
-    color: black;
+    color: #000;
 
     display: flex;
     flex-direction: column;
@@ -118,7 +118,7 @@ $desktop-width: 1024px;
     }
     &_results {
       h3 {
-        color: red;
+        color: rgb(255, 0, 0);
       }
     }
     &_table {
@@ -135,7 +135,7 @@ $desktop-width: 1024px;
     &_button {
       width: 100%;
       height: 60px;
-      background-color: black;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;

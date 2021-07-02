@@ -66,13 +66,14 @@
   //   transform: rotateY(180deg);
   //   cursor: pointer;
   // }
+  
   &.flip {
     transform: rotateY(180deg);
     cursor: pointer;
   }
 }
 .fa fa-check{
-    color: chartreuse;
+    color: rgb(127, 255, 0);
   }
 
 $phone-width: 466px;

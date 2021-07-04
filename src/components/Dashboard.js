@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { MainContext } from '../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
@@ -17,8 +19,12 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
+
+  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
+    useContext(MainContext);
+
   const startTimerClick = () => {
-    reset()
+    reset();
     start();
     setAnswersGood(0);
     setAnswersBad(0);
@@ -28,6 +34,11 @@ const Dashboard = ({
 
   const onChangeEventChandlerAndCleanup = (e) => {
     setNumberElementInFlashCard(e.target.value);
+  };
+
+  const changedFrontBack = () => {
+    setFlip(!flip);
+    setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
   return (
@@ -77,6 +88,9 @@ const Dashboard = ({
             {numberElementInFlashCard}
           </div>
         </div>
+      </div>
+      <div>
+        <button onClick={changedFrontBack}>Front/ Back</button>
       </div>
 
       <div className='ContainerDashboard_button'>

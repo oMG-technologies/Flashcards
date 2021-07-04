@@ -10,12 +10,15 @@ const FlashCard = () => {
   const {
     questionsRandom,
     numberElementInFlashCard,
+    IknowClick,
+    IdontknowClick,
+    arrOfAnswers,
     stop,
     reset,
-    arrOfAnswers,
+    flipButtonsOnCard,
+    flip,
+    setFlip,
   } = useContext(MainContext);
-
-  const [flip, setFlip] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [questionsPerPage] = useState(1);
@@ -49,6 +52,24 @@ const FlashCard = () => {
     reset();
   };
 
+  const clickNextAndIKnow = () => {
+    nextPage();
+    IknowClick();
+
+    if (arrOfAnswers.length < numberElementInFlashCard) {
+      arrOfAnswers.push(true);
+    }
+  };
+
+  const clickNextAndIDonTKnow = () => {
+    nextPage();
+    IdontknowClick();
+
+    if (arrOfAnswers.length < numberElementInFlashCard) {
+      arrOfAnswers.push(false);
+    }
+  };
+
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
@@ -61,8 +82,21 @@ const FlashCard = () => {
         className={`theCard ${flip ? 'flip' : ''}`}
         onClick={() => setFlip(!flip)}
       >
-        <TheFront currentQuestion={currentQuestion} />
-        <TheBack currentQuestion={currentQuestion} nextPage={nextPage} />
+        <TheFront
+          currentQuestion={currentQuestion}
+          flipButtonsOnCard={flipButtonsOnCard}
+          clickNextAndIKnow={clickNextAndIKnow}
+          clickNextAndIDonTKnow={clickNextAndIDonTKnow}
+        />
+        <TheBack
+          currentQuestion={currentQuestion}
+          flipButtonsOnCard={flipButtonsOnCard}
+          clickNextAndIKnow={clickNextAndIKnow}
+          clickNextAndIDonTKnow={clickNextAndIDonTKnow}
+          // currentQuestion={currentQuestion}
+          // nextPage={nextPage}
+          // flipButtonsOnCard={flipButtonsOnCard}
+        />
       </div>
 
       <div className='mainContainer_boxIcon'>

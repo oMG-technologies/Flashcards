@@ -1,7 +1,12 @@
 import React from 'react';
 
-const TheFront = ({ currentQuestion }) => {
-
+const TheFront = ({
+  currentQuestion,
+  flipButtonsOnCard,
+  clickNextAndIKnow,
+  clickNextAndIDonTKnow,
+}) => {
+  
   return (
     <div className='theFront'>
       Front
@@ -10,6 +15,19 @@ const TheFront = ({ currentQuestion }) => {
           <span key={el.id}>{el.frontCard}</span>
         ))}
       </p>
+      {flipButtonsOnCard ? (
+        <div className='mainContainer_button'>
+          <button
+            className='btn_IDonTknow-onCard'
+            onClick={clickNextAndIDonTKnow}
+          >
+            I don't know
+          </button>
+          <button className='btn_Iknow-onCard' onClick={clickNextAndIKnow}>
+            I know
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

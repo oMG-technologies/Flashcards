@@ -44,6 +44,10 @@ function App() {
   const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
   const [intervalTime, setIntervalTime] = useState();
 
+  // // Flip the cards
+  const [flip, setFlip] = useState(false);
+  const [flipButtonsOnCard, setFlipButtonsOnCard] = useState(false);
+
   const getQuestions = async (languageSetByUser) => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
     setQuestions(dataQuestions);
@@ -196,6 +200,10 @@ function App() {
           stop: stop,
           arrOfAnswers: arrOfAnswers,
           time: time,
+          flip: flip,
+          setFlip: setFlip,
+          flipButtonsOnCard: flipButtonsOnCard,
+          setFlipButtonsOnCard: setFlipButtonsOnCard,
         }}
       >
         <Switch>

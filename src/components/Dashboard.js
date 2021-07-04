@@ -112,7 +112,7 @@ const Dashboard = ({
           </Link>
         ) : (
           <Link to='./' className='btn_toTheFlashCard'>
-            Choses language and size to started
+            Choses language, size and side to started
           </Link>
         )}
       </div>

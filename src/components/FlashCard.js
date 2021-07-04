@@ -93,9 +93,6 @@ const FlashCard = () => {
           flipButtonsOnCard={flipButtonsOnCard}
           clickNextAndIKnow={clickNextAndIKnow}
           clickNextAndIDonTKnow={clickNextAndIDonTKnow}
-          // currentQuestion={currentQuestion}
-          // nextPage={nextPage}
-          // flipButtonsOnCard={flipButtonsOnCard}
         />
       </div>
 

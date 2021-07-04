@@ -18,12 +18,18 @@
   justify-content: center;
   align-items: center;
 }
+.ContainerDashboard_main-selectLanguage {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .ContainerDashboard_main-rangeSlider {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ContainerDashboard_main-rangeSlider::before {
   position: absolute;
@@ -38,6 +44,10 @@
   font-size: 0.9rem;
   content: attr(data-max);
   right: 10px;
+}
+.ContainerDashboard_main-chooseSide {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ContainerDashboard_button {
   width: 100%;

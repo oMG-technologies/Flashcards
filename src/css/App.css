@@ -46,6 +46,28 @@
   text-decoration: none;
 }
 
+.btn-side, .btnBack, .btnFront {
+  width: 100%;
+  height: 40px;
+  font-family: "New Tegomin", serif;
+  font-size: calc(8px + 1vmin);
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnFront {
+  background-color: #ffc728;
+  color: #333;
+  border: 1px solid #fff;
+}
+
+.btnBack {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ffc728;
+}
+
 .btn_Iknow-onCard {
   border: 1px solid green;
 }
@@ -86,12 +108,18 @@
   justify-content: center;
   align-items: center;
 }
+.ContainerDashboard_main-selectLanguage {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .ContainerDashboard_main-rangeSlider {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ContainerDashboard_main-rangeSlider::before {
   position: absolute;
@@ -106,6 +134,10 @@
   font-size: 0.9rem;
   content: attr(data-max);
   right: 10px;
+}
+.ContainerDashboard_main-chooseSide {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ContainerDashboard_button {
   width: 100%;

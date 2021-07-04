@@ -19,7 +19,6 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-
   const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
     useContext(MainContext);
 
@@ -70,6 +69,8 @@ const Dashboard = ({
         <span style={{ color: 'red', fontSize: '14px' }}>
           {errors.selectError}
         </span>
+
+
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'
@@ -88,9 +89,16 @@ const Dashboard = ({
             {numberElementInFlashCard}
           </div>
         </div>
-      </div>
-      <div>
-        <button onClick={changedFrontBack}>Front/ Back</button>
+        
+        <div className='ContainerDashboard_main-chooseSide'>
+          <label style={{ margin: '25px' }}>Choose side of cards:</label>
+          <button
+            className={`${flip ? 'btnBack' : 'btnFront'}`}
+            onClick={changedFrontBack}
+          >
+            {`${flip ? 'Back Card' : 'Front Card'}`}
+          </button>
+        </div>
       </div>
 
       <div className='ContainerDashboard_button'>

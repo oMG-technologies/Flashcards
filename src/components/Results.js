@@ -10,6 +10,7 @@ const Results = () => {
     answersGood,
     arrOfAnswers,
     time,
+    flip,
   } = useContext(MainContext);
 
   const h = () => {
@@ -54,18 +55,18 @@ const Results = () => {
           <thead>
             <tr>
               <th>No:</th>
-              <th>Front card:</th>
-              <th>Back Card:</th>
+              {flip ? <th>Back card:</th> : <th>Front Card:</th>}
+              {flip ? <th>Front card:</th> : <th>Back Card:</th>}
               <th>Your answer:</th>
             </tr>
           </thead>
           <tbody>
             {questionsRandom.map((el, i) => (
               <tr key={i + 1}>
-                <th key={el.id}>{i + 1}</th>
-                <td key={el.name}>{el.frontCard}</td>
-                <td key={el.email}>{el.backCard}</td>
-
+                <th>{i + 1}</th>
+                {flip ? <td>{el.backCard}</td> : <td>{el.frontCard}</td>}
+                {flip ? <td>{el.frontCard}</td> : <td>{el.backCard}</td>}
+               
                 {arrOfAnswers[i] ? (
                   <td>
                     <span className='mainContainer_boxIcon-check' key={i}>

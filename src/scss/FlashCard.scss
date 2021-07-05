@@ -60,7 +60,7 @@
   transform-style: preserve-3d;
   transition: all 0.5s ease;
   cursor: pointer;
-  
+
   // &:hover {
   //   transform: rotateY(180deg);
   //   cursor: pointer;
@@ -121,6 +121,10 @@ $desktop-width: 1024px;
       }
     }
   }
+
+  .theCard {
+    height: 83%;
+  }
 }
 
 @media (min-width: $phone-width-1) and (max-width: $tablet-width) {
@@ -162,5 +166,8 @@ $desktop-width: 1024px;
         justify-content: center;
       }
     }
+  }
+  .theCard {
+    height: 85%;
   }
 }

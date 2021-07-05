@@ -13,14 +13,3 @@
 .englishMeaning {
   margin-top: 50px;
 }
-
-@media (max-width: 466px) {
-  .theBack {
-    height: 80%;
-  }
-}
-@media (min-width: 465px) and (max-width: 768px) {
-  .theBack {
-    height: 80%;
-  }
-}

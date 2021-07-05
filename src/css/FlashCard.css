@@ -102,6 +102,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .theCard {
+    height: 83%;
+  }
 }
 @media (min-width: 465px) and (max-width: 768px) {
   .mainContainer {
@@ -139,5 +143,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  .theCard {
+    height: 85%;
   }
 }

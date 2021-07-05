@@ -350,6 +350,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .theCard {
+    height: 83%;
+  }
 }
 @media (min-width: 465px) and (max-width: 768px) {
   .mainContainer {
@@ -388,6 +392,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .theCard {
+    height: 85%;
+  }
 }
 .theFront {
   position: absolute;
@@ -404,16 +412,6 @@
   margin-top: 50px;
 }
 
-@media (max-width: 466px) {
-  .theFront {
-    height: 80%;
-  }
-}
-@media (min-width: 465px) and (max-width: 768px) {
-  .theFront {
-    height: 80%;
-  }
-}
 .theBack {
   position: absolute;
   width: 100%;
@@ -430,16 +428,6 @@
   margin-top: 50px;
 }
 
-@media (max-width: 466px) {
-  .theBack {
-    height: 80%;
-  }
-}
-@media (min-width: 465px) and (max-width: 768px) {
-  .theBack {
-    height: 80%;
-  }
-}
 .ContainerResults {
   width: 800px;
   height: 100%;

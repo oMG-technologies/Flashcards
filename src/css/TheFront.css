@@ -12,14 +12,3 @@
 .polishMeaning {
   margin-top: 50px;
 }
-
-@media (max-width: 466px) {
-  .theFront {
-    height: 80%;
-  }
-}
-@media (min-width: 465px) and (max-width: 768px) {
-  .theFront {
-    height: 80%;
-  }
-}

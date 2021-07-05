@@ -6,6 +6,7 @@ import './css/App.css';
 import Dashboard from './components/Dashboard';
 import FlashCard from './components/FlashCard';
 import Results from './components/Results';
+import NotFound from './components/NotFound';
 
 import { MainContext } from './context/MainContext';
 
@@ -230,6 +231,7 @@ function App() {
           <Route path='/Results' exact>
             <Results />
           </Route>
+          <Route component={NotFound} />
         </Switch>
       </MainContext.Provider>
     </Router>

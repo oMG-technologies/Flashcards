@@ -332,7 +332,7 @@
     align-items: center;
   }
   .mainContainer_button-next-prev {
-    margin-top: 350px;
+    margin-top: 300px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -352,7 +352,7 @@
   }
 
   .theCard {
-    height: 83%;
+    height: 95%;
   }
 }
 @media (min-width: 465px) and (max-width: 768px) {

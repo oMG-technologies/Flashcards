@@ -98,7 +98,7 @@
 
 .ContainerDashboard {
   width: 600px;
-  height: 600px;
+  height: 100vh;
   min-width: 300px;
   background-color: #fff;
   color: #000;

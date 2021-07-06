@@ -2,7 +2,7 @@
 
 After starting the application, you can display the dashboard and set language to learn and how many words you want to learn in one session. When done, hit the score button to view your achievements.
 
-If you want to check. Download project on yours PC. Open the terminal and install packages:
+If you want to check. Click the link: https://flip-cards-language.herokuapp.com/ wait a few minutes for the server to stand up or you might to download project on yours PC. Open the terminal and install packages:
 
 1. Open project file
 2. npm install
@@ -12,4 +12,5 @@ If you want to check. Download project on yours PC. Open the terminal and instal
 React application using:
 
 Frontend: React Hooks ( useState, useEffect, useContext ) React Router, JavaScript ES6, SCSS.
+
 Backend: Django REST framework

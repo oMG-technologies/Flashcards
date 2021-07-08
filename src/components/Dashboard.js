@@ -46,7 +46,7 @@ const Dashboard = ({
 
       <div className='ContainerDashboard_main'>
         {languages.map((language) =>
-          getUnicodeFlagIcon(`${language.target_language}`)
+          getUnicodeFlagIcon(`${language.target_language_iso3166}`)
         )}
 
         <div className='ContainerDashboard_main-selectLanguage'>
@@ -60,7 +60,7 @@ const Dashboard = ({
             {languages.map((language) => (
               <option key={language.id} value={language.conversion}>
                 {language.name}
-                {getUnicodeFlagIcon(`${language.target_language}`)}
+                {getUnicodeFlagIcon(`${language.target_language_iso3166}`)}
               </option>
             ))}
           </select>

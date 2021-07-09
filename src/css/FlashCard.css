@@ -40,12 +40,6 @@
   align-items: center;
   justify-content: center;
 }
-.mainContainer_button-back-results {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
 
 .theCard {
   position: absolute;
@@ -84,13 +78,7 @@
     align-items: center;
   }
   .mainContainer_button-next-prev {
-    margin-top: 300px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  .mainContainer_button-back-results {
+    margin-top: 340px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -126,13 +114,7 @@
     align-items: center;
   }
   .mainContainer_button-next-prev {
-    margin-top: 350px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  .mainContainer_button-back-results {
+    margin-top: 390px;
     display: flex;
     flex-direction: row;
     align-items: center;

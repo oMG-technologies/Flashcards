@@ -7,7 +7,6 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "concurrently": "^6.0.2",
     "country-flag-icons": "^1.2.10",
     "heroku-cli": "^6.15.31",
     "node-sass": "^6.0.0",
@@ -24,7 +23,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:dev": "concurrently \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

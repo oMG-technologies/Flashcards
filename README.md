@@ -6,7 +6,7 @@ If you want to check. Click the link: https://flip-cards-language.herokuapp.com/
 
 1. Open project file
 2. npm install
-3. npm run start:dev
+3. npm start
 4. Open the browsers at http://localhost:3000.
 
 React application using:

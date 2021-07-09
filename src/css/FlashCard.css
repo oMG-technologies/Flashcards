@@ -72,13 +72,13 @@
   .mainContainer_button {
     width: 100%;
     height: 60px;
-    margin-top: 60px;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .mainContainer_button-next-prev {
-    margin-top: 340px;
+    margin-top: 45vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -114,7 +114,7 @@
     align-items: center;
   }
   .mainContainer_button-next-prev {
-    margin-top: 390px;
+    margin-top: 40vh;
     display: flex;
     flex-direction: row;
     align-items: center;

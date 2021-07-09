@@ -7,6 +7,10 @@
   color: #333;
   border-radius: 25px;
   font-weight: 800;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .polishMeaning {
   margin-top: 50px;

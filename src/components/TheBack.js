@@ -14,7 +14,9 @@ const TheBack = ({
           <span key={el.id}>{el.backCard}</span>
         ))}
       </p>
-      {flipButtonsOnCard ? null : (
+      {flipButtonsOnCard ? (
+        <div className='mainContainer_button'></div>
+      ) : (
         <div className='mainContainer_button'>
           <button
             className='btn_IDonTknow-onCard'

@@ -6,7 +6,6 @@ const TheFront = ({
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
 }) => {
-  
   return (
     <div className='theFront'>
       Front
@@ -27,7 +26,9 @@ const TheFront = ({
             I know
           </button>
         </div>
-      ) : null}
+      ) : (
+        <div className='mainContainer_button'></div>
+      )}
     </div>
   );
 };

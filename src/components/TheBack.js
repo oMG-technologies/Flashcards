@@ -6,14 +6,31 @@ const TheBack = ({
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
 }) => {
+
   return (
     <div className='theBack'>
       Back
+      
       <p className='englishMeaning'>
         {currentQuestion.map((el) => (
-          <span key={el.id}>{el.backCard}</span>
+          <span key={el.id}>
+            <span key={el.id}>{el.backCard}</span>
+
+            {flipButtonsOnCard ? (
+              <audio
+                className='audio-element'
+                src={el.pronunciation_frontCard}
+              ></audio>
+            ) : (
+              <audio
+                className='audio-element'
+                src={el.pronunciation_backCard}
+              ></audio>
+            )}
+          </span>
         ))}
       </p>
+
       {flipButtonsOnCard ? (
         <div className='mainContainer_button'></div>
       ) : (
@@ -24,11 +41,13 @@ const TheBack = ({
           >
             I don't know
           </button>
+
           <button className='btn_Iknow-onCard' onClick={clickNextAndIKnow}>
             I know
           </button>
         </div>
       )}
+
     </div>
   );
 };

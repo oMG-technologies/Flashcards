@@ -6,14 +6,17 @@ const TheFront = ({
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
 }) => {
+  
   return (
     <div className='theFront'>
       Front
+
       <p className='englishMeaning'>
         {currentQuestion.map((el) => (
           <span key={el.id}>{el.frontCard}</span>
         ))}
       </p>
+
       {flipButtonsOnCard ? (
         <div className='mainContainer_button'>
           <button
@@ -29,6 +32,7 @@ const TheFront = ({
       ) : (
         <div className='mainContainer_button'></div>
       )}
+
     </div>
   );
 };

@@ -19,7 +19,7 @@
   height: 50px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid rgb(144, 238, 144);
+  border: 1px solid rgb(35, 223, 35);
   border-radius: 5px;
 
   font-family: 'New Tegomin', serif;
@@ -41,7 +41,7 @@
   justify-content: center;
 
   font-family: 'New Tegomin', serif;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(10px + 1vmin);
 
   margin: 10px;
   padding: 10px;
@@ -58,7 +58,7 @@
   height: 40px;
 
   font-family: 'New Tegomin', serif;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(10px + 1vmin);
 
   border-radius: 5px;
 
@@ -92,11 +92,16 @@
   border: 1px solid rgb(255, 0, 0);
 }
 
-.btn_Next {
+.btn_prevPage {
   @extend .btn-navigation;
 }
 
-.btn_prevPage {
+.btn_Pronunciation {
+  @extend .btn-navigation;
+  border: 1px solid rgb(0, 0, 255);
+}
+
+.btn_nextPage {
   @extend .btn-navigation;
 }
 
@@ -111,15 +116,15 @@
 
 .btn_results {
   @extend .btn-navigation-link;
-  border: 1px solid rgb(175, 96, 22);
+  border: 1px solid rgb(247, 122, 6);
 }
 
 .btn-back_Application_Not_Found {
   @extend .btn-navigation-link;
 
-  width: 50%;
+  width: 15%;
 
-  margin-top: 20px;
+  margin-top: 35px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgb(105, 214, 55);

@@ -70,6 +70,13 @@ const FlashCard = () => {
     }
   };
 
+  // Pronunciation
+  const playAudio = () => {
+    let audioEl = document.getElementsByClassName('audio-element')[0];
+
+    audioEl.play();
+  };
+
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
@@ -93,6 +100,7 @@ const FlashCard = () => {
           flipButtonsOnCard={flipButtonsOnCard}
           clickNextAndIKnow={clickNextAndIKnow}
           clickNextAndIDonTKnow={clickNextAndIDonTKnow}
+          playAudio={playAudio}
         />
       </div>
 
@@ -114,7 +122,14 @@ const FlashCard = () => {
         <button className='btn_prevPage' onClick={prevPage}>
           Prev
         </button>
-        <button className='btn_Next' onClick={nextPage}>
+
+        <button className='btn_Pronunciation' onClick={playAudio}>
+          <span>
+            <i className='fa fa-volume-up'></i>
+          </span>
+        </button>
+
+        <button className='btn_nextPage' onClick={nextPage}>
           Next
         </button>
       </div>
@@ -124,7 +139,7 @@ const FlashCard = () => {
           Back home
         </Link>
         <Link to='./Results' onClick={resultTime} className='btn_results'>
-          Results
+          Your Result
         </Link>
       </div>
     </div>

@@ -69,12 +69,13 @@ function App() {
     getQuestions(languageSetByUser);
     setAnswersGood(0);
     setAnswersBad(0);
-  }, [languageSetByUser]);
+  }, [languageSetByUser, flipButtonsOnCard]);
 
   // Create random questions
   useEffect(() => {
     randomQuestions();
   }, [questions, numberElementInFlashCard]);
+
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlashCard;

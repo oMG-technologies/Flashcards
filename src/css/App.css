@@ -20,7 +20,7 @@
   border: 1px solid #23df23;
   border-radius: 5px;
   font-family: "New Tegomin", serif;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(10px + 1vmin);
   margin: 10px;
   outline: none;
   cursor: pointer;
@@ -299,7 +299,7 @@
   height: 100%;
   margin-top: 60px;
   transform-style: preserve-3d;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 .theCard.flip {

@@ -47,7 +47,7 @@
   height: 100%;
   margin-top: 60px;
   transform-style: preserve-3d;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 .theCard.flip {

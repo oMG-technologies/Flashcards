@@ -50,13 +50,13 @@ const Dashboard = ({
         )}
 
         <div className='ContainerDashboard_main-selectLanguage'>
-          <label style={{ margin: '15px' }}>Choose language:</label>
+          <label style={{ margin: '15px' }}>Choose language</label>
 
           <select
             className='ContainerDashboard_main-select'
             onChange={handleChangeSelectLanguage}
           >
-            <option value=''>Language ...</option>
+            <option value=''>None</option>
             {languages.map((language) => (
               <option key={language.id} value={language.conversion}>
                 {language.name}
@@ -76,7 +76,7 @@ const Dashboard = ({
           data-min='1'
           data-max='50'
         >
-          <label style={{ margin: '15px' }}>Choose size of flip card:</label>
+          <label style={{ margin: '15px' }}>Set number of flip cards</label>
           <input
             type='range'
             min='1'
@@ -112,7 +112,7 @@ const Dashboard = ({
           </Link>
         ) : (
           <Link to='./' className='btn_toTheFlashCard'>
-            Choses language, size and side to started
+            Choose language, number of flip cards and side to start
           </Link>
         )}
       </div>

@@ -4,7 +4,7 @@ const Loaded = () => {
   return (
     <div className='loaded_page'>
       <h3 className='loaded_page-text'>
-        {`Loading... Please give me a few minutes :)`}
+        {`Loading... Please give me a few seconds :)`}
         <div className='loaded_page-dotted'>
           <div className='dot-pulse'></div>
         </div>

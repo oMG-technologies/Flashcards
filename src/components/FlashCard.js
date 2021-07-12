@@ -113,7 +113,7 @@ const FlashCard = () => {
 
       <div className='mainContainer_button-next-prev'>
         <button className='btn_prevPage' onClick={prevPage}>
-          Prev
+          Previous
         </button>
 
         <button className='btn_Pronunciation' onClick={playAudio}>

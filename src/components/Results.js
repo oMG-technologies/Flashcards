@@ -32,7 +32,7 @@ const Results = () => {
     <div className='ContainerResults'>
       <div className='ContainerResults_header'>Results</div>
       <div className='ContainerResults_results'>
-        <h3>Your result:</h3>
+        <h3>Your score:</h3>
 
         <strong>Total flip cards: </strong>
         {numberElementInFlashCard}
@@ -46,11 +46,11 @@ const Results = () => {
         </p>
 
         <p>
-          <strong>You know: </strong>
+          <strong>Final score: </strong>
           {((answersGood * 100) / numberElementInFlashCard).toFixed(2)}%
         </p>
         <p>
-          <strong>Your time: </strong>
+          <strong>Time: </strong>
           {h()} &nbsp;&nbsp;
           <span>{time.m >= 10 ? time.m : '0' + time.m}</span>&nbsp;:&nbsp;
           <span>{time.s >= 10 ? time.s : '0' + time.s}</span>&nbsp;:&nbsp;
@@ -126,10 +126,10 @@ const Results = () => {
       </div>
       <div className='ContainerResults_button'>
         <Link to='./FlashCard' className='btn_toTheFlashCard'>
-          To the FlashCard
+          Back to flip cards
         </Link>
         <Link to='./' className='btn_home'>
-          Back home
+          Back to home
         </Link>
       </div>
     </div>

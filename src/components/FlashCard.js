@@ -18,6 +18,7 @@ const FlashCard = () => {
     flipButtonsOnCard,
     flip,
     setFlip,
+    playAudio,
   } = useContext(MainContext);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,13 +71,6 @@ const FlashCard = () => {
     }
   };
 
-  // Pronunciation
-  const playAudio = () => {
-    let audioEl = document.getElementsByClassName('audio-element')[0];
-
-    audioEl.play();
-  };
-
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
@@ -100,7 +94,6 @@ const FlashCard = () => {
           flipButtonsOnCard={flipButtonsOnCard}
           clickNextAndIKnow={clickNextAndIKnow}
           clickNextAndIDonTKnow={clickNextAndIDonTKnow}
-          playAudio={playAudio}
         />
       </div>
 

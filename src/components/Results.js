@@ -21,6 +21,13 @@ const Results = () => {
     }
   };
 
+  // Pronunciation
+  const playAudio = (i) => {
+    let audioEl = document.getElementsByClassName('audio-element')[i];
+
+    audioEl.play();
+  };
+
   return (
     <div className='ContainerResults'>
       <div className='ContainerResults_header'>Results</div>
@@ -50,23 +57,53 @@ const Results = () => {
           <span>{time.ms >= 10 ? time.ms : '0' + time.ms} s</span>
         </p>
       </div>
+
       <div className='ContainerResults_table'>
         <table className='ContainerResults_table-main'>
           <thead>
             <tr>
-              <th>No:</th>
+              <th>#</th>
               {flip ? <th>Back card:</th> : <th>Front Card:</th>}
               {flip ? <th>Front card:</th> : <th>Back Card:</th>}
+              <th>Pronunciation:</th>
               <th>Your answer:</th>
             </tr>
           </thead>
           <tbody>
             {questionsRandom.map((el, i) => (
               <tr key={i + 1}>
-                <th>{i + 1}</th>
+                <td>{i + 1}</td>
+
                 {flip ? <td>{el.backCard}</td> : <td>{el.frontCard}</td>}
-                {flip ? <td>{el.frontCard}</td> : <td>{el.backCard}</td>}
-               
+                
+                {flip ? (
+                  <td>
+                    {el.frontCard}
+                    <audio
+                      id={el.i}
+                      className='audio-element'
+                      src={el.pronunciation_frontCard}
+                    ></audio>
+                  </td>
+                ) : (
+                  <td>
+                    {el.backCard}
+                    <audio
+                      id={i}
+                      className='audio-element'
+                      src={el.pronunciation_backCard}
+                    ></audio>
+                  </td>
+                )}
+
+                <td>
+                  <button onClick={() => playAudio(i)}>
+                    <span>
+                      <i className='fa fa-volume-up'></i>
+                    </span>
+                  </button>
+                </td>
+
                 {arrOfAnswers[i] ? (
                   <td>
                     <span className='mainContainer_boxIcon-check' key={i}>

@@ -448,10 +448,12 @@
 .ContainerResults_table th,
 .ContainerResults_table td {
   width: 100vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .ContainerResults_table-main {
   width: 800px;
-  padding: 10px;
 }
 .ContainerResults_button {
   width: 100%;
@@ -575,10 +577,12 @@
 .ContainerResults_table th,
 .ContainerResults_table td {
   width: 100vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .ContainerResults_table-main {
   width: 800px;
-  padding: 10px;
 }
 .ContainerResults_button {
   width: 100%;

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './css/App.css';
 
 import Dashboard from './components/Dashboard';
-import FlashCard from './components/FlashCard';
+import FlipCards from './components/FlipCards';
 import Results from './components/Results';
 import NotFound from './components/NotFound';
 
@@ -31,7 +31,7 @@ function App() {
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
 
-  const [numberElementInFlashCard, setNumberElementInFlashCard] = useState(10);
+  const [numberElementInFlipCards, setNumberElementInFlipCards] = useState(10);
 
   const initialError = {
     selectError: '',
@@ -74,12 +74,12 @@ function App() {
   // Create random questions
   useEffect(() => {
     randomQuestions();
-  }, [questions, numberElementInFlashCard]);
+  }, [questions, numberElementInFlipCards]);
 
   // Slice questions Arr
-  const indexOfLastMainArrQuestion = numberElementInFlashCard;
+  const indexOfLastMainArrQuestion = numberElementInFlipCards;
   const indexOfFirstMainQuestion =
-    indexOfLastMainArrQuestion - numberElementInFlashCard;
+    indexOfLastMainArrQuestion - numberElementInFlipCards;
   const sliceArrQuestions = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
@@ -103,12 +103,12 @@ function App() {
 
   // Create Result
   const IknowClick = () => {
-    if (answersGood + answersBad < numberElementInFlashCard) {
+    if (answersGood + answersBad < numberElementInFlipCards) {
       setAnswersGood(answersGood + 1);
     }
   };
   const IdontknowClick = () => {
-    if (answersGood + answersBad < numberElementInFlashCard) {
+    if (answersGood + answersBad < numberElementInFlipCards) {
       setAnswersBad(answersBad + 1);
     }
   };
@@ -203,7 +203,7 @@ function App() {
           answersBad: answersBad,
           IdontknowClick: IdontknowClick,
           IknowClick: IknowClick,
-          numberElementInFlashCard: numberElementInFlashCard,
+          numberElementInFlipCards: numberElementInFlipCards,
           reset: reset,
           stop: stop,
           arrOfAnswers: arrOfAnswers,
@@ -221,8 +221,8 @@ function App() {
               languages={languages}
               setLanguageSetByUser={setLanguageSetByUser}
               handleChangeSelectLanguage={handleChangeSelectLanguage}
-              numberElementInFlashCard={numberElementInFlashCard}
-              setNumberElementInFlashCard={setNumberElementInFlashCard}
+              numberElementInFlipCards={numberElementInFlipCards}
+              setNumberElementInFlipCards={setNumberElementInFlipCards}
               setAnswersGood={setAnswersGood}
               setAnswersBad={setAnswersBad}
               start={start}
@@ -233,8 +233,8 @@ function App() {
               setArrOfAnswers={setArrOfAnswers}
             />
           </Route>
-          <Route path='/FlashCard' exact>
-            <FlashCard />
+          <Route path='/FlipCards' exact>
+            <FlipCards />
           </Route>
           <Route path='/Results' exact>
             <Results />

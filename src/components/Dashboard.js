@@ -7,8 +7,8 @@ import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 
 const Dashboard = ({
   handleChangeSelectLanguage,
-  numberElementInFlashCard,
-  setNumberElementInFlashCard,
+  numberElementInFlipCards,
+  setNumberElementInFlipCards,
   setAnswersBad,
   setAnswersGood,
   start,
@@ -32,7 +32,7 @@ const Dashboard = ({
   };
 
   const onChangeEventChandlerAndCleanup = (e) => {
-    setNumberElementInFlashCard(e.target.value);
+    setNumberElementInFlipCards(e.target.value);
   };
 
   const changedFrontBack = () => {
@@ -70,7 +70,6 @@ const Dashboard = ({
           {errors.selectError}
         </span>
 
-
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'
@@ -81,15 +80,15 @@ const Dashboard = ({
             type='range'
             min='1'
             max='50'
-            value={numberElementInFlashCard}
+            value={numberElementInFlipCards}
             onChange={onChangeEventChandlerAndCleanup}
             style={{ marginTop: '10px' }}
           />
           <div className='ContainerDashboard_main-rangeSlider-result'>
-            {numberElementInFlashCard}
+            {numberElementInFlipCards}
           </div>
         </div>
-        
+
         <div className='ContainerDashboard_main-chooseSide'>
           <label style={{ margin: '25px' }}>Choose side of cards</label>
           <button
@@ -104,7 +103,7 @@ const Dashboard = ({
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (
           <Link
-            to='./FlashCard'
+            to='./FlipCards'
             onClick={startTimerClick}
             className='btn_toTheFlashCard'
           >

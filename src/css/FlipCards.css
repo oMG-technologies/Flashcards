@@ -1,0 +1,132 @@
+.mainContainer {
+  position: relative;
+  width: 650px;
+  height: 320px;
+}
+.mainContainer_text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.mainContainer_boxIcon {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  font-size: calc(15px + 2vmin);
+}
+.mainContainer_boxIcon-check {
+  color: #31da31;
+}
+.mainContainer_boxIcon-remove {
+  color: #f50202;
+}
+.mainContainer_button {
+  width: 100%;
+  height: 60px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContainer_button-next-prev {
+  margin-top: 350px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer_button-back-results {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.theCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  transform-style: preserve-3d;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.theCard.flip {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.fa fa-check {
+  color: chartreuse;
+}
+
+@media (max-width: 466px) {
+  .mainContainer {
+    position: relative;
+    width: 98vw;
+    height: 50vh;
+  }
+  .mainContainer_text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .mainContainer_button {
+    width: 100%;
+    height: 60px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainContainer_button-next-prev {
+    margin-top: 45vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .mainContainer_button-back-results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theCard {
+    height: 80%;
+  }
+}
+@media (min-width: 465px) and (max-width: 768px) {
+  .mainContainer {
+    position: relative;
+    width: 98vw;
+    height: 50vh;
+  }
+  .mainContainer_text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .mainContainer_button {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainContainer_button-next-prev {
+    margin-top: 40vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .mainContainer_button-back-results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theCard {
+    height: 75%;
+  }
+}

@@ -6,10 +6,10 @@ import TheBack from './TheBack';
 
 import { MainContext } from '../context/MainContext';
 
-const FlashCard = () => {
+const FlipCards = () => {
   const {
     questionsRandom,
-    numberElementInFlashCard,
+    numberElementInFlipCards,
     IknowClick,
     IdontknowClick,
     arrOfAnswers,
@@ -57,7 +57,7 @@ const FlashCard = () => {
     nextPage();
     IknowClick();
 
-    if (arrOfAnswers.length < numberElementInFlashCard) {
+    if (arrOfAnswers.length < numberElementInFlipCards) {
       arrOfAnswers.push(true);
     }
   };
@@ -66,7 +66,7 @@ const FlashCard = () => {
     nextPage();
     IdontknowClick();
 
-    if (arrOfAnswers.length < numberElementInFlashCard) {
+    if (arrOfAnswers.length < numberElementInFlipCards) {
       arrOfAnswers.push(false);
     }
   };
@@ -77,7 +77,7 @@ const FlashCard = () => {
         Click on the card to check the answer:
       </div>
       <div className='mainContainer_question'>
-        Question: {currentPage} / {numberElementInFlashCard}
+        Question: {currentPage} / {numberElementInFlipCards}
       </div>
       <div
         className={`theCard ${flip ? 'flip' : ''}`}
@@ -139,4 +139,4 @@ const FlashCard = () => {
   );
 };
 
-export default FlashCard;
+export default FlipCards;

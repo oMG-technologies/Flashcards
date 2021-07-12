@@ -30,9 +30,9 @@
     td {
       width: 100vw;
     }
+
     &-main {
       width: 800px;
-      padding: 10px;
     }
   }
   &_button {
@@ -78,17 +78,23 @@ $desktop-width: 1024px;
         color: rgb(255, 0, 0);
       }
     }
+
     &_table {
+      font-size: 16px;
+      tr,
+      th,
+      td {
+        width: 98vw;
+      }
+
       &-main {
-        width: 100vw;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px;
+        width: 95%;
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
+
     &_button {
       width: 100%;
       height: 60px;
@@ -128,14 +134,18 @@ $desktop-width: 1024px;
       }
     }
     &_table {
+      font-size: 16px;
+      tr,
+      th,
+      td {
+        width: 98vw;
+      }
+
       &-main {
-        width: 100%;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px;
+        width: 95%;
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     &_button {

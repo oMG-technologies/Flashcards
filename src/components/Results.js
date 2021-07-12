@@ -75,7 +75,6 @@ const Results = () => {
                 <td>{i + 1}</td>
 
                 {flip ? <td>{el.backCard}</td> : <td>{el.frontCard}</td>}
-                
                 {flip ? (
                   <td>
                     {el.frontCard}
@@ -97,7 +96,10 @@ const Results = () => {
                 )}
 
                 <td>
-                  <button onClick={() => playAudio(i)}>
+                  <button
+                    onClick={() => playAudio(i)}
+                    className='btn-pronunciation-table'
+                  >
                     <span>
                       <i className='fa fa-volume-up'></i>
                     </span>

@@ -91,7 +91,7 @@ const Dashboard = ({
         </div>
         
         <div className='ContainerDashboard_main-chooseSide'>
-          <label style={{ margin: '25px' }}>Choose side of cards:</label>
+          <label style={{ margin: '25px' }}>Choose side of cards</label>
           <button
             className={`${flip ? 'btnBack' : 'btnFront'}`}
             onClick={changedFrontBack}

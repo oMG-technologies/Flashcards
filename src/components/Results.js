@@ -79,7 +79,6 @@ const Results = () => {
                   <td>
                     {el.frontCard}
                     <audio
-                      id={el.i}
                       className='audio-element'
                       src={el.pronunciation_frontCard}
                     ></audio>
@@ -88,7 +87,6 @@ const Results = () => {
                   <td>
                     {el.backCard}
                     <audio
-                      id={i}
                       className='audio-element'
                       src={el.pronunciation_backCard}
                     ></audio>

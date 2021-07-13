@@ -36,8 +36,7 @@ const Dashboard = ({
   };
 
   const changedFrontBack = () => {
-    setFlip(!flip);
-    setFlipButtonsOnCard(!flipButtonsOnCard);
+    setFlip(!flip) && setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
   return (

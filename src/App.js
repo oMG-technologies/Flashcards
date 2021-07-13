@@ -74,7 +74,7 @@ function App() {
   // Create random questions
   useEffect(() => {
     randomQuestions();
-  }, [questions, numberElementInFlipCards, languageSetByUser, flip]);
+  }, [questions, numberElementInFlipCards, languageSetByUser]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlipCards;
@@ -187,13 +187,6 @@ function App() {
     return <Loaded />;
   }
 
-  // Pronunciation
-  const playAudio = () => {
-    let audioEl = document.getElementsByClassName('audio-element')[0];
-
-    audioEl.play();
-  };
-
   return (
     <Router>
       <MainContext.Provider
@@ -212,7 +205,6 @@ function App() {
           setFlip: setFlip,
           flipButtonsOnCard: flipButtonsOnCard,
           setFlipButtonsOnCard: setFlipButtonsOnCard,
-          playAudio: playAudio,
         }}
       >
         <Switch>

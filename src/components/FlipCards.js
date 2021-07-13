@@ -18,8 +18,7 @@ const FlipCards = () => {
     flipButtonsOnCard,
     flip,
     setFlip,
-    playAudio,
-  } = useContext(MainContext);
+   } = useContext(MainContext);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [questionsPerPage] = useState(1);
@@ -71,6 +70,12 @@ const FlipCards = () => {
     }
   };
 
+  // Pronunciation
+  const playAudio = (i) => {
+    let audioEl = document.getElementsByClassName('audio-element')[i];
+    audioEl.play();
+  };
+
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
@@ -116,7 +121,12 @@ const FlipCards = () => {
           Previous
         </button>
 
-        <button className='btn_Pronunciation' onClick={playAudio}>
+
+        <button
+          className={flip ? 'btnBack ' : 'btnFront'}
+          
+          onClick={flip ? () => playAudio(1) : () => playAudio(0)}
+        >
           <span>
             <i className='fa fa-volume-up'></i>
           </span>

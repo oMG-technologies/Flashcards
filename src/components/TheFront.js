@@ -6,17 +6,28 @@ const TheFront = ({
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
 }) => {
-  
   return (
     <div className='theFront'>
       Front
-
       <p className='englishMeaning'>
         {currentQuestion.map((el) => (
-          <span key={el.id}>{el.frontCard}</span>
+          <span key={el.id}>
+            <span key={el.id}>{el.frontCard}</span>
+
+            {flipButtonsOnCard ? (
+              <audio
+                className='audio-element'
+                src={el.pronunciation_backCard}
+              ></audio>
+            ) : (
+              <audio
+                className='audio-element'
+                src={el.pronunciation_frontCard}
+              ></audio>
+            )}
+          </span>
         ))}
       </p>
-
       {flipButtonsOnCard ? (
         <div className='mainContainer_button'>
           <button
@@ -32,7 +43,6 @@ const TheFront = ({
       ) : (
         <div className='mainContainer_button'></div>
       )}
-
     </div>
   );
 };

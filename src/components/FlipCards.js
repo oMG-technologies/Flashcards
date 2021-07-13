@@ -18,7 +18,7 @@ const FlipCards = () => {
     flipButtonsOnCard,
     flip,
     setFlip,
-   } = useContext(MainContext);
+  } = useContext(MainContext);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [questionsPerPage] = useState(1);
@@ -121,16 +121,25 @@ const FlipCards = () => {
           Previous
         </button>
 
-
-        <button
-          className={flip ? 'btnBack ' : 'btnFront'}
-          
-          onClick={flip ? () => playAudio(1) : () => playAudio(0)}
-        >
-          <span>
-            <i className='fa fa-volume-up'></i>
-          </span>
-        </button>
+        {flipButtonsOnCard ? (
+          <button
+            className={flip ? 'btnBack ' : 'btnFront'}
+            onClick={!flip ? () => playAudio(1) : () => playAudio(0)}
+          >
+            <span>
+              <i className='fa fa-volume-up'></i>
+            </span>
+          </button>
+        ) : (
+          <button
+            className={flip ? 'btnBack ' : 'btnFront'}
+            onClick={flip ? () => playAudio(1) : () => playAudio(0)}
+          >
+            <span>
+              <i className='fa fa-volume-up'></i>
+            </span>
+          </button>
+        )}
 
         <button className='btn_nextPage' onClick={nextPage}>
           Next

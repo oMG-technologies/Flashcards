@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import { MainContext } from '../context/MainContext';
 
@@ -22,6 +22,11 @@ const Dashboard = ({
   const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
     useContext(MainContext);
 
+  useEffect(() => {
+    setFlip(false);
+    setFlipButtonsOnCard(false);
+  }, [])
+
   const startTimerClick = () => {
     reset();
     start();
@@ -36,7 +41,7 @@ const Dashboard = ({
   };
 
   const changedFrontBack = () => {
-    setFlip(!flip) && setFlipButtonsOnCard(!flipButtonsOnCard);
+    setFlip(!flip) || setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
   return (

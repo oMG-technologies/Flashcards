@@ -93,6 +93,7 @@
 
   .theCard {
     height: 80%;
+    margin-top: 5rem;
   }
 }
 @media (min-width: 465px) and (max-width: 768px) {

@@ -74,7 +74,7 @@ function App() {
   // Create random questions
   useEffect(() => {
     randomQuestions();
-  }, [questions, numberElementInFlipCards]);
+  }, [questions, numberElementInFlipCards, languageSetByUser, flip]);
 
   // Slice questions Arr
   const indexOfLastMainArrQuestion = numberElementInFlipCards;

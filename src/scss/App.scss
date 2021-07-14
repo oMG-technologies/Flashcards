@@ -2,7 +2,7 @@
 
 @import './buttons';
 @import './Dashboard.scss';
-@import './FlashCard.scss';
+@import './FlipCard.scss';
 @import './TheFront.scss';
 @import './TheBack.scss';
 @import './Results.scss';
@@ -13,6 +13,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {

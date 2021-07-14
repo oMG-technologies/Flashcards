@@ -16,10 +16,14 @@ import {
 } from './services/ApiService';
 
 import Loaded from './components/Loaded';
+import Fix from './components/Fix';
 
 function App() {
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
+
+  // Pending
+  const [isPending, setIsPending] = useState(true);
 
   const [questions, setQuestions] = useState([]);
   const [questionsRandom, setQuestionsRandom] = useState([]);
@@ -51,14 +55,26 @@ function App() {
 
   const getQuestions = async (languageSetByUser) => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
-    setQuestions(dataQuestions);
-    setIsLoaded(false);
+
+    if (dataQuestions === undefined || dataQuestions === []) {
+      setIsPending(true);
+    } else {
+      setQuestions(dataQuestions);
+      setIsLoaded(false);
+      setIsPending(false);
+    }
   };
 
   const getLanguages = async () => {
     const dataLanguages = await getAllLanguages();
-    setLanguages(dataLanguages);
-    setIsLoaded(false);
+
+    if (dataLanguages === undefined || dataLanguages === []) {
+      setIsPending(true);
+    } else {
+      setLanguages(dataLanguages);
+      setIsLoaded(false);
+      setIsPending(false);
+    }
   };
 
   useEffect(() => {
@@ -185,6 +201,8 @@ function App() {
 
   if (isLoaded) {
     return <Loaded />;
+  } else if (isPending) {
+    return <Fix />;
   }
 
   return (

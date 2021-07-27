@@ -1,15 +1,10 @@
 import axios from 'axios';
 
-const url = 'string';
+const url = `http://127.0.0.1:8000/api-token-auth/`;
 
-export const getToken = (username, password) =>
+export const getToken = (data) =>
   axios
-    .post(url, {
-      data: {
-        username: username,
-        password: password,
-      },
-    })
+    .post(url, data)
     .then((res) => {
       console.log(res.data);
     })

@@ -5,6 +5,7 @@ import './css/App.css';
 
 import Login from './components/Login';
 import Registration from './components/Registration';
+import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import FlipCards from './components/FlipCards';
 import Results from './components/Results';
@@ -235,29 +236,32 @@ function App() {
             <Registration />
           </Route>
 
-          <Route path='/Dashboard' exact>
-            <Dashboard
-              languages={languages}
-              setLanguageSetByUser={setLanguageSetByUser}
-              handleChangeSelectLanguage={handleChangeSelectLanguage}
-              numberElementInFlipCards={numberElementInFlipCards}
-              setNumberElementInFlipCards={setNumberElementInFlipCards}
-              setAnswersGood={setAnswersGood}
-              setAnswersBad={setAnswersBad}
-              start={start}
-              reset={reset}
-              errors={errors}
-              isErrorValidation={isErrorValidation}
-              setErrorValidation={setErrorValidation}
-              setArrOfAnswers={setArrOfAnswers}
-            />
-          </Route>
-          <Route path='/FlipCards' exact>
-            <FlipCards />
-          </Route>
-          <Route path='/Results' exact>
-            <Results />
-          </Route>
+          <ProtectedRoute path='/Dashboard'>
+            <Route path='/Dashboard' exact>
+              <Dashboard
+                languages={languages}
+                setLanguageSetByUser={setLanguageSetByUser}
+                handleChangeSelectLanguage={handleChangeSelectLanguage}
+                numberElementInFlipCards={numberElementInFlipCards}
+                setNumberElementInFlipCards={setNumberElementInFlipCards}
+                setAnswersGood={setAnswersGood}
+                setAnswersBad={setAnswersBad}
+                start={start}
+                reset={reset}
+                errors={errors}
+                isErrorValidation={isErrorValidation}
+                setErrorValidation={setErrorValidation}
+                setArrOfAnswers={setArrOfAnswers}
+              />
+            </Route>
+          </ProtectedRoute>
+            <Route path='/FlipCards' exact>
+              <FlipCards />
+            </Route>
+            <Route path='/Results' exact>
+              <Results />
+            </Route>
+
           <Route component={NotFound} />
         </Switch>
       </MainContext.Provider>

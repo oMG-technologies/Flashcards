@@ -107,7 +107,7 @@ const Dashboard = ({
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (
           <Link
-            to='./FlipCards'
+            to='/FlipCards'
             onClick={startTimerClick}
             className='btn_toTheFlashCard'
           >

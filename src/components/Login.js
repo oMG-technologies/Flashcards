@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
     userName: '',
     password: '',
   });
+
+ const [isLogIn, setIsLogIn] = useState(false);
 
   const formRef = useRef();
 
@@ -16,7 +18,18 @@ const Login = () => {
     });
   };
 
-  const isLogIn = (e) => {
+  const isLogInToApplication = (e) => {
+
+     let name = loginParams.userName;
+     let password = loginParams.password;
+
+     if (name === 'admin' && password === '123') {
+       localStorage.setItem('token', 'T');
+       setIsLogIn(true);
+     } else {
+       alert('Try again to get access !');
+     }
+
     e.preventDefault();
     console.log(loginParams);
 
@@ -25,13 +38,19 @@ const Login = () => {
     }
   };
 
+console.log(isLogIn);
+
+    if (isLogIn) {
+      return <Redirect from='/' to='/Dashboard' />;
+    }
+
   return (
     <div className='ContainerLogin'>
       <div className='ContainerLogin_header'>Login:</div>
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
-          <form onSubmit={isLogIn} ref={formRef}>
+          <form onSubmit={isLogInToApplication} ref={formRef}>
             <label style={{ margin: '15px' }}>Enter your user name</label>
             <input
               type='text'

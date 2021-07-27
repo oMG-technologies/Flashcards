@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
+import { getToken } from '../../src/services/Authorization';
+
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
     userName: '',
@@ -19,15 +21,17 @@ const Login = () => {
   };
 
   const isLogInToApplication = (e) => {
-    let name = loginParams.userName;
+    let username = loginParams.userName;
     let password = loginParams.password;
 
-    if (name === 'admin' && password === '123') {
-      localStorage.setItem('token', 'T');
-      setIsLogIn(true);
-    } else {
-      alert('Try again to get access !');
-    }
+    getToken(username, password);
+
+    // if (name === 'admin' && password === '123') {
+    //   localStorage.setItem('token', 'T');
+    //   setIsLogIn(true);
+    // } else {
+    //   alert('Try again to get access !');
+    // }
 
     e.preventDefault();
     console.log(loginParams);
@@ -36,7 +40,6 @@ const Login = () => {
       formRef.current.reset();
     }
   };
-
 
   if (isLogIn) {
     return <Redirect from='/' to='/Dashboard' />;

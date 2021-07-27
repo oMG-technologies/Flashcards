@@ -6,24 +6,25 @@ export const getToken = (data) =>
   axios
     .post(url, data)
     .then((res) => {
-      console.log(res.data);
-        localStorage.setItem('token', res.data.token);
+      console.log('response from getToken',res.data);
+      localStorage.setItem('token', res.data.token);
     })
     .catch((error) => {
       console.error(error);
     });
 
-    
-const access_token = 'mock'
-export const getAccess = axios
-  .get(url, {
-    headers: {
-      Authorization: `Token ${access_token}`,
-    },
-  })
-  .then((res) => {
-    console.log(res.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+
+
+export const getAccess = (access_token) =>
+  axios
+    .get(url, {
+      headers: {
+        Authorization: `Token ${access_token}`,
+      },
+    })
+    .then((res) => {
+      console.log('response from getAccess', res.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });

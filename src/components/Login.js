@@ -7,7 +7,7 @@ const Login = () => {
     password: '',
   });
 
- const [isLogIn, setIsLogIn] = useState(false);
+  const [isLogIn, setIsLogIn] = useState(false);
 
   const formRef = useRef();
 
@@ -19,16 +19,15 @@ const Login = () => {
   };
 
   const isLogInToApplication = (e) => {
+    let name = loginParams.userName;
+    let password = loginParams.password;
 
-     let name = loginParams.userName;
-     let password = loginParams.password;
-
-     if (name === 'admin' && password === '123') {
-       localStorage.setItem('token', 'T');
-       setIsLogIn(true);
-     } else {
-       alert('Try again to get access !');
-     }
+    if (name === 'admin' && password === '123') {
+      localStorage.setItem('token', 'T');
+      setIsLogIn(true);
+    } else {
+      alert('Try again to get access !');
+    }
 
     e.preventDefault();
     console.log(loginParams);
@@ -38,11 +37,10 @@ const Login = () => {
     }
   };
 
-console.log(isLogIn);
 
-    if (isLogIn) {
-      return <Redirect from='/' to='/Dashboard' />;
-    }
+  if (isLogIn) {
+    return <Redirect from='/' to='/Dashboard' />;
+  }
 
   return (
     <div className='ContainerLogin'>

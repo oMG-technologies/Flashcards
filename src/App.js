@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
 import './css/App.css';
 
@@ -24,6 +29,9 @@ import Fix from './components/Fix';
 function App() {
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
+
+  // Log out in application
+  const [isLogOut, setIsLogOut] = useState(false);
 
   // Pending
   const [isPending, setIsPending] = useState(true);
@@ -208,6 +216,15 @@ function App() {
     return <Fix />;
   }
 
+  const isSignOut = () => {
+    localStorage.removeItem('token');
+    setIsLogOut(true);
+  };
+
+  if (isLogOut) {
+    return <Redirect to='/' />;
+  }
+
   return (
     <Router>
       <MainContext.Provider
@@ -226,6 +243,7 @@ function App() {
           setFlip: setFlip,
           flipButtonsOnCard: flipButtonsOnCard,
           setFlipButtonsOnCard: setFlipButtonsOnCard,
+          isSignOut: isSignOut,
         }}
       >
         <Switch>
@@ -255,12 +273,12 @@ function App() {
               />
             </Route>
           </ProtectedRoute>
-            <Route path='/FlipCards' exact>
-              <FlipCards />
-            </Route>
-            <Route path='/Results' exact>
-              <Results />
-            </Route>
+          <Route path='/FlipCards' exact>
+            <FlipCards />
+          </Route>
+          <Route path='/Results' exact>
+            <Results />
+          </Route>
 
           <Route component={NotFound} />
         </Switch>

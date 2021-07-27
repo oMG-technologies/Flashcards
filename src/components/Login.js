@@ -5,7 +5,7 @@ import { getToken } from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
-    userName: '',
+    username: '',
     password: '',
   });
 
@@ -21,10 +21,10 @@ const Login = () => {
   };
 
   const isLogInToApplication = (e) => {
-    let username = loginParams.userName;
+    let username = loginParams.username;
     let password = loginParams.password;
 
-    getToken(username, password);
+    getToken(loginParams);
 
     // if (name === 'admin' && password === '123') {
     //   localStorage.setItem('token', 'T');
@@ -55,8 +55,8 @@ const Login = () => {
             <label style={{ margin: '15px' }}>Enter your user name</label>
             <input
               type='text'
-              placeholder='Username'
-              name='userName'
+              placeholder='username'
+              name='username'
               onChange={handleChange}
               style={{ marginTop: '10px' }}
             />

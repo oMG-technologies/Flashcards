@@ -228,14 +228,14 @@ function App() {
         }}
       >
         <Switch>
-          <Route path='/login' exact>
+          <Route path='/' exact>
             <Login />
           </Route>
-          <Route path='/registration' exact>
+          <Route path='/Registration' exact>
             <Registration />
           </Route>
 
-          <Route path='/' exact>
+          <Route path='/Dashboard' exact>
             <Dashboard
               languages={languages}
               setLanguageSetByUser={setLanguageSetByUser}

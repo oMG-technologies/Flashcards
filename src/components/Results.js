@@ -126,7 +126,7 @@ const Results = () => {
         <Link to='./FlipCards' className='btn_toTheFlashCard'>
           Back to flip cards
         </Link>
-        <Link to='./' className='btn_home'>
+        <Link to='./Dashboard' className='btn_home'>
           Back to home
         </Link>
       </div>

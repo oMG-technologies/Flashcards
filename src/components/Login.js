@@ -50,13 +50,13 @@ const Login = () => {
             />
             <div className='ContainerLogin_button'>
               <Link
-                to='./registration'
+                to='./Registration'
                 type='submit'
                 className='btn_toTheFlashCard'
               >
                 Create Account
               </Link>
-              <button type='submit'>Let's get started</button>
+              <button type='submit'>Let's get started!</button>
             </div>
           </form>
         </div>

@@ -147,7 +147,7 @@ const FlipCards = () => {
       </div>
 
       <div className='mainContainer_button-back-results'>
-        <Link to='./' onClick={backHome} className='btn_home'>
+        <Link to='./dashboard' onClick={backHome} className='btn_home'>
           Back home
         </Link>
         <Link to='./Results' onClick={resultTime} className='btn_results'>

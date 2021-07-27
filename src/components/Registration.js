@@ -59,7 +59,7 @@ const Registration = () => {
             <div className='ContainerRegistration_button'>
               <button type='submit'>Created account</button>
 
-              <Link to='./login' type='submit' className='btn_toTheFlashCard'>
+              <Link to='./' type='submit' className='btn_toTheFlashCard'>
                 Back to the login panel
               </Link>
             </div>

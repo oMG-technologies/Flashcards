@@ -7,7 +7,23 @@ export const getToken = (data) =>
     .post(url, data)
     .then((res) => {
       console.log(res.data);
+        localStorage.setItem('token', res.data.token);
     })
     .catch((error) => {
       console.error(error);
     });
+
+    
+const access_token = 'mock'
+export const getAccess = axios
+  .get(url, {
+    headers: {
+      Authorization: `Token ${access_token}`,
+    },
+  })
+  .then((res) => {
+    console.log(res.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

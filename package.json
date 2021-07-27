@@ -24,7 +24,10 @@
     "redux-thunk": "^2.3.0",
     "three-dots": "^0.2.1",
     "typescript": "^4.3.5",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^1.1.1",
+        "watch-js": "npx webpack -w -d",
+    "watch-css": "npx sass --watch assets/css/style.scss:dist/style.css",
+    "dev": "npx concurrently npm:watch-js npm:watch-css"
   },
   "scripts": {
     "start": "react-scripts start",

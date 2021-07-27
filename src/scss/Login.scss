@@ -1,0 +1,172 @@
+.ContainerLogin{
+  width: 600px;
+  height: 100vh;
+  min-width: 300px;
+  background-color: #fff;
+  color: #000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &_header {
+    width: 100%;
+    height: 60px;
+    background-color: #000;;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_main{
+    display: flex;
+    flex-direction: column;
+    &-form{
+      // border: 1px solid red;
+      width: 35vw;
+     &-button{
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+       margin-top: 10px;
+     }
+    }
+  }
+
+
+  &_footer {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.inputLogin{
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgb(255, 165, 0);
+  border-radius: 5px;
+
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'New Tegomin', serif;
+  font-size: 16px;
+}
+
+
+// $phone-width: 466px;
+// $phone-width-1: 465px;
+// $tablet-width: 768px;
+// $desktop-width: 1024px;
+
+// @media (max-width: $phone-width) {
+//   .Login {
+//     width: 100vw;
+//     height: 100vh;
+//     margin: 0;
+
+//     &_header {
+//       width: 100%;
+//       height: 50px;
+//       background-color: #000;
+//       color: #fff;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//     }
+
+//     &_main {
+//       &-rangeSlider {
+//         position: relative;
+//         width: 100%;
+
+//         display: flex;
+//         justify-content: center;
+//         flex-direction: column;
+
+//         &::before {
+//           position: absolute;
+//           color: #000;
+//           font-size: 0.9rem;
+//           content: attr(data-min);
+//           left: 10px;
+//         }
+//         &::after {
+//           position: absolute;
+//           color: #000;
+//           font-size: 0.9rem;
+//           content: attr(data-max);
+//           right: 10px;
+//         }
+//       }
+//     }
+
+//     &_button {
+//       width: 100%;
+//       height: 60px;
+//       background-color: black;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//     }
+//   }
+// }
+// @media (min-width: $phone-width-1) and (max-width: $tablet-width) {
+//   .Login {
+//     width: 100vw;
+//     height: 100vh;
+//     margin: 0;
+
+//     &_header {
+//       width: 100%;
+//       height: 50px;
+//       background-color: #000;
+//       color: #fff;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//     }
+
+//     &_main {
+//       &-rangeSlider {
+//         position: relative;
+//         width: 100%;
+
+//         display: flex;
+//         justify-content: center;
+//         flex-direction: column;
+
+//         &::before {
+//           position: absolute;
+//           color: #000;
+//           font-size: 0.9rem;
+//           content: attr(data-min);
+//           left: 10px;
+//         }
+//         &::after {
+//           position: absolute;
+//           color: #000;
+//           font-size: 0.9rem;
+//           content: attr(data-max);
+//           right: 10px;
+//         }
+//       }
+//     }
+
+//     &_button {
+//       width: 100%;
+//       height: 60px;
+//       background-color: #000;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//     }
+//   }
+// }

@@ -8,10 +8,12 @@
   top: 0;
   background-color: #000;
 }
+
 .notFound-container-text {
   margin-left: auto;
   margin-right: auto;
 }
+
 .notFound-container-button {
   width: 100%;
   height: 60px;

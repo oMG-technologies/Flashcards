@@ -243,7 +243,7 @@ function App() {
           setFlip: setFlip,
           flipButtonsOnCard: flipButtonsOnCard,
           setFlipButtonsOnCard: setFlipButtonsOnCard,
-          isSignOut: isSignOut,
+          // isSignOut: isSignOut,
         }}
       >
         <Switch>

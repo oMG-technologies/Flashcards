@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .ContainerDashboard_header {
   width: 100%;
   height: 60px;
@@ -18,10 +19,12 @@
   justify-content: center;
   align-items: center;
 }
+
 .ContainerDashboard_main-selectLanguage {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .ContainerDashboard_main-rangeSlider {
   position: relative;
   width: 100%;
@@ -31,6 +34,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .ContainerDashboard_main-rangeSlider::before {
   position: absolute;
   color: #000;
@@ -38,6 +42,7 @@
   content: attr(data-min);
   left: 10px;
 }
+
 .ContainerDashboard_main-rangeSlider::after {
   position: absolute;
   color: #000;
@@ -45,10 +50,12 @@
   content: attr(data-max);
   right: 10px;
 }
+
 .ContainerDashboard_main-chooseSide {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .ContainerDashboard_button {
   width: 100%;
   height: 60px;
@@ -103,6 +110,7 @@
     align-items: center;
   }
 }
+
 @media (min-width: 465px) and (max-width: 768px) {
   .ContainerDashboard {
     width: 100vw;

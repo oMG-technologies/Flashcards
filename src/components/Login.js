@@ -26,12 +26,12 @@ const Login = () => {
 
     getToken(loginParams);
 
-    // if (name === 'admin' && password === '123') {
-    //   localStorage.setItem('token', 'T');
-    //   setIsLogIn(true);
-    // } else {
-    //   alert('Try again to get access !');
-    // }
+    if (username === 'admin' && password === '123') {
+      localStorage.setItem('token', 'T');
+      setIsLogIn(true);
+    } else {
+      alert('Try again to get access !');
+    }
 
     e.preventDefault();
     console.log(loginParams);
@@ -47,40 +47,47 @@ const Login = () => {
 
   return (
     <div className='ContainerLogin'>
-      <div className='ContainerLogin_header'>Login:</div>
+      <div className='ContainerLogin_header'>Login Panel:</div>
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
           <form onSubmit={isLogInToApplication} ref={formRef}>
-            <label style={{ margin: '15px' }}>Enter your user name</label>
-            <input
-              type='text'
-              placeholder='username'
-              name='username'
-              onChange={handleChange}
-              style={{ marginTop: '10px' }}
-            />
-            <label style={{ margin: '15px' }}>Enter your password:</label>
-            <input
-              type='password'
-              placeholder='Password'
-              name='password'
-              onChange={handleChange}
-              style={{ marginTop: '10px' }}
-            />
-            <div className='ContainerLogin_button'>
-              <Link
-                to='./Registration'
-                type='submit'
-                className='btn_toTheFlashCard'
-              >
-                Create Account
-              </Link>
-              <button type='submit'>Let's get started!</button>
+            <div className='ContainerLogin_main-form-input'>
+              <label style={{ margin: '15px' }}>Enter your user name:</label>
+              <input
+                type='text'
+                placeholder='username'
+                name='username'
+                onChange={handleChange}
+                className='inputLogin'
+              />
+            </div>
+            <div className='ContainerLogin_main-form-input'>
+              <label style={{ margin: '15px' }}>Enter your password:</label>
+              <input
+                type='password'
+                placeholder='Password'
+                name='password'
+                onChange={handleChange}
+                className='inputLogin'
+              />
+              <div className='ContainerLogin_main-form-button'>
+                <Link
+                  to='./Registration'
+                  type='submit'
+                  className='btn_createAccount'
+                >
+                  Create Account
+                </Link>
+                <button type='submit' className='btn_start'>
+                  Let's get started!
+                </button>
+              </div>
             </div>
           </form>
         </div>
       </div>
+      <div className='ContainerLogin_footer'></div>
     </div>
   );
 };

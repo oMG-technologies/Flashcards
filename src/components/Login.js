@@ -49,7 +49,11 @@ const Login = () => {
               style={{ marginTop: '10px' }}
             />
             <div className='ContainerLogin_button'>
-              <Link to='./' type='submit' className='btn_toTheFlashCard'>
+              <Link
+                to='./registration'
+                type='submit'
+                className='btn_toTheFlashCard'
+              >
                 Create Account
               </Link>
               <button type='submit'>Let's get started</button>

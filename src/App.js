@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './css/App.css';
 
-import Login from './components/Login'
+import Login from './components/Login';
+import Registration from './components/Registration';
 import Dashboard from './components/Dashboard';
 import FlipCards from './components/FlipCards';
 import Results from './components/Results';
@@ -229,6 +230,9 @@ function App() {
         <Switch>
           <Route path='/login' exact>
             <Login />
+          </Route>
+          <Route path='/registration' exact>
+            <Registration />
           </Route>
 
           <Route path='/' exact>

@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.btn-navigation-link, .toTheFlashCard, .btn_home, .btn_results, .btn_createAccount, .btn_start, .btn-back_Application_Not_Found {
+.btn-navigation-link, .btn_toTheFlipCard, .btn_home, .btn_results, .btn_createAccount, .btn_start, .btn-back_Application_Not_Found {
   width: 100%;
   height: 30px;
   background-color: transparent;
@@ -87,16 +87,19 @@
   color: rgba(128, 128, 128, 0.986);
 }
 
-.toTheFlashCard {
+.btn_toTheFlipCard {
   border: 1px solid blue;
+  height: 50px;
 }
 
 .btn_home {
   border: 1px solid #fbff00;
+  height: 50px;
 }
 
 .btn_results {
   border: 1px solid #f77a06;
+  height: 50px;
 }
 
 .btn_createAccount {

@@ -115,18 +115,21 @@
   @extend .btn-navigation;
 }
 
-.toTheFlashCard {
+.btn_toTheFlipCard {
   @extend .btn-navigation-link;
   border: 1px solid rgb(0, 0, 255);
+  height: 50px
 }
 .btn_home {
   @extend .btn-navigation-link;
   border: 1px solid rgb(251, 255, 0);
+  height: 50px
 }
 
 .btn_results {
   @extend .btn-navigation-link;
   border: 1px solid rgb(247, 122, 6);
+  height: 50px
 }
 
 .btn_createAccount {

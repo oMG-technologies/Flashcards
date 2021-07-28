@@ -123,7 +123,7 @@ const Results = () => {
         </table>
       </div>
       <div className='ContainerResults_button'>
-        <Link to='./FlipCards' className='btn_toTheFlashCard'>
+        <Link to='./FlipCards' className='btn_toTheFlipCard'>
           Back to flip cards
         </Link>
         <Link to='./Dashboard' className='btn_home'>

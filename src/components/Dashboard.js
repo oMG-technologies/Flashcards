@@ -109,14 +109,14 @@ const Dashboard = ({
           <Link
             to='/FlipCards'
             onClick={startTimerClick}
-            className='btn_toTheFlashCard'
+            className='btn_toTheFlipCard'
           >
             Start
           </Link>
         ) : (
-          <Link to='./' className='btn_toTheFlashCard'>
+          <button  className='btn_toTheFlipCard'>
             Choose language, number of flip cards and side to start
-          </Link>
+          </button>
         )}
       </div>
     </div>

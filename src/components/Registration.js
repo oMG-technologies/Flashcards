@@ -33,7 +33,7 @@ const Registration = () => {
         <div className='ContainerRegistration_main-form'>
           <form onSubmit={isRegistration} ref={formRef}>
             <div className='ContainerLogin_main-form-input'>
-              <label style={{ margin: '15px' }}>Enter your email</label>
+              <label style={{ margin: '15px' }}>Enter your email:</label>
               <input
                 type='email'
                 placeholder='user@domain.com'
@@ -44,10 +44,10 @@ const Registration = () => {
             </div>
 
             <div className='ContainerRegistration_main-form-input'>
-              <label style={{ margin: '15px' }}>Enter your user name</label>
+              <label style={{ margin: '15px' }}>Enter your user name:</label>
               <input
                 type='text'
-                placeholder='Username'
+                placeholder='username'
                 name='userName'
                 onChange={handleChange}
                 className='inputLogin'
@@ -58,7 +58,7 @@ const Registration = () => {
               <label style={{ margin: '15px' }}>Set your password:</label>
               <input
                 type='password'
-                placeholder='Password'
+                placeholder='password'
                 name='password'
                 onChange={handleChange}
                 className='inputLogin'

@@ -74,7 +74,7 @@ const Login = () => {
               <label style={{ margin: '15px' }}>Enter your user name:</label>
               <input
                 type='text'
-                placeholder='username...'
+                placeholder='username'
                 name='username'
                 onChange={handleChange}
                 className='inputLogin'
@@ -84,7 +84,7 @@ const Login = () => {
               <label style={{ margin: '15px' }}>Enter your password:</label>
               <input
                 type='password'
-                placeholder='password...'
+                placeholder='password'
                 name='password'
                 onChange={handleChange}
                 className='inputLogin'

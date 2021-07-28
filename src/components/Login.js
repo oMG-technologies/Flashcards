@@ -45,7 +45,6 @@ const Login = () => {
     console.log('access', access);
 
     // const access = getAccessToApplication(savedTokenFromLocalStorage);
-
     if (access) {
       return <Redirect from='/' to='/Dashboard' />;
     } else {

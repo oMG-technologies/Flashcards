@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
-    userName: '',
+    username: '',
     email: '',
     password: '',
   });

@@ -19,13 +19,13 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
+  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard, isSignOut } =
     useContext(MainContext);
 
   useEffect(() => {
     setFlip(false);
     setFlipButtonsOnCard(false);
-  }, [])
+  }, []);
 
   const startTimerClick = () => {
     reset();
@@ -104,6 +104,11 @@ const Dashboard = ({
         </div>
       </div>
 
+      {/*mock test  */}
+      {/* <button onClick={isSignOut} className='btn_logOut'>
+        Log out
+      </button> */}
+
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (
           <Link
@@ -114,7 +119,7 @@ const Dashboard = ({
             Start
           </Link>
         ) : (
-          <button  className='btn_toTheFlipCard'>
+          <button className='btn_toTheFlipCard'>
             Choose language, number of flip cards and side to start
           </button>
         )}

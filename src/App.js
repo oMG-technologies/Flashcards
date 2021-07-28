@@ -218,12 +218,12 @@ function App() {
 
   const isSignOut = () => {
     localStorage.removeItem('token');
-    setIsLogOut(true);
-  };
+    setIsLogOut(!isLogOut);
 
-  if (isLogOut) {
-    return <Redirect to='/' />;
-  }
+    if (isLogOut) {
+      return <Redirect to='/' />;
+    }
+  };
 
   return (
     <Router>
@@ -243,7 +243,7 @@ function App() {
           setFlip: setFlip,
           flipButtonsOnCard: flipButtonsOnCard,
           setFlipButtonsOnCard: setFlipButtonsOnCard,
-          // isSignOut: isSignOut,
+          isSignOut: isSignOut,
         }}
       >
         <Switch>
@@ -254,8 +254,8 @@ function App() {
             <Registration />
           </Route>
 
-          <ProtectedRoute path='/Dashboard'>
-            <Route path='/Dashboard' exact>
+          <ProtectedRoute>
+            <Route exact path='/Dashboard'>
               <Dashboard
                 languages={languages}
                 setLanguageSetByUser={setLanguageSetByUser}
@@ -272,13 +272,13 @@ function App() {
                 setArrOfAnswers={setArrOfAnswers}
               />
             </Route>
+            <Route exact path='/FlipCards'>
+              <FlipCards />
+            </Route>
+            <Route exact path='/Results'>
+              <Results />
+            </Route>
           </ProtectedRoute>
-          <Route path='/FlipCards' exact>
-            <FlipCards />
-          </Route>
-          <Route path='/Results' exact>
-            <Results />
-          </Route>
 
           <Route component={NotFound} />
         </Switch>

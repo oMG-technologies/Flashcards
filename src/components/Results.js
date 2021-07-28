@@ -11,6 +11,7 @@ const Results = () => {
     arrOfAnswers,
     time,
     flip,
+    isSignOut,
   } = useContext(MainContext);
 
   const h = () => {
@@ -129,6 +130,9 @@ const Results = () => {
         <Link to='./Dashboard' className='btn_home'>
           Back to home
         </Link>
+        <button onClick={isSignOut} className='btn_logOut'>
+          Log out
+        </button>
       </div>
     </div>
   );

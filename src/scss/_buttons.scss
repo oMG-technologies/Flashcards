@@ -118,18 +118,24 @@
 .btn_toTheFlipCard {
   @extend .btn-navigation-link;
   border: 1px solid rgb(0, 0, 255);
-  height: 50px
+  height: 50px;
 }
 .btn_home {
   @extend .btn-navigation-link;
   border: 1px solid rgb(251, 255, 0);
-  height: 50px
+  height: 50px;
 }
 
 .btn_results {
   @extend .btn-navigation-link;
   border: 1px solid rgb(247, 122, 6);
-  height: 50px
+  height: 50px;
+}
+
+.btn_logOut {
+  @extend .btn-navigation-link;
+  border: 1px solid rgb(247, 6, 6);
+  height: 50px;
 }
 
 .btn_createAccount {
@@ -138,10 +144,10 @@
   border: 1px solid rgb(105, 214, 55);
 }
 
-.btn_start{
+.btn_start {
   @extend .btn-navigation-link;
   color: #000;
-  border: 1px solid rgb(255, 165, 0);;
+  border: 1px solid rgb(255, 165, 0);
 }
 
 .btn-back_Application_Not_Found {

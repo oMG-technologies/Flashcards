@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken } from '../../src/services/Authorization';
+import { getToken, getAccessToGame } from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
@@ -24,6 +24,7 @@ const Login = () => {
     let username = loginParams.username;
     let password = loginParams.password;
 
+    // get Token
     getToken(loginParams);
 
     if (username === 'admin' && password === '123') {
@@ -32,6 +33,12 @@ const Login = () => {
     } else {
       alert('Try again to get access !');
     }
+
+    // getAccessTokenFromLocalStorage
+    const savedTokenFromLocalStorage = localStorage.getItem('token');
+    console.log(savedTokenFromLocalStorage);
+
+    getAccessToGame(savedTokenFromLocalStorage);
 
     e.preventDefault();
     console.log(loginParams);

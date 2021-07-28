@@ -15,7 +15,7 @@ export const getToken = (data) =>
 
 
 
-export const getAccess = (access_token) =>
+export const getAccessToGame = (access_token) =>
   axios
     .get(url, {
       headers: {

@@ -709,10 +709,10 @@
   .ContainerResults_table tr,
   .ContainerResults_table th,
   .ContainerResults_table td {
-    width: 98vw;
+    width: 96vw;
   }
   .ContainerResults_table-main {
-    width: 95%;
+    width: 90%;
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
@@ -853,10 +853,10 @@
   .ContainerResults_table tr,
   .ContainerResults_table th,
   .ContainerResults_table td {
-    width: 98vw;
+    width: 96vw;
   }
   .ContainerResults_table-main {
-    width: 95%;
+    width: 90%;
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;

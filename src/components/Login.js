@@ -27,6 +27,7 @@ const Login = () => {
     // get Token
     getToken(loginParams);
 
+    // mock
     if (username === 'admin' && password === '123') {
       localStorage.setItem('token', 'T');
       setIsLogIn(true);
@@ -36,9 +37,15 @@ const Login = () => {
 
     // getAccessTokenFromLocalStorage
     const savedTokenFromLocalStorage = localStorage.getItem('token');
-    console.log(savedTokenFromLocalStorage);
+    console.log('savedTokenFromLocalStorage:', savedTokenFromLocalStorage);
 
-    getAccessToGame(savedTokenFromLocalStorage);
+    const access = getAccessToGame(savedTokenFromLocalStorage);
+
+    if (access) {
+      return <Redirect from='/' to='/Dashboard' />;
+    } else {
+      console.log('not access');
+    }
 
     e.preventDefault();
     console.log(loginParams);
@@ -48,6 +55,7 @@ const Login = () => {
     }
   };
 
+  // mock
   if (isLogIn) {
     return <Redirect from='/' to='/Dashboard' />;
   }

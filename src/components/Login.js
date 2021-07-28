@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, getAccessToGame } from '../../src/services/Authorization';
+import {
+  getToken,
+  getAccessToApplication,
+} from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
@@ -21,6 +24,7 @@ const Login = () => {
   };
 
   const isLogInToApplication = (e) => {
+    e.preventDefault();
     let username = loginParams.username;
     let password = loginParams.password;
 
@@ -39,7 +43,7 @@ const Login = () => {
     const savedTokenFromLocalStorage = localStorage.getItem('token');
     console.log('savedTokenFromLocalStorage:', savedTokenFromLocalStorage);
 
-    const access = getAccessToGame(savedTokenFromLocalStorage);
+    const access = getAccessToApplication(savedTokenFromLocalStorage);
 
     if (access) {
       return <Redirect from='/' to='/Dashboard' />;
@@ -47,7 +51,6 @@ const Login = () => {
       console.log('not access');
     }
 
-    e.preventDefault();
     console.log(loginParams);
 
     if (formRef.current) {

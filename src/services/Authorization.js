@@ -13,9 +13,7 @@ export const getToken = (data) =>
       console.error(error);
     });
 
-
-
-export const getAccessToGame = (access_token) =>
+export const getAccessToApplication = (access_token) =>
   axios
     .get(url, {
       headers: {

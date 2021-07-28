@@ -178,6 +178,10 @@
   font-size: 16px;
 }
 
+.special {
+  display: none;
+}
+
 .ContainerRegistration {
   width: 600px;
   height: 100vh;

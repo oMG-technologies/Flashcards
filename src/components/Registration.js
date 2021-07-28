@@ -63,6 +63,8 @@ const Registration = () => {
                 onChange={handleChange}
                 className='inputLogin'
               />
+              <input className='special' name='field_name' type='text' />
+
               <div className='ContainerRegistration_main-form-button'>
                 <button type='submit' className='btn_createAccount'>
                   Created account

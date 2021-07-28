@@ -58,3 +58,7 @@
   font-family: 'New Tegomin', serif;
   font-size: 16px;
 }
+
+.special {
+  display: none;
+}

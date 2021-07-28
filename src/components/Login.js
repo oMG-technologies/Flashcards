@@ -29,21 +29,22 @@ const Login = () => {
     let password = loginParams.password;
 
     // get Token
-    getToken(loginParams);
+    const access = getToken(loginParams);
 
     // mock
-    if (username === 'admin' && password === '123') {
-      localStorage.setItem('token', 'T');
-      setIsLogIn(true);
-    } else {
-      alert('Try again to get access !');
-    }
+    // if (username === 'admin' && password === '123') {
+    //   localStorage.setItem('token', 'T');
+    //   setIsLogIn(true);
+    // } else {
+    //   alert('Try again to get access !');
+    // }
 
     // getAccessTokenFromLocalStorage
     const savedTokenFromLocalStorage = localStorage.getItem('token');
     console.log('savedTokenFromLocalStorage:', savedTokenFromLocalStorage);
+    console.log('access', access);
 
-    const access = getAccessToApplication(savedTokenFromLocalStorage);
+    // const access = getAccessToApplication(savedTokenFromLocalStorage);
 
     if (access) {
       return <Redirect from='/' to='/Dashboard' />;

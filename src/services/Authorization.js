@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = `http://127.0.0.1:8000/api-token-auth/`;
+const url = `https://words-translation.herokuapp.com/api-token-auth/`;
+// const url1 = `https://words-translation.herokuapp.com/user_progress/`;
 
 export const getToken = (data) =>
   axios
@@ -13,16 +14,16 @@ export const getToken = (data) =>
       console.error(error);
     });
 
-export const getAccessToApplication = (access_token) =>
-  axios
-    .get(url, {
-      headers: {
-        Authorization: `Token ${access_token}`,
-      },
-    })
-    .then((res) => {
-      console.log('response from getAccess', res.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+// export const getAccessToApplication = (access_token) =>
+//   axios
+//     .get(url1, {
+//       headers: {
+//         Authorization: `Token ${access_token}`,
+//       },
+//     })
+//     .then((res) => {
+//       console.log('response from getAccess', res.data);
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });

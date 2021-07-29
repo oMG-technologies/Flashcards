@@ -25,33 +25,18 @@ const Login = () => {
 
   const isLogInToApplication = (e) => {
     e.preventDefault();
-    let username = loginParams.username;
-    let password = loginParams.password;
-
-    // get Token
-    getToken(loginParams);
-
-    // mock
-    if (username === 'admin' && password === '123') {
-      localStorage.setItem('token', 'T');
-      setIsLogIn(true);
-    } else {
-      alert('Try again to get access !');
+    const getDateToken = async () => { 
+      await getToken(loginParams)
+      const savedTokenFromLocalStorage = localStorage.getItem('token');
+      if (savedTokenFromLocalStorage !== null) {
+        setIsLogIn(true);
+        return <Redirect from='/' to='/Dashboard' />;
+      } else {
+        console.log('not access');
+      }
     }
-
-    // getAccessTokenFromLocalStorage
-    const savedTokenFromLocalStorage = localStorage.getItem('token');
-    console.log('savedTokenFromLocalStorage:', savedTokenFromLocalStorage);
-
-    const access = getAccessToApplication(savedTokenFromLocalStorage);
-
-    if (access) {
-      return <Redirect from='/' to='/Dashboard' />;
-    } else {
-      console.log('not access');
-    }
-
-    console.log(loginParams);
+    getDateToken()
+    
 
     if (formRef.current) {
       formRef.current.reset();

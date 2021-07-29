@@ -9,9 +9,11 @@ const Login = () => {
     password: '',
   });
 
-  const [errorValid, setErrorValid] = useState();
+  const [errorValid, setErrorValid] = useState('');
 
   const [isLogIn, setIsLogIn] = useState(false);
+
+  const [spinier, setSpinier] = useState(false);
 
   const formRef = useRef();
 
@@ -26,19 +28,21 @@ const Login = () => {
     e.preventDefault();
 
     const getDateToken = async () => {
-
       /**
        * Login
        */
 
+      setSpinier(true);
       await getToken(loginParams);
 
       const savedTokenFromLocalStorage = localStorage.getItem('token');
       if (savedTokenFromLocalStorage !== null) {
         setIsLogIn(true);
+        setSpinier(false);
       } else {
         setIsLogIn(false);
         setErrorValid('Try again to get access or create account :)');
+        setSpinier(false);
       }
     };
 
@@ -79,6 +83,13 @@ const Login = () => {
                 onChange={handleChange}
                 className='inputLogin'
               />
+
+              <div
+                className='fa-3x'
+                style={{ color: 'orange', fontSize: '25px' }}
+              >
+                {spinier ? <i className='fa fa-spinner fa-pulse'></i> : ''}
+              </div>
 
               <span style={{ color: 'red', fontSize: '14px' }}>
                 {errorValid}

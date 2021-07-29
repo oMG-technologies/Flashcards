@@ -19,8 +19,7 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
-    "watch-css": "npx sass --watch assets/css/style.scss:dist/style.css",
-    "dev": "npx concurrently npm:watch-js npm:watch-css"
+  
   },
   "scripts": {
     "start": "react-scripts start",

@@ -26,12 +26,16 @@ const Login = () => {
     e.preventDefault();
 
     const getDateToken = async () => {
+
+      /**
+       * Login
+       */
+
       await getToken(loginParams);
 
       const savedTokenFromLocalStorage = localStorage.getItem('token');
       if (savedTokenFromLocalStorage !== null) {
         setIsLogIn(true);
-        return <Redirect from='/' to='/Dashboard' />;
       } else {
         setIsLogIn(false);
         setErrorValid('Try again to get access or create account :)');

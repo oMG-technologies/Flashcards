@@ -4,13 +4,23 @@ import { register } from '../../src/services/Register';
 
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
-    username: '',
-    email: '',
-    password: '',
     first_name: '',
     last_name: '',
+    email: '',
+    password: '',
+    username: '',
   });
 
+  const initialError = {
+    errorFirst_name: '',
+    errorLast_name: '',
+    errorEmail: '',
+    errorPassword: '',
+    errorUsername: '',
+  };
+  const [errorsValidation, setErrorsValidation] = useState(initialError);
+
+  const [isRegistration, setIsRegistration] = useState(false);
 
   const formRef = useRef();
 
@@ -21,22 +31,84 @@ const Registration = () => {
     });
   };
 
+  const validate = () => {
+    let errorFirst_name = '';
+    let errorLast_name = '';
+    let errorEmail = '';
+    let errorUsername = '';
+    let errorPassword = '';
+
+    if (registrationParams.first_name === '') {
+      errorFirst_name = 'set the first name';
+    }
+
+    if (registrationParams.last_name.length === 0) {
+      errorLast_name = 'set the last name';
+    }
+
+    if (registrationParams.email.length === 0) {
+      errorEmail = 'set the email';
+    }
+
+    if (registrationParams.username.length === 0) {
+      errorUsername = 'set the user name';
+    }
+
+    if (registrationParams.password.length === 0) {
+      errorPassword = 'set the password';
+    }
+
+    if (
+      errorFirst_name ||
+      errorLast_name ||
+      errorEmail ||
+      errorUsername ||
+      errorPassword
+    ) {
+      setErrorsValidation({
+        errorFirst_name,
+        errorLast_name,
+        errorEmail,
+        errorUsername,
+        errorPassword,
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const check = () => {
+    const isValid = validate();
+
+    if (isValid) {
+      /**
+       * Clear Error
+       */
+      setErrorsValidation(initialError);
+    }
+  };
+
   const isRegistrationToApplication = (e) => {
     e.preventDefault();
 
-    console.log('registrationParams', registrationParams);
+    const isValid = validate();
 
-    register(registrationParams);
-
-    // if () {
-
-    //   return <Redirect from='/Registration' to='/' />;
-    // }
+    if (isValid) {
+      /**
+       * Registration
+       */
+      register(registrationParams);
+      setIsRegistration(true);
+    }
 
     if (formRef.current) {
       formRef.current.reset();
     }
   };
+
+  if (isRegistration) {
+    return <Redirect from='/Registration' to='/' />;
+  }
 
   return (
     <div className='ContainerRegistration'>
@@ -52,9 +124,14 @@ const Registration = () => {
                 placeholder='Zbigniew'
                 name='first_name'
                 onChange={handleChange}
+                onBlur={check}
                 className='inputLogin'
               />
             </div>
+
+            <span style={{ color: 'red', fontSize: '14px' }}>
+              {errorsValidation.errorFirst_name}
+            </span>
 
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your last name:</label>
@@ -63,9 +140,14 @@ const Registration = () => {
                 placeholder='Stonoga'
                 name='last_name'
                 onChange={handleChange}
+                onBlur={check}
                 className='inputLogin'
               />
             </div>
+
+            <span style={{ color: 'red', fontSize: '14px' }}>
+              {errorsValidation.errorLast_name}
+            </span>
 
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your email:</label>
@@ -74,9 +156,14 @@ const Registration = () => {
                 placeholder='user@domain.com'
                 name='email'
                 onChange={handleChange}
+                onBlur={check}
                 className='inputLogin'
               />
             </div>
+
+            <span style={{ color: 'red', fontSize: '14px' }}>
+              {errorsValidation.errorEmail}
+            </span>
 
             <div className='ContainerRegistration_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>
@@ -85,9 +172,14 @@ const Registration = () => {
                 placeholder='username'
                 name='username'
                 onChange={handleChange}
+                onBlur={check}
                 className='inputLogin'
               />
             </div>
+
+            <span style={{ color: 'red', fontSize: '14px' }}>
+              {errorsValidation.errorUsername}
+            </span>
 
             <div className='ContainerRegistration_main-form-input'>
               <label style={{ margin: '15px' }}>Set your password:</label>
@@ -96,8 +188,13 @@ const Registration = () => {
                 placeholder='password'
                 name='password'
                 onChange={handleChange}
+                onBlur={check}
                 className='inputLogin'
               />
+
+              <span style={{ color: 'red', fontSize: '14px' }}>
+                {errorsValidation.errorPassword}
+              </span>
 
               <input className='special' name='field_name' type='text' />
 

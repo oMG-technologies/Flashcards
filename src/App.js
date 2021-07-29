@@ -218,6 +218,7 @@ function App() {
 
   const isSignOut = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setIsLogOut(!isLogOut);
 
     if (isLogOut) {

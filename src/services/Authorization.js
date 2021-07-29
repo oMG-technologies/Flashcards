@@ -8,6 +8,7 @@ export const getToken = (data) =>
     .post(url, data)
     .then((res) => {
       console.log('response from getToken',res.data);
+      console.log('signed in as', data.username);
       localStorage.setItem('token', res.data.token);
     })
     .catch((error) => {

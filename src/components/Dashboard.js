@@ -105,9 +105,9 @@ const Dashboard = ({
       </div>
 
       {/*mock test  */}
-      {/* <button onClick={isSignOut} className='btn_logOut'>
+      <button onClick={isSignOut} className='btn_logOut'>
         Log out
-      </button> */}
+      </button>
 
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (

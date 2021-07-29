@@ -1,16 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import {
-  getToken,
-  getAccessToApplication,
-} from '../../src/services/Authorization';
+import { getToken } from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
     username: '',
     password: '',
   });
+
+  const [errorValid, setErrorValid] = useState();
 
   const [isLogIn, setIsLogIn] = useState(false);
 
@@ -25,25 +24,27 @@ const Login = () => {
 
   const isLogInToApplication = (e) => {
     e.preventDefault();
-    const getDateToken = async () => { 
-      await getToken(loginParams)
+
+    const getDateToken = async () => {
+      await getToken(loginParams);
+
       const savedTokenFromLocalStorage = localStorage.getItem('token');
       if (savedTokenFromLocalStorage !== null) {
         setIsLogIn(true);
         return <Redirect from='/' to='/Dashboard' />;
       } else {
-        console.log('not access');
+        setIsLogIn(false);
+        setErrorValid('Try again to get access or create account :)');
       }
-    }
-    getDateToken()
-    
+    };
+
+    getDateToken();
 
     if (formRef.current) {
       formRef.current.reset();
     }
   };
 
-  // mock
   if (isLogIn) {
     return <Redirect from='/' to='/Dashboard' />;
   }
@@ -74,6 +75,11 @@ const Login = () => {
                 onChange={handleChange}
                 className='inputLogin'
               />
+
+              <span style={{ color: 'red', fontSize: '14px' }}>
+                {errorValid}
+              </span>
+
               <div className='ContainerLogin_main-form-button'>
                 <Link
                   to='./Registration'

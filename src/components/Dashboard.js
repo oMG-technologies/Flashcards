@@ -19,7 +19,7 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard, isSignOut } =
+  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
     useContext(MainContext);
 
   useEffect(() => {
@@ -44,6 +44,8 @@ const Dashboard = ({
     setFlip(!flip) || setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
+  const savedUserFromLocalStorage = localStorage.getItem('user');
+
   return (
     <div className='ContainerDashboard'>
       <div className='ContainerDashboard_header'>Settings:</div>
@@ -52,6 +54,14 @@ const Dashboard = ({
         {languages.map((language) =>
           getUnicodeFlagIcon(`${language.target_language_iso3166}`)
         )}
+
+        <div className='ContainerDashboard_main-welcomeUser'>
+          <span style={{ fontSize: '22px' }}>
+            Welcome{' '}
+            <span style={{ color: 'orange' }}>{savedUserFromLocalStorage}</span>
+            ! Nice to see you!
+          </span>
+        </div>
 
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language</label>
@@ -103,11 +113,6 @@ const Dashboard = ({
           </button>
         </div>
       </div>
-
-      {/*mock test  */}
-      <button onClick={isSignOut} className='btn_logOut'>
-        Log out
-      </button>
 
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (

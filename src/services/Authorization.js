@@ -7,9 +7,8 @@ export const getToken = (data) =>
   axios
     .post(url, data)
     .then((res) => {
-      console.log('response from getToken',res.data);
-      console.log('signed in as', data.username);
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user', data.username);
     })
     .catch((error) => {
       console.error(error);

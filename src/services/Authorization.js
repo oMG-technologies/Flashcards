@@ -15,9 +15,9 @@ export const getToken = async (data) => {
   }
 };
 
-export const isUser = async (username) => {
+export const isUser = (username) => {
   try {
-    return await api.get(`/is_user/${username}`).then((res) => {
+    return api.get(`/is_user/${username}`).then((res) => {
       return res;
     });
   } catch (err) {

@@ -35,12 +35,16 @@ const Login = () => {
       setSpinier(true);
       const isUserResponse = await isUser(loginParams.username);
       const isValidUser = isUserResponse['data'][loginParams.username];
-      console.log(isValidUser);
       await getToken(loginParams);
 
       const savedTokenFromLocalStorage = localStorage.getItem('token');
       if (savedTokenFromLocalStorage !== null) {
         setIsLogIn(true);
+        setSpinier(false);
+      }
+      if (isValidUser === 'True') {
+        setIsLogIn(false);
+        setErrorValid('User exists, but password is wrong. Try again');
         setSpinier(false);
       } else {
         setIsLogIn(false);

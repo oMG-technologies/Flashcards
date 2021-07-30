@@ -8,8 +8,6 @@ export const register = (data) =>
     .put(url, data, headers)
     .then((res) => 
       res.data
-      // console.log('response from register', res.data);
-      // console.log('register as ', data.username);
     )
     .catch((error) => {
       console.error(error);

@@ -4,8 +4,6 @@ const api = axios.create({
   baseURL: `https://words-translation.herokuapp.com/`,
 });
 
-// const url1 = `https://words-translation.herokuapp.com/user_progress/`;
-
 export const getToken = async (data) => {
   try {
     return await api.post(`/api-token-auth/`, data).then((res) => {
@@ -20,7 +18,6 @@ export const getToken = async (data) => {
 export const isUser = async (username) => {
   try {
     return await api.get(`/is_user/${username}`).then((res) => {
-      console.log('response form res', res);
       return res;
     });
   } catch (err) {

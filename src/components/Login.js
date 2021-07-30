@@ -41,14 +41,13 @@ const Login = () => {
       if (savedTokenFromLocalStorage !== null) {
         setIsLogIn(true);
         setSpinier(false);
-      }
-      if (isValidUser === 'True') {
+      } else if (isValidUser === 'True') {
         setIsLogIn(false);
-        setErrorValid('User exists, but password is wrong. Try again');
+        setErrorValid('Incorrect password. Try again');
         setSpinier(false);
       } else {
         setIsLogIn(false);
-        setErrorValid('Try again to get access or create account :)');
+        setErrorValid('User does not exist. Try to register first');
         setSpinier(false);
       }
     };

@@ -3,8 +3,8 @@ import axios from 'axios';
 const url = `https://words-translation.herokuapp.com/api-token-auth/`;
 // const url1 = `https://words-translation.herokuapp.com/user_progress/`;
 
-export const getToken = (data) =>
-  axios
+export const getToken = async (data) => {
+  return await axios
     .post(url, data)
     .then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -13,7 +13,7 @@ export const getToken = (data) =>
     .catch((error) => {
       console.error(error);
     });
-
+};
 // export const getAccessToApplication = (access_token) =>
 //   axios
 //     .get(url1, {

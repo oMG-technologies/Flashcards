@@ -19,7 +19,7 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
+  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard} =
     useContext(MainContext);
 
   useEffect(() => {

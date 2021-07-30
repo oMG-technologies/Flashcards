@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import { getToken } from '../../src/services/Authorization';
@@ -17,6 +17,13 @@ const Login = () => {
 
   const formRef = useRef();
 
+  const [didMount, setDidMount] = useState(false);
+
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+  }, []);
+
   const handleChange = (e) => {
     setLoginParams({
       ...loginParams,
@@ -24,27 +31,28 @@ const Login = () => {
     });
   };
 
+  const getDateToken = async () => {
+    /**
+     * Login
+     */
+
+    setSpinier(true);
+
+    await getToken(loginParams);
+
+    const savedTokenFromLocalStorage = localStorage.getItem('token');
+    if (savedTokenFromLocalStorage !== null) {
+      setIsLogIn(true);
+      setSpinier(false);
+    } else {
+      setIsLogIn(false);
+      setErrorValid('Try again to get access or create account :)');
+      setSpinier(false);
+    }
+  };
+
   const isLogInToApplication = (e) => {
     e.preventDefault();
-
-    const getDateToken = async () => {
-      /**
-       * Login
-       */
-
-      setSpinier(true);
-      await getToken(loginParams);
-
-      const savedTokenFromLocalStorage = localStorage.getItem('token');
-      if (savedTokenFromLocalStorage !== null) {
-        setIsLogIn(true);
-        setSpinier(false);
-      } else {
-        setIsLogIn(false);
-        setErrorValid('Try again to get access or create account :)');
-        setSpinier(false);
-      }
-    };
 
     getDateToken();
 
@@ -55,6 +63,10 @@ const Login = () => {
 
   if (isLogIn) {
     return <Redirect from='/' to='/Dashboard' />;
+  }
+
+  if (!didMount) {
+    return null;
   }
 
   return (

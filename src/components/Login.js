@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken } from '../../src/services/Authorization';
+import { getToken, isUser } from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
@@ -27,12 +27,15 @@ const Login = () => {
   const isLogInToApplication = (e) => {
     e.preventDefault();
 
-    const getDateToken = async () => {
+    const getDataToken = async () => {
       /**
        * Login
        */
 
       setSpinier(true);
+      const isUserResponse = await isUser(loginParams.username);
+      const isValidUser = isUserResponse['data'][loginParams.username];
+      console.log(isValidUser);
       await getToken(loginParams);
 
       const savedTokenFromLocalStorage = localStorage.getItem('token');
@@ -46,7 +49,7 @@ const Login = () => {
       }
     };
 
-    getDateToken();
+    getDataToken();
 
     if (formRef.current) {
       formRef.current.reset();

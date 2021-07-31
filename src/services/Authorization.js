@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://127.0.0.1:8000/`,
-  // baseURL: `https://words-translation.herokuapp.com/`,
+  baseURL: `https://words-translation.herokuapp.com/`,
 });
 
 export const getToken = async (data) => {
@@ -37,7 +36,6 @@ export const removeUser = () => {
         },
       })
       .then((res) => {
-        console.log('log from removeUser', res);
         return res;
       });
   } catch (err) {

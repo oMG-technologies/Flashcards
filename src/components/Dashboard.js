@@ -4,6 +4,7 @@ import { MainContext } from '../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
+import { removeUser } from '../services/Authorization';
 
 const Dashboard = ({
   handleChangeSelectLanguage,
@@ -19,7 +20,7 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard} =
+  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
     useContext(MainContext);
 
   useEffect(() => {
@@ -61,6 +62,12 @@ const Dashboard = ({
             <span style={{ color: 'orange' }}>{savedUserFromLocalStorage}</span>
             ! Nice to see you!
           </span>
+        </div>
+
+        <div className='ContainerDashboard_main-welcomeUser'>
+          <button className='btn_prevPage' onClick={removeUser}>
+            Previous
+          </button>
         </div>
 
         <div className='ContainerDashboard_main-selectLanguage'>

@@ -17,9 +17,27 @@ export const getToken = async (data) => {
 
 export const isUser = (username) => {
   try {
-    return api.get(`/is_user/${username}`).then((res) => {
+    return api.get(`/is_user/${username}/`).then((res) => {
       return res;
     });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const removeUser = () => {
+  const username = localStorage.getItem('user');
+  const access_token = localStorage.getItem('token');
+  try {
+    return api
+      .delete(`/user_remove/${username}/remove/`, {
+        headers: {
+          Authorization: `Token ${access_token}`,
+        },
+      })
+      .then((res) => {
+        return res;
+      });
   } catch (err) {
     console.error(err);
   }

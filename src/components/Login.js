@@ -21,63 +21,49 @@ const Login = () => {
 
   useEffect(() => {
     setDidMount(true);
-    return () => setDidMount(false);
-  }, []);
 
+    setTimeout(() => {
+      setSpinier(false);
+    }, 300);
+
+    return () => setDidMount(false);
+  }, [spinier]);
+  
   const handleChange = (e) => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
     });
   };
+  
+  
+  const getDataToken = async () => {
+    /**
+     * Login
+     */
 
-  // const getDateToken = async () => {
-  //   /**
-  //    * Login
-  //    */
+    setSpinier(true);
+    const isUserResponse = await isUser(loginParams.username);
+    const isValidUser = isUserResponse['data'][loginParams.username];
+    await getToken(loginParams);
 
-  //   setSpinier(true);
-
-  //   await getToken(loginParams);
-
-  //   const savedTokenFromLocalStorage = localStorage.getItem('token');
-  //   if (savedTokenFromLocalStorage !== null) {
-  //     setIsLogIn(true);
-  //     setSpinier(false);
-  //   } else {
-  //     setIsLogIn(false);
-  //     setErrorValid('Try again to get access or create account :)');
-  //     setSpinier(false);
-  //   }
-  // };
+    const savedTokenFromLocalStorage = localStorage.getItem('token');
+    if (savedTokenFromLocalStorage !== null) {
+      setIsLogIn(true);
+      setSpinier(false);
+    } else if (isValidUser === 'True') {
+      setIsLogIn(false);
+      setErrorValid('Incorrect password. Try again');
+      setSpinier(false);
+    } else {
+      setIsLogIn(false);
+      setErrorValid('User does not exist. Try to register first');
+      setSpinier(false);
+    }
+  };
 
   const isLogInToApplication = (e) => {
     e.preventDefault();
-
-    const getDataToken = async () => {
-      /**
-       * Login
-       */
-
-      setSpinier(true);
-      const isUserResponse = await isUser(loginParams.username);
-      const isValidUser = isUserResponse['data'][loginParams.username];
-      await getToken(loginParams);
-
-      const savedTokenFromLocalStorage = localStorage.getItem('token');
-      if (savedTokenFromLocalStorage !== null) {
-        setIsLogIn(true);
-        setSpinier(false);
-      } else if (isValidUser === 'True') {
-        setIsLogIn(false);
-        setErrorValid('Incorrect password. Try again');
-        setSpinier(false);
-      } else {
-        setIsLogIn(false);
-        setErrorValid('User does not exist. Try to register first');
-        setSpinier(false);
-      }
-    };
 
     getDataToken();
 

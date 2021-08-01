@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken } from '../../src/services/Authorization';
+import { getToken, isUser } from '../../src/services/Authorization';
 
 const Login = () => {
   const [loginParams, setLoginParams] = useState({
@@ -31,30 +31,55 @@ const Login = () => {
     });
   };
 
-  const getDateToken = async () => {
-    /**
-     * Login
-     */
+  // const getDateToken = async () => {
+  //   /**
+  //    * Login
+  //    */
 
-    setSpinier(true);
+  //   setSpinier(true);
 
-    await getToken(loginParams);
+  //   await getToken(loginParams);
 
-    const savedTokenFromLocalStorage = localStorage.getItem('token');
-    if (savedTokenFromLocalStorage !== null) {
-      setIsLogIn(true);
-      setSpinier(false);
-    } else {
-      setIsLogIn(false);
-      setErrorValid('Try again to get access or create account :)');
-      setSpinier(false);
-    }
-  };
+  //   const savedTokenFromLocalStorage = localStorage.getItem('token');
+  //   if (savedTokenFromLocalStorage !== null) {
+  //     setIsLogIn(true);
+  //     setSpinier(false);
+  //   } else {
+  //     setIsLogIn(false);
+  //     setErrorValid('Try again to get access or create account :)');
+  //     setSpinier(false);
+  //   }
+  // };
 
   const isLogInToApplication = (e) => {
     e.preventDefault();
 
-    getDateToken();
+    const getDataToken = async () => {
+      /**
+       * Login
+       */
+
+      setSpinier(true);
+      const isUserResponse = await isUser(loginParams.username);
+      const isValidUser = isUserResponse['data'][loginParams.username];
+      await getToken(loginParams);
+
+      const savedTokenFromLocalStorage = localStorage.getItem('token');
+      if (savedTokenFromLocalStorage !== null) {
+        setIsLogIn(true);
+        setSpinier(false);
+      } else if (isValidUser === 'True') {
+        setIsLogIn(false);
+        setErrorValid('Incorrect password. Try again');
+        setSpinier(false);
+      } else {
+        setIsLogIn(false);
+        setErrorValid('User does not exist. Try to register first');
+        setSpinier(false);
+      }
+    };
+
+    getDataToken();
 
     if (formRef.current) {
       formRef.current.reset();

@@ -1,19 +1,30 @@
 import axios from 'axios';
 
-const url = `https://words-translation.herokuapp.com/api-token-auth/`;
-// const url1 = `https://words-translation.herokuapp.com/user_progress/`;
+const api = axios.create({
+  baseURL: `https://words-translation.herokuapp.com/`,
+});
 
 export const getToken = async (data) => {
-  return await axios
-    .post(url, data)
-    .then((res) => {
+  try {
+    return await api.post(`/api-token-auth/`, data).then((res) => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', data.username);
-    })
-    .catch((error) => {
-      console.error(error);
     });
+  } catch (err) {
+    console.error(err);
+  }
 };
+
+export const isUser = (username) => {
+  try {
+    return api.get(`/is_user/${username}`).then((res) => {
+      return res;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 // export const getAccessToApplication = (access_token) =>
 //   axios
 //     .get(url1, {

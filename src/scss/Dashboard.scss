@@ -13,51 +13,59 @@
   &_header {
     width: 100%;
     height: 60px;
-    background-color: #000;;
+    background-color: #000;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-&_main {
-      &-selectLanguage{
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      
-      &-rangeSlider {
-        position: relative;
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-top: 20px;
-        margin-bottom: 20px;
-
-        &::before {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-min);
-          left: 10px;
-        }
-        &::after {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-max);
-          right: 10px;
-        }
-      }
-
-      &-chooseSide{
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-
+  &_main {
+    &-removeUser {
+      opacity: 0;
+      cursor: pointer;
+      font-size: 18px;
     }
+    &-removeUser:hover {
+      opacity: 1;
+    }
+
+    &-selectLanguage {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &-rangeSlider {
+      position: relative;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      &::before {
+        position: absolute;
+        color: #000;
+        font-size: 0.9rem;
+        content: attr(data-min);
+        left: 10px;
+      }
+      &::after {
+        position: absolute;
+        color: #000;
+        font-size: 0.9rem;
+        content: attr(data-max);
+        right: 10px;
+      }
+    }
+
+    &-chooseSide {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
 
   &_button {
     width: 100%;

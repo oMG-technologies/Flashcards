@@ -449,6 +449,16 @@
   align-items: center;
 }
 
+.ContainerDashboard_main-removeUser {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ContainerDashboard_main-removeUser:hover {
+  opacity: 1;
+}
+
 .ContainerDashboard_main-selectLanguage {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -812,6 +822,20 @@
   align-items: center;
 }
 
+.ContainerResults_removeText {
+  color: #000;
+  background-color: black;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ContainerResults_removeText:hover {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 @media (max-width: 466px) {
   .ContainerResults {
     width: 100vw;
@@ -954,6 +978,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ContainerResults_removeText {
+  color: #000;
+  background-color: black;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ContainerResults_removeText:hover {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 @media (max-width: 466px) {

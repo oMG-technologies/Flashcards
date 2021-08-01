@@ -20,8 +20,13 @@ const Dashboard = ({
   languages,
   setArrOfAnswers,
 }) => {
-  const { flip, setFlip, flipButtonsOnCard, setFlipButtonsOnCard } =
-    useContext(MainContext);
+  const {
+    flip,
+    setFlip,
+    flipButtonsOnCard,
+    setFlipButtonsOnCard,
+    removeUserFromApplication,
+  } = useContext(MainContext);
 
   useEffect(() => {
     setFlip(false);
@@ -55,7 +60,6 @@ const Dashboard = ({
         {languages.map((language) =>
           getUnicodeFlagIcon(`${language.target_language_iso3166}`)
         )}
-
         <div className='ContainerDashboard_main-welcomeUser'>
           <span style={{ fontSize: '22px' }}>
             Welcome{' '}
@@ -64,12 +68,15 @@ const Dashboard = ({
           </span>
         </div>
 
-        <div className='ContainerDashboard_main-welcomeUser'>
-          <button className='btn_prevPage' onClick={removeUser}>
-            Previous
-          </button>
+        <div className='ContainerDashboard_main-removeUser'>
+          <span onClick={removeUserFromApplication}>
+            Remove me
+            <i
+              className='fa fa-times'
+              style={{ color: 'red' }}
+            ></i>
+          </span>
         </div>
-
         <div className='ContainerDashboard_main-selectLanguage'>
           <label style={{ margin: '15px' }}>Choose language</label>
 
@@ -86,11 +93,9 @@ const Dashboard = ({
             ))}
           </select>
         </div>
-
         <span style={{ color: 'red', fontSize: '14px' }}>
           {errors.selectError}
         </span>
-
         <div
           className='ContainerDashboard_main-rangeSlider'
           data-min='1'
@@ -109,7 +114,6 @@ const Dashboard = ({
             {numberElementInFlipCards}
           </div>
         </div>
-
         <div className='ContainerDashboard_main-chooseSide'>
           <label style={{ margin: '25px' }}>Choose side of cards</label>
           <button

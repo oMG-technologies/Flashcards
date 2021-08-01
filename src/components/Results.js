@@ -123,6 +123,7 @@ const Results = () => {
           </tbody>
         </table>
       </div>
+
       <div className='ContainerResults_button'>
         <Link to='./Dashboard' className='btn_home'>
           Back to home
@@ -134,6 +135,8 @@ const Results = () => {
           Log out
         </button>
       </div>
+
+
     </div>
   );
 };

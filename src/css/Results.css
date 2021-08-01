@@ -46,6 +46,20 @@
   align-items: center;
 }
 
+.ContainerResults_removeText {
+  color: #000;
+  background-color: black;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ContainerResults_removeText:hover {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 @media (max-width: 466px) {
   .ContainerResults {
     width: 100vw;

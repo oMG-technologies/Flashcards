@@ -23,6 +23,8 @@ import {
   getAllQuestionsByLanguage,
 } from './services/ApiService';
 
+import { removeUser } from './services/Authorization';
+
 import Loaded from './components/Loaded';
 import Fix from './components/Fix';
 
@@ -226,6 +228,11 @@ function App() {
     }
   };
 
+  const removeUserFromApplication = () => {
+    removeUser();
+    isSignOut();
+  };
+
   return (
     <Router>
       <MainContext.Provider
@@ -245,6 +252,7 @@ function App() {
           flipButtonsOnCard: flipButtonsOnCard,
           setFlipButtonsOnCard: setFlipButtonsOnCard,
           isSignOut: isSignOut,
+          removeUserFromApplication: removeUserFromApplication,
         }}
       >
         <Switch>

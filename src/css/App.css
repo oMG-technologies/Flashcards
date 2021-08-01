@@ -114,6 +114,21 @@
   font-size: calc(8px + 1vmin);
 }
 
+.btn_removeUser {
+  width: 100%;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 10px;
+  background-color: #000;
+  border: 1px solid #f70808;
+  color: #fff;
+}
+
+.btn_removeUser:hover {
+  opacity: 1;
+}
+
 .btn_start {
   color: #000;
   border: 1px solid orange;
@@ -822,20 +837,6 @@
   align-items: center;
 }
 
-.ContainerResults_removeText {
-  color: #000;
-  background-color: black;
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.ContainerResults_removeText:hover {
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
 @media (max-width: 466px) {
   .ContainerResults {
     width: 100vw;
@@ -978,20 +979,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.ContainerResults_removeText {
-  color: #000;
-  background-color: black;
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.ContainerResults_removeText:hover {
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
 }
 
 @media (max-width: 466px) {

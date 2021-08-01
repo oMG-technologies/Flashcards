@@ -12,6 +12,7 @@ const Results = () => {
     time,
     flip,
     isSignOut,
+    removeUserFromApplication,
   } = useContext(MainContext);
 
   const h = () => {
@@ -123,6 +124,9 @@ const Results = () => {
           </tbody>
         </table>
       </div>
+      <button onClick={removeUserFromApplication} className='btn_removeUser'>
+        Remove account
+      </button>
 
       <div className='ContainerResults_button'>
         <Link to='./Dashboard' className='btn_home'>
@@ -135,8 +139,6 @@ const Results = () => {
           Log out
         </button>
       </div>
-
-
     </div>
   );
 };

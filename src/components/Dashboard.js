@@ -4,7 +4,7 @@ import { MainContext } from '../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
-import { removeUser } from '../services/Authorization';
+
 
 const Dashboard = ({
   handleChangeSelectLanguage,

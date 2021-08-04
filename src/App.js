@@ -9,6 +9,7 @@ import {
 import './css/App.css';
 
 import Login from './components/Login';
+import LoginEmailVerified from './components/LoginEmailVerified';
 import Registration from './components/Registration';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './components/Dashboard';
@@ -258,6 +259,9 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <Login />
+          </Route>
+          <Route path='/LoginEmailVerified' exact>
+            <LoginEmailVerified />
           </Route>
           <Route path='/Registration' exact>
             <Registration />

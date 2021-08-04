@@ -42,17 +42,3 @@ export const removeUser = () => {
     console.error(err);
   }
 };
-
-// export const getAccessToApplication = (access_token) =>
-//   axios
-//     .get(url1, {
-//       headers: {
-//         Authorization: `Token ${access_token}`,
-//       },
-//     })
-//     .then((res) => {
-//       console.log('response from getAccess', res.data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });

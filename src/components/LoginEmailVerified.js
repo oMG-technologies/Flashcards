@@ -85,11 +85,12 @@ const LoginEmailVerified = () => {
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
-          <div className='ContainerLogin_main-form-input'>
-            Your account is verified now. Please log in with your credentials.
+          <div className='ContainerLogin_main-form-text'>
+            <span>
+              Your account is verified now. Please log in with your credentials.
+            </span>
           </div>
-          <br></br>
-
+          
           <form onSubmit={isLogInToApplication} ref={formRef}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>

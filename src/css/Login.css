@@ -29,6 +29,12 @@
   width: 35vw;
 }
 
+.ContainerLogin_main-form-text {
+  font-size: 12px;
+  color: #068606;
+  margin: 20px;
+}
+
 .ContainerLogin_main-form-button {
   display: flex;
   flex-direction: row;

@@ -24,6 +24,11 @@
     flex-direction: column;
     &-form {
       width: 35vw;
+      &-text{
+        font-size: 12px;
+        color: rgb(6, 134, 6);
+        margin: 20px
+      }
       &-button {
         display: flex;
         flex-direction: row;

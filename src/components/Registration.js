@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
+import { Link, } from 'react-router-dom';
 import { register } from '../../src/services/Register';
 
 const Registration = () => {
@@ -20,19 +20,12 @@ const Registration = () => {
   };
   const [errorsValidation, setErrorsValidation] = useState(initialError);
 
-  const [isRegistration, setIsRegistration] = useState(false);
-
   // iRegistration info
   const [sendFormText, setSendFormText] = useState('');
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
 
   const formRef = useRef();
 
-  useEffect(() => {
-    setTimeout(() => {
-      <Redirect from='/Registration' to='/' />;
-    }, 100);
-  }, [isRegistration]);
 
   const handleChange = (e) => {
     setRegistrationParams({
@@ -112,7 +105,6 @@ const Registration = () => {
       setSendFormText(
         'Thank you for registering in FlipCards and choosing our product. Your account was successfully created and is almost ready to use. Open your email, click the link below to verify your email so we make sure everything is up and running!'
       );
-      setIsRegistration(true);
     }
 
     if (formRef.current) {

@@ -169,6 +169,16 @@
   font-size: calc(8px + 1vmin);
 }
 
+.btn_start-afterRegister{
+  @extend .btn-navigation-link;
+  color: #000;
+  border: 1px solid rgb(255, 165, 0);
+  height: 50px;
+  font-size: calc(8px + 1vmin);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn-back_Application_Not_Found {
   @extend .btn-navigation-link;
 

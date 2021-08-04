@@ -72,7 +72,7 @@ const LoginEmailVerified = () => {
   };
 
   if (isLogIn) {
-    return <Redirect from='/' to='/Dashboard' />;
+    return <Redirect from='/LoginEmailVerified' to='/Dashboard' />;
   }
 
   if (!didMount) {

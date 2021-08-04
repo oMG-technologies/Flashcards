@@ -129,7 +129,7 @@ const Registration = () => {
           {showRegistrationInfo ? (
             <div>
               {sendFormText}
-              <Link to='./' type='submit' className='btn_start'>
+              <Link to='./' type='submit' className='btn_start-afterRegister'>
                 After that go to login panel
               </Link>
             </div>

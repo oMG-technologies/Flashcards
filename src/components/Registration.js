@@ -4,16 +4,12 @@ import { register } from '../../src/services/Register';
 
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
-    first_name: '',
-    last_name: '',
     email: '',
     password: '',
     username: '',
   });
 
   const initialError = {
-    errorFirst_name: '',
-    errorLast_name: '',
     errorEmail: '',
     errorPassword: '',
     errorUsername: '',
@@ -35,20 +31,10 @@ const Registration = () => {
   };
 
   const validate = () => {
-    let errorFirst_name = '';
-    let errorLast_name = '';
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
-
-    if (registrationParams.first_name === '') {
-      errorFirst_name = 'set the first name';
-    }
-
-    if (registrationParams.last_name.length === 0) {
-      errorLast_name = 'set the last name';
-    }
-
+   
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
@@ -62,15 +48,11 @@ const Registration = () => {
     }
 
     if (
-      errorFirst_name ||
-      errorLast_name ||
       errorEmail ||
       errorUsername ||
       errorPassword
     ) {
       setErrorsValidation({
-        errorFirst_name,
-        errorLast_name,
         errorEmail,
         errorUsername,
         errorPassword,
@@ -127,33 +109,6 @@ const Registration = () => {
             </div>
           ) : (
             <form onSubmit={isRegistrationToApplication} ref={formRef}>
-              <div className='ContainerLogin_main-form-input'>
-                <label style={{ margin: '15px' }}>Enter your first name:</label>
-                <input
-                  type='text'
-                  placeholder='Zbigniew'
-                  name='first_name'
-                  onChange={handleChange}
-                  onBlur={check}
-                  className='inputLogin'
-                />
-              </div>
-
-              <span style={{ color: 'red', fontSize: '14px' }}>
-                {errorsValidation.errorFirst_name}
-              </span>
-
-              <div className='ContainerLogin_main-form-input'>
-                <label style={{ margin: '15px' }}>Enter your last name:</label>
-                <input
-                  type='text'
-                  placeholder='Stonoga'
-                  name='last_name'
-                  onChange={handleChange}
-                  onBlur={check}
-                  className='inputLogin'
-                />
-              </div>
 
               <span style={{ color: 'red', fontSize: '14px' }}>
                 {errorsValidation.errorLast_name}

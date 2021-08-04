@@ -54,7 +54,7 @@ const Dashboard = ({
 
   return (
     <div className='ContainerDashboard'>
-      <div className='ContainerDashboard_header'>Settings:</div>
+      <div className='ContainerDashboard_header'>Settings</div>
 
       <div className='ContainerDashboard_main'>
         {languages.map((language) =>

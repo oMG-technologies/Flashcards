@@ -81,7 +81,7 @@ const LoginEmailVerified = () => {
 
   return (
     <div className='ContainerLogin'>
-      <div className='ContainerLogin_header'>Login Panel:</div>
+      <div className='ContainerLogin_header'>Login Panel</div>
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>

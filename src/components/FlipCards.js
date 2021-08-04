@@ -79,7 +79,7 @@ const FlipCards = () => {
   return (
     <div className='mainContainer'>
       <div className='mainContainer_text'>
-        Click on the card to check the answer:
+        Click on the card to check the answer
       </div>
       <div className='mainContainer_question'>
         Question: {currentPage} / {numberElementInFlipCards}

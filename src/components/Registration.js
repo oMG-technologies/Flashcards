@@ -96,7 +96,7 @@ const Registration = () => {
 
   return (
     <div className='ContainerRegistration'>
-      <div className='ContainerRegistration_header'>Registration Panel:</div>
+      <div className='ContainerRegistration_header'>Registration Panel</div>
 
       <div className='ContainerRegistration_main'>
         <div className='ContainerRegistration_main-form'>

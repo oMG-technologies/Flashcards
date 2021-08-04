@@ -34,10 +34,15 @@ const Registration = () => {
   const checkEmail = async (email) => {
     const isEmailResponse = await isEmail(email);
     const isValidEmail = isEmailResponse['data'][email];
-    return isValidEmail;
+    return await isValidEmail;
   };
 
-  checkEmail(registrationParams.email);
+  const checkUser = async (username) => {
+    const isUserResponse = await isUser(username);
+    const isValidUser = isUserResponse['data'][username];
+    return await isValidUser;
+  };
+
   const validate = async () => {
     let errorEmail = '';
     let errorUsername = '';
@@ -52,6 +57,10 @@ const Registration = () => {
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
+    }
+
+    if ((await checkUser(registrationParams.username)) === 'True') {
+      errorUsername = 'This username is already in use';
     }
 
     if (registrationParams.password.length === 0) {

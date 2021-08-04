@@ -86,7 +86,7 @@ const LoginEmailVerified = () => {
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
           <div className='ContainerLogin_main-form-input'>
-            Your account is verified now. You can now log in.
+            Your account is verified now. Please log in with your credentials.
           </div>
           <br></br>
 

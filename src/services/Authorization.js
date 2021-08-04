@@ -25,6 +25,16 @@ export const isUser = (username) => {
   }
 };
 
+export const isEmail = (email) => {
+  try {
+    return api.get(`/is_email/${email}/`).then((res) => {
+      return res;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const removeUser = () => {
   const username = localStorage.getItem('user');
   const access_token = localStorage.getItem('token');

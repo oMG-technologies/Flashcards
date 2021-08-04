@@ -1,14 +1,16 @@
 import axios from 'axios';
 
-const url = `https://words-translation.herokuapp.com/user_create/user/add/`;
-const headers = { 'content-type': 'application/json' };
+const api = axios.create({
+  // baseURL: `https://words-translation.herokuapp.com/`,
+  baseURL: `http://127.0.0.1:8000/`,
+});
 
-export const register = (data) =>
-  axios
-    .put(url, data, headers)
-    .then((res) => 
-      res.data
-    )
-    .catch((error) => {
-      console.error(error);
-    });
+export const register = async (data) => {
+  try {
+    const headers = { 'content-type': 'application/json' };
+    const response = await api.put('/user_create/user/add/', data, headers);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import { getToken, isUser } from '../../src/services/Authorization';
 
-const Login = () => {
+const LoginEmailVerified = () => {
   const [loginParams, setLoginParams] = useState({
     username: '',
     password: '',
@@ -85,6 +85,11 @@ const Login = () => {
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
+          <div className='ContainerLogin_main-form-input'>
+            Your account is verified now. Please log in with your credentials.
+          </div>
+          <br></br>
+
           <form onSubmit={isLogInToApplication} ref={formRef}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>
@@ -138,4 +143,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginEmailVerified;

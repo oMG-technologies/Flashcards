@@ -1,6 +1,8 @@
+import { is } from '@babel/types';
 import React, { useState, useRef } from 'react';
-import { Link, } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
+import { isUser, isEmail } from '../services/Authorization';
 
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
@@ -22,7 +24,6 @@ const Registration = () => {
 
   const formRef = useRef();
 
-
   const handleChange = (e) => {
     setRegistrationParams({
       ...registrationParams,
@@ -30,13 +31,23 @@ const Registration = () => {
     });
   };
 
-  const validate = () => {
+  const checkEmail = async (email) => {
+    const isEmailResponse = await isEmail(email);
+    const isValidEmail = isEmailResponse['data'][email];
+    return isValidEmail;
+  };
+
+  checkEmail(registrationParams.email);
+  const validate = async () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
-   
+
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
+    }
+    if ((await checkEmail(registrationParams.email)) === 'True') {
+      errorEmail = 'This email has been already used';
     }
 
     if (registrationParams.username.length === 0) {
@@ -47,11 +58,7 @@ const Registration = () => {
       errorPassword = 'set the password';
     }
 
-    if (
-      errorEmail ||
-      errorUsername ||
-      errorPassword
-    ) {
+    if (errorEmail || errorUsername || errorPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
@@ -75,7 +82,6 @@ const Registration = () => {
 
   const isRegistrationToApplication = (e) => {
     e.preventDefault();
-
     const isValid = validate();
 
     if (isValid) {
@@ -109,7 +115,6 @@ const Registration = () => {
             </div>
           ) : (
             <form onSubmit={isRegistrationToApplication} ref={formRef}>
-
               <span style={{ color: 'red', fontSize: '14px' }}>
                 {errorsValidation.errorLast_name}
               </span>

@@ -90,7 +90,7 @@ const LoginEmailVerified = () => {
               Your account is verified now. Please log in with your credentials.
             </span>
           </div>
-          
+
           <form onSubmit={isLogInToApplication} ref={formRef}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>

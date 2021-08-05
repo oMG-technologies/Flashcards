@@ -110,10 +110,6 @@ const Registration = () => {
           ) : (
             <form onSubmit={isRegistrationToApplication} ref={formRef}>
 
-              <span style={{ color: 'red', fontSize: '14px' }}>
-                {errorsValidation.errorLast_name}
-              </span>
-
               <div className='ContainerLogin_main-form-input'>
                 <label style={{ margin: '15px' }}>Enter your email:</label>
                 <input

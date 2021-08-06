@@ -1,4 +1,3 @@
-import { is } from '@babel/types';
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';

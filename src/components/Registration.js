@@ -33,14 +33,14 @@ const Registration = () => {
 
   const checkEmail = async (email) => {
     const isEmailResponse = await isEmail(email);
-    const isValidEmail = isEmailResponse['data'][email];
-    return await isValidEmail;
+    const isValidEmail = await isEmailResponse['data'][email];
+    return isValidEmail;
   };
 
   const checkUser = async (username) => {
     const isUserResponse = await isUser(username);
-    const isValidUser = isUserResponse['data'][username];
-    return await isValidUser;
+    const isValidUser = await isUserResponse['data'][username];
+    return isValidUser;
   };
 
   const validate = async () => {
@@ -48,10 +48,16 @@ const Registration = () => {
     let errorUsername = '';
     let errorPassword = '';
 
+    const isEmailChecked = await checkEmail(registrationParams.email);
+    console.log(isEmailChecked);
+    const isUserChecked = await checkUser(registrationParams.username);
+    console.log(isUserChecked);
+
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
-    if ((await checkEmail(registrationParams.email)) === 'True') {
+
+    if (isEmailChecked === 'True') {
       errorEmail = 'This email has been already used';
     }
 
@@ -59,7 +65,7 @@ const Registration = () => {
       errorUsername = 'set the user name';
     }
 
-    if ((await checkUser(registrationParams.username)) === 'True') {
+    if (isUserChecked === 'True') {
       errorUsername = 'This username is already in use';
     }
 

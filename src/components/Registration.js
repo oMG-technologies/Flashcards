@@ -43,37 +43,59 @@ const Registration = () => {
     return isValidUser;
   };
 
+  const validate_email = async () => {
+    const isEmailChecked = await checkEmail(registrationParams.email);
+    if (isEmailChecked === 'True') {
+      alert('This email has been already used')
+    };
+    return isEmailChecked;
+  };
+
+  const validate_username = async () => {
+    const isUserChecked = await checkUser(registrationParams.username);
+    if (isUserChecked === 'True') {
+      alert('This username is already in use')
+    };
+    return isUserChecked;
+  };
+
+  // validate_email(registrationParams.email);
+  // validate_username(registrationParams.username);
+
   const validate = async () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
+    validate_email();
+    validate_username();
 
-    const isEmailChecked = await checkEmail(registrationParams.email);
-    console.log(isEmailChecked);
-    const isUserChecked = await checkUser(registrationParams.username);
-    console.log(isUserChecked);
+    // const isEmailChecked = await checkEmail(registrationParams.email);
+    // console.log(isEmailChecked);
+    // const isUserChecked = await checkUser(registrationParams.username);
+    // console.log(isUserChecked);
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
-    if (isEmailChecked === 'True') {
-      errorEmail = 'This email has been already used';
-    }
+    // if (isEmailChecked === 'True') {
+    //   alert('This email has been already used')
+    //   errorEmail = 'This email has been already used';
+    // }
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
 
-    if (isUserChecked === 'True') {
-      errorUsername = 'This username is already in use';
-    }
+    // if (isUserChecked === 'True') {
+    //   errorUsername = 'This username is already in use';
+    // }
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail || errorUsername || errorPassword) {
+    if (errorEmail ||  errorUsername || errorPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,

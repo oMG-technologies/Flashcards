@@ -1,4 +1,3 @@
-import { is } from '@babel/types';
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
@@ -33,61 +32,36 @@ const Registration = () => {
 
   const checkEmail = async (email) => {
     const isEmailResponse = await isEmail(email);
-    const isValidEmail = await isEmailResponse['data'][email];
-    return isValidEmail;
+    const isValidEmail = isEmailResponse['data'][email];
+    return await isValidEmail;
   };
 
   const checkUser = async (username) => {
     const isUserResponse = await isUser(username);
-    const isValidUser = await isUserResponse['data'][username];
-    return isValidUser;
+    const isValidUser = isUserResponse['data'][username];
+    return await isValidUser;
   };
 
-  const validate_email = async () => {
-    const isEmailChecked = await checkEmail(registrationParams.email);
-    if (isEmailChecked === 'True') {
-      alert('This email has been already used')
-    };
-    return isEmailChecked;
-  };
-
-  const validate_username = async () => {
-    const isUserChecked = await checkUser(registrationParams.username);
-    if (isUserChecked === 'True') {
-      alert('This username is already in use')
-    };
-    return isUserChecked;
-  };
-
-  // validate_email(registrationParams.email);
-  // validate_username(registrationParams.username);
-
-  const validate = async () => {
+  const validate = () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
-    validate_email();
-    validate_username();
-
-    // const isEmailChecked = await checkEmail(registrationParams.email);
-    // console.log(isEmailChecked);
-    // const isUserChecked = await checkUser(registrationParams.username);
-    // console.log(isUserChecked);
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
-    // if (isEmailChecked === 'True') {
-    //   alert('This email has been already used')
-    //   errorEmail = 'This email has been already used';
-    // }
+    let checkUsedEmail = checkEmail(registrationParams.email);
+
+    if (checkUsedEmail === 'True') {
+      errorEmail = 'This email has been already used';
+    }
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
 
-    // if (isUserChecked === 'True') {
+    // if ((await checkUser(registrationParams.username)) === 'True') {
     //   errorUsername = 'This username is already in use';
     // }
 
@@ -95,7 +69,7 @@ const Registration = () => {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail ||  errorUsername || errorPassword) {
+    if (errorEmail || errorUsername || errorPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
@@ -198,18 +172,17 @@ const Registration = () => {
                 <span style={{ color: 'red', fontSize: '14px' }}>
                   {errorsValidation.errorPassword}
                 </span>
+              </div>
+              <input className='special' name='field_name' type='text' />
 
-                <input className='special' name='field_name' type='text' />
+              <div className='ContainerRegistration_main-form-button'>
+                <Link to='./' type='submit' className='btn_start'>
+                  Back to the login panel
+                </Link>
 
-                <div className='ContainerRegistration_main-form-button'>
-                  <Link to='./' type='submit' className='btn_start'>
-                    Back to the login panel
-                  </Link>
-
-                  <button type='submit' className='btn_createAccount'>
-                    Create account
-                  </button>
-                </div>
+                <button type='submit' className='btn_createAccount'>
+                  Create account
+                </button>
               </div>
             </form>
           )}

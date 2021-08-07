@@ -8,6 +8,7 @@ export const register = async (data) => {
   try {
     const headers = { 'content-type': 'application/json' };
     const response = await api.put('/user_create/user/add/', data, headers);
+    console.log(response.status);
     return response.data;
   } catch (error) {
     return error;

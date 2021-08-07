@@ -6,14 +6,16 @@ import { isUser, isEmail } from '../services/Authorization';
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
     email: '',
-    password: '',
     username: '',
+    password: '',
+    repeatPassword: '',
   });
 
   const initialError = {
     errorEmail: '',
-    errorPassword: '',
     errorUsername: '',
+    errorPassword: '',
+    errorRepeatPassword: '',
   };
   const [errorsValidation, setErrorsValidation] = useState(initialError);
 
@@ -46,16 +48,17 @@ const Registration = () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
+    let errorRepeatPassword = '';
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
-    let checkUsedEmail = checkEmail(registrationParams.email);
+    // let checkUsedEmail = checkEmail(registrationParams.email);
 
-    if (checkUsedEmail === 'True') {
-      errorEmail = 'This email has been already used';
-    }
+    // if (checkUsedEmail === 'True') {
+    //   errorEmail = 'This email has been already used';
+    // }
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
@@ -69,11 +72,19 @@ const Registration = () => {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail || errorUsername || errorPassword) {
+    if (registrationParams.repeatPassword.length === 0) {
+      errorRepeatPassword = 'set the repeat password';
+    }
+
+    // if (registrationParams.password !== registrationParams.reapedPassword){
+    //   errorPassword = 'set the same password' && errorRepeatPassword = 'set the same password';
+    // }
+    if (errorEmail || errorUsername || errorPassword || errorRepeatPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
         errorPassword,
+        errorRepeatPassword,
       });
       return false;
     }
@@ -94,6 +105,8 @@ const Registration = () => {
   const isRegistrationToApplication = (e) => {
     e.preventDefault();
     const isValid = validate();
+
+    console.log('isValid', isValid);
 
     if (isValid) {
       /**
@@ -173,7 +186,24 @@ const Registration = () => {
                   {errorsValidation.errorPassword}
                 </span>
               </div>
-              <input className='special' name='field_name' type='text' />
+
+              <div className='ContainerRegistration_main-form-input'>
+                <label style={{ margin: '15px' }}>
+                  Set repeated your password:
+                </label>
+                <input
+                  type='password'
+                  placeholder='repeated your password'
+                  name='repeatPassword'
+                  onChange={handleChange}
+                  onBlur={check}
+                  className='inputLogin'
+                />
+
+                <span style={{ color: 'red', fontSize: '14px' }}>
+                  {errorsValidation.errorRepeatPassword}
+                </span>
+              </div>
 
               <div className='ContainerRegistration_main-form-button'>
                 <Link to='./' type='submit' className='btn_start'>

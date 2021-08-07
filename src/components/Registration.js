@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
 import { isUser, isEmail } from '../services/Authorization';
@@ -22,8 +22,6 @@ const Registration = () => {
   // iRegistration info
   const [sendFormText, setSendFormText] = useState('');
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
-
-  const formRef = useRef();
 
   const handleChange = (e) => {
     setRegistrationParams({
@@ -76,9 +74,11 @@ const Registration = () => {
       errorRepeatPassword = 'set the repeat password';
     }
 
-    // if (registrationParams.password !== registrationParams.reapedPassword){
-    //   errorPassword = 'set the same password' && errorRepeatPassword = 'set the same password';
-    // }
+    if (registrationParams.password !== registrationParams.repeatPassword) {
+      (errorPassword = 'set the same password'),
+        (errorRepeatPassword = 'set the same password');
+    }
+
     if (errorEmail || errorUsername || errorPassword || errorRepeatPassword) {
       setErrorsValidation({
         errorEmail,
@@ -106,8 +106,6 @@ const Registration = () => {
     e.preventDefault();
     const isValid = validate();
 
-    console.log('isValid', isValid);
-
     if (isValid) {
       /**
        * Registration
@@ -117,10 +115,6 @@ const Registration = () => {
       setSendFormText(
         'Thank you for registering in FlipCards and choosing our product. Your account was successfully created and is almost ready to use. Open your email, click the link below to verify your email so we make sure everything is up and running!'
       );
-    }
-
-    if (formRef.current) {
-      formRef.current.reset();
     }
   };
 
@@ -138,7 +132,7 @@ const Registration = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={isRegistrationToApplication} ref={formRef}>
+            <form onSubmit={isRegistrationToApplication}>
               <div className='ContainerLogin_main-form-input'>
                 <label style={{ margin: '15px' }}>Enter your email:</label>
                 <input

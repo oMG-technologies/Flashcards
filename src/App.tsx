@@ -315,7 +315,6 @@ const App: React.FC = () => {
             <Route exact path='/Dashboard'>
               <Dashboard
                 languages={languages}
-                setLanguageSetByUser={setLanguageSetByUser}
                 handleChangeSelectLanguage={handleChangeSelectLanguage}
                 numberElementInFlipCards={numberElementInFlipCards}
                 setNumberElementInFlipCards={setNumberElementInFlipCards}

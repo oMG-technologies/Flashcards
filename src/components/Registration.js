@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
 import { isUser, isEmail } from '../services/Authorization';
@@ -6,22 +7,22 @@ import { isUser, isEmail } from '../services/Authorization';
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
     email: '',
-    password: '',
     username: '',
+    password: '',
+    repeatPassword: '',
   });
 
   const initialError = {
     errorEmail: '',
-    errorPassword: '',
     errorUsername: '',
+    errorPassword: '',
+    errorRepeatPassword: '',
   };
   const [errorsValidation, setErrorsValidation] = useState(initialError);
 
   // iRegistration info
   const [sendFormText, setSendFormText] = useState('');
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
-
-  const formRef = useRef();
 
   const handleChange = (e) => {
     setRegistrationParams({
@@ -42,35 +43,49 @@ const Registration = () => {
     return await isValidUser;
   };
 
-  const validate = async () => {
+  const validate = () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
+    let errorRepeatPassword = '';
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
-    if ((await checkEmail(registrationParams.email)) === 'True') {
-      errorEmail = 'This email has been already used';
-    }
+
+    // let checkUsedEmail = checkEmail(registrationParams.email);
+
+    // if (checkUsedEmail === 'True') {
+    //   errorEmail = 'This email has been already used';
+    // }
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
 
-    if ((await checkUser(registrationParams.username)) === 'True') {
-      errorUsername = 'This username is already in use';
-    }
+    // if ((await checkUser(registrationParams.username)) === 'True') {
+    //   errorUsername = 'This username is already in use';
+    // }
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail || errorUsername || errorPassword) {
+    if (registrationParams.repeatPassword.length === 0) {
+      errorRepeatPassword = 'set the repeat password';
+    }
+
+    if (registrationParams.password !== registrationParams.repeatPassword) {
+      (errorPassword = 'set the same password'),
+        (errorRepeatPassword = 'set the same password');
+    }
+
+    if (errorEmail || errorUsername || errorPassword || errorRepeatPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
         errorPassword,
+        errorRepeatPassword,
       });
       return false;
     }
@@ -102,10 +117,6 @@ const Registration = () => {
         'Thank you for registering in FlipCards and choosing our product. Your account was successfully created and is almost ready to use. Open your email, click the link below to verify your email so we make sure everything is up and running!'
       );
     }
-
-    if (formRef.current) {
-      formRef.current.reset();
-    }
   };
 
   return (
@@ -122,7 +133,7 @@ const Registration = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={isRegistrationToApplication} ref={formRef}>
+            <form onSubmit={isRegistrationToApplication}>
               <div className='ContainerLogin_main-form-input'>
                 <label style={{ margin: '15px' }}>Enter your email:</label>
                 <input
@@ -169,18 +180,34 @@ const Registration = () => {
                 <span style={{ color: 'red', fontSize: '14px' }}>
                   {errorsValidation.errorPassword}
                 </span>
+              </div>
 
-                <input className='special' name='field_name' type='text' />
+              <div className='ContainerRegistration_main-form-input'>
+                <label style={{ margin: '15px' }}>
+                  Set repeated your password:
+                </label>
+                <input
+                  type='password'
+                  placeholder='repeated your password'
+                  name='repeatPassword'
+                  onChange={handleChange}
+                  onBlur={check}
+                  className='inputLogin'
+                />
 
-                <div className='ContainerRegistration_main-form-button'>
-                  <Link to='./' type='submit' className='btn_start'>
-                    Back to the login panel
-                  </Link>
+                <span style={{ color: 'red', fontSize: '14px' }}>
+                  {errorsValidation.errorRepeatPassword}
+                </span>
+              </div>
 
-                  <button type='submit' className='btn_createAccount'>
-                    Create account
-                  </button>
-                </div>
+              <div className='ContainerRegistration_main-form-button'>
+                <Link to='./' type='submit' className='btn_start'>
+                  Back to the login panel
+                </Link>
+
+                <button type='submit' className='btn_createAccount'>
+                  Create account
+                </button>
               </div>
             </form>
           )}

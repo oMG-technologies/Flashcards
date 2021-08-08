@@ -72,6 +72,7 @@ function App() {
 
     if (dataQuestions === undefined || dataQuestions === []) {
       setIsPending(true);
+      setIsLoaded(false);
     } else {
       setQuestions(dataQuestions);
       setIsLoaded(false);
@@ -84,6 +85,7 @@ function App() {
 
     if (dataLanguages === undefined || dataLanguages === []) {
       setIsPending(true);
+      setIsLoaded(false);
     } else {
       setLanguages(dataLanguages);
       setIsLoaded(false);

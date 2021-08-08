@@ -13,6 +13,7 @@ export const getAllLanguages = async () => {
     return await api
       .get(`/available_conversions/`)
       .then(({ data }) => data.available_conversions);
+      
   } catch (err) {
     console.log(err);
   }

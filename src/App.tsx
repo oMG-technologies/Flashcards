@@ -29,45 +29,71 @@ import { removeUser } from './services/Authorization';
 import Loaded from './components/Loaded';
 import Fix from './components/Fix';
 
-function App() {
-  // Loader
+const App: React.FC = () => {
+  /**
+   * Loaded
+   */
   const [isLoaded, setIsLoaded] = useState(true);
-
-  // Log out in application
+  /**
+   * Log out in application
+   */
   const [isLogOut, setIsLogOut] = useState(false);
 
-  // Pending
+  /**
+   * Pending
+   */
   const [isPending, setIsPending] = useState(true);
 
+  /**
+   * Data questions in app
+   */
   const [questions, setQuestions] = useState([]);
   const [questionsRandom, setQuestionsRandom] = useState([]);
 
+  /**
+   * Data languages in app
+   */
   const [languages, setLanguages] = useState([]);
   const [languageSetByUser, setLanguageSetByUser] = useState('');
 
+  /**
+   * Amount flip cards
+   */
+  const [numberElementInFlipCards, setNumberElementInFlipCards] = useState(10);
+
+  /**
+   * Answers
+   */
   const [arrOfAnswers, setArrOfAnswers] = useState([]);
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
-
-  const [numberElementInFlipCards, setNumberElementInFlipCards] = useState(10);
-
+  
+  /**
+   * Validation errors to start app
+   */
   const initialError = {
     selectError: '',
   };
-
-  // Errors
   const [errors, setErrors] = useState(initialError);
   const [isErrorValidation, setErrorValidation] = useState(true);
 
-  // Timer
+  /**
+   * Timer app
+   */
   const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
-  const [intervalTime, setIntervalTime] = useState();
+  const [intervalTime, setIntervalTime] = useState<number>();
 
-  // // Flip the cards
+  /**
+   * Switch the cards in app
+   */
   const [flip, setFlip] = useState(false);
   const [flipButtonsOnCard, setFlipButtonsOnCard] = useState(false);
 
-  const getQuestions = async (languageSetByUser) => {
+  /**
+   * Get data question in app
+   */
+
+  const getQuestions = async (languageSetByUser: string) => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
 
     if (dataQuestions === undefined || dataQuestions === []) {
@@ -80,6 +106,9 @@ function App() {
     }
   };
 
+  /**
+   * Get data language in app
+   */
   const getLanguages = async () => {
     const dataLanguages = await getAllLanguages();
 
@@ -103,22 +132,30 @@ function App() {
     setAnswersBad(0);
   }, [languageSetByUser, flipButtonsOnCard]);
 
-  // Create random questions
+  /**
+   * Create random questions
+   */
   useEffect(() => {
     randomQuestions();
   }, [questions, numberElementInFlipCards]);
 
-  // Slice questions Arr
-  const indexOfLastMainArrQuestion = numberElementInFlipCards;
-  const indexOfFirstMainQuestion =
+
+  /**
+   * Slice data questions
+   */
+  const indexOfLastMainArrQuestion: number = numberElementInFlipCards;
+  const indexOfFirstMainQuestion: number =
     indexOfLastMainArrQuestion - numberElementInFlipCards;
-  const sliceArrQuestions = questions.slice(
+  const sliceArrQuestions: never[] = questions.slice(
     indexOfFirstMainQuestion,
     indexOfLastMainArrQuestion
   );
 
+  /**
+   * Create random questions
+   */
   const randomQuestions = () => {
-    let newArrQuestions = [];
+    let newArrQuestions: [] = [];
 
     let lengthSliceArrQuestions = sliceArrQuestions.length;
     let numberOfIndexOfSliceQuestion = 0;
@@ -133,22 +170,24 @@ function App() {
     return setQuestionsRandom(newArrQuestions);
   };
 
-  // Create Result
-  const IknowClick = () => {
+  /**
+   * Create Result
+   */
+  const IknowClick = (): void => {
     if (answersGood + answersBad < numberElementInFlipCards) {
       setAnswersGood(answersGood + 1);
     }
   };
-  const IdontknowClick = () => {
+  const IdontknowClick = (): void => {
     if (answersGood + answersBad < numberElementInFlipCards) {
       setAnswersBad(answersBad + 1);
     }
   };
 
-  let updatedMs = time.ms,
-    updatedS = time.s,
-    updatedM = time.m,
-    updatedH = time.h;
+  let updatedMs: number = time.ms,
+    updatedS: number = time.s,
+    updatedM: number = time.m,
+    updatedH: number = time.h;
 
   const run = () => {
     if (updatedM === 60) {
@@ -167,21 +206,22 @@ function App() {
     return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
   };
 
-  const start = () => {
+  const start = ():void => {
     run();
-    setIntervalTime(setInterval(run, 10));
+    const interval = window.setInterval(() => run(), 10)
+    setIntervalTime(interval);
   };
 
-  const stop = () => {
+  const stop = ():void => {
     clearInterval(intervalTime);
   };
 
-  const reset = () => {
+  const reset = ():void => {
     clearInterval(intervalTime);
     setTime({ ms: 0, s: 0, m: 0, h: 0 });
   };
 
-  const validation = (selectedLanguage) => {
+  const validation = (selectedLanguage: string) => {
     let selectError = '';
 
     if (selectedLanguage === '') {
@@ -207,7 +247,9 @@ function App() {
     }
   };
 
-  const handleChangeSelectLanguage = (e) => {
+  const handleChangeSelectLanguage = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const selectedLanguage = e.target.value;
 
     setLanguageSetByUser(selectedLanguage);
@@ -231,7 +273,7 @@ function App() {
     }
   };
 
-  const removeUserFromApplication = () => {
+  const removeUserFromApplication = ():void => {
     removeUser();
     isSignOut();
   };
@@ -300,6 +342,6 @@ function App() {
       </MainContext.Provider>
     </Router>
   );
-}
+};
 
 export default App;

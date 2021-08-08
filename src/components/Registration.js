@@ -1,5 +1,4 @@
-import { is } from '@babel/types';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
 import { isUser, isEmail } from '../services/Authorization';
@@ -22,8 +21,6 @@ const Registration = () => {
   const [sendFormText, setSendFormText] = useState('');
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
 
-  const formRef = useRef();
-
   const handleChange = (e) => {
     setRegistrationParams({
       ...registrationParams,
@@ -43,59 +40,60 @@ const Registration = () => {
     return isValidUser;
   };
 
-  const validate_email = async () => {
+  const validateEmail = async () => {
+    let errorEmail = '';
     const isEmailChecked = await checkEmail(registrationParams.email);
     if (isEmailChecked === 'True') {
-      alert('This email has been already used')
-    };
+      errorEmail = 'This email has been already used';
+      setErrorsValidation({
+        errorEmail,
+      });
+    } else {
+      errorEmail = '';
+      setErrorsValidation({
+        errorEmail,
+      });
+    }
     return isEmailChecked;
   };
 
-  const validate_username = async () => {
+  const validateUsername = async () => {
+    let errorUsername = '';
     const isUserChecked = await checkUser(registrationParams.username);
     if (isUserChecked === 'True') {
-      alert('This username is already in use')
-    };
+      errorUsername = 'This username is already in use';
+      setErrorsValidation({
+        errorUsername,
+      });
+    } else {
+      errorUsername = '';
+      setErrorsValidation({
+        errorUsername,
+      });
+    }
     return isUserChecked;
   };
 
-  // validate_email(registrationParams.email);
-  // validate_username(registrationParams.username);
-
-  const validate = async () => {
+  const validate = () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
-    validate_email();
-    validate_username();
-
-    // const isEmailChecked = await checkEmail(registrationParams.email);
-    // console.log(isEmailChecked);
-    // const isUserChecked = await checkUser(registrationParams.username);
-    // console.log(isUserChecked);
+    validateEmail();
+    validateUsername();
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
-    // if (isEmailChecked === 'True') {
-    //   alert('This email has been already used')
-    //   errorEmail = 'This email has been already used';
-    // }
-
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
-
-    // if (isUserChecked === 'True') {
-    //   errorUsername = 'This username is already in use';
-    // }
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail ||  errorUsername || errorPassword) {
+    if (errorEmail || errorUsername || errorPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
@@ -132,9 +130,6 @@ const Registration = () => {
       );
     }
 
-    if (formRef.current) {
-      formRef.current.reset();
-    }
   };
 
   return (
@@ -151,7 +146,7 @@ const Registration = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={isRegistrationToApplication} ref={formRef}>
+            <form onSubmit={isRegistrationToApplication}>
               <div className='ContainerLogin_main-form-input'>
                 <label style={{ margin: '15px' }}>Enter your email:</label>
                 <input

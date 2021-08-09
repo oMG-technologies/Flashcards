@@ -55,6 +55,8 @@
     ]
   },
   "devDependencies": {
+    "@types/country-flag-icons": "^1.2.0",
+    "@types/react-router-dom": "^5.1.8",
     "node": "^16.1.0"
   }
 }

@@ -276,8 +276,8 @@ const App: React.FC = () => {
   const removeUserFromApplication = ():void => {
     removeUser();
     isSignOut();
-  };
-
+  };  
+  
   return (
     <Router>
       <MainContext.Provider

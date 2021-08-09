@@ -28,7 +28,7 @@ const FlipCards: React.FC = () => {
    */
   const indexOfLastQuestion: number = currentPage * questionsPerPage;
   const indexOfFirstQuestion: number = indexOfLastQuestion - questionsPerPage;
-  const currentQuestion: [] = questionsRandom.slice(
+  const currentQuestion = questionsRandom.slice(
     indexOfFirstQuestion,
     indexOfLastQuestion
   );

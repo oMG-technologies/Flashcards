@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, ...rest }) => {
+const ProtectedRoute: React.FC = ({ children, ...rest }) => {
   return (
     <Route
       {...rest}

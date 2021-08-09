@@ -43,7 +43,7 @@ const Registration = () => {
   const validateEmail = async () => {
     let errorEmail = '';
     const isEmailChecked = await checkEmail(registrationParams.email);
-    if (isEmailChecked === 'True') {
+    if (isEmailChecked) {
       errorEmail = 'This email has been already used';
       setErrorsValidation({
         errorEmail,
@@ -60,7 +60,7 @@ const Registration = () => {
   const validateUsername = async () => {
     let errorUsername = '';
     const isUserChecked = await checkUser(registrationParams.username);
-    if (isUserChecked === 'True') {
+    if (isUserChecked) {
       errorUsername = 'This username is already in use';
       setErrorsValidation({
         errorUsername,
@@ -129,7 +129,6 @@ const Registration = () => {
         'Thank you for registering in FlipCards and choosing our product. Your account was successfully created and is almost ready to use. Open your email, click the link below to verify your email so we make sure everything is up and running!'
       );
     }
-
   };
 
   return (

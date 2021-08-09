@@ -50,7 +50,7 @@ const Login = () => {
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
       setSpinier(false);
-    } else if (isValidUser === 'True') {
+    } else if (isValidUser) {
       setIsLogIn(false);
       setErrorValid('Incorrect password. Try again');
       setSpinier(false);

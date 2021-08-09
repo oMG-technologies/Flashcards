@@ -4,11 +4,11 @@ export interface PropsTheFront {
   currentQuestion:
     | [
         {
-          backCard: string;
-          frontCard: string;
           id: number;
-          pronunciation_backCard: string;
+          frontCard: string;
+          backCard: string;
           pronunciation_frontCard: string;
+          pronunciation_backCard: string;
           source_language: string;
           target_language: string;
         }

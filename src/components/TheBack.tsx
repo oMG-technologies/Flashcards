@@ -1,6 +1,25 @@
 import React from 'react';
 
-const TheBack = ({
+export interface PropsTheBack {
+  currentQuestion:
+    | [
+        {
+          backCard: string;
+          frontCard: string;
+          id: number;
+          pronunciation_backCard: string;
+          pronunciation_frontCard: string;
+          source_language: string;
+          target_language: string;
+        }
+      ]
+    | never[];
+  flipButtonsOnCard: boolean;
+  clickNextAndIKnow: () => any;
+  clickNextAndIDonTKnow: () => any;
+}
+
+const TheBack: React.FC<PropsTheBack> = ({
   currentQuestion,
   flipButtonsOnCard,
   clickNextAndIKnow,

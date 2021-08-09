@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../../src/services/Authorization';
+import { getToken, isUser } from '../services/Authorization';
 
-const Login = () => {
+const Login: React.FC = () => {
   const [loginParams, setLoginParams] = useState({
     username: '',
     password: '',
@@ -14,8 +14,6 @@ const Login = () => {
   const [isLogIn, setIsLogIn] = useState(false);
 
   const [spinier, setSpinier] = useState(false);
-
-  const formRef = useRef();
 
   const [didMount, setDidMount] = useState(false);
 
@@ -29,21 +27,23 @@ const Login = () => {
     return () => setDidMount(false);
   }, [spinier]);
 
-  const handleChange = (e) => {
+  /**
+   * Set up login params
+   */
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
     });
   };
 
+  /**
+   * Login
+   */
   const getDataToken = async () => {
-    /**
-     * Login
-     */
-
     setSpinier(true);
-    const isUserResponse = await isUser(loginParams.username);
-    const isValidUser = isUserResponse['data'][loginParams.username];
+    const isUserResponse: any = await isUser(loginParams.username);
+    const isValidUser: string = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
     const savedTokenFromLocalStorage = localStorage.getItem('token');
@@ -61,14 +61,10 @@ const Login = () => {
     }
   };
 
-  const isLogInToApplication = (e) => {
+  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
 
     getDataToken();
-
-    if (formRef.current) {
-      formRef.current.reset();
-    }
   };
 
   if (isLogIn) {
@@ -85,7 +81,7 @@ const Login = () => {
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
-          <form onSubmit={isLogInToApplication} ref={formRef}>
+          <form onSubmit={isLogInToApplication}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>
               <input

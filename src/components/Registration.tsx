@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
-import { register } from '../../src/services/Register';
+import { register } from '../services/Register';
 import { isUser, isEmail } from '../services/Authorization';
 
-const Registration = () => {
+const Registration:React.FC = () => {
   const [registrationParams, setRegistrationParams] = useState({
     email: '',
     username: '',
@@ -12,35 +12,81 @@ const Registration = () => {
     repeatPassword: '',
   });
 
+  interface IInitialError {
+    errorEmail?: string
+    errorUsername?: string
+    errorPassword?: string
+    errorRepeatPassword?: string
+  }   
+
+  /**
+   * Validation input errors
+   */
   const initialError = {
     errorEmail: '',
     errorUsername: '',
     errorPassword: '',
     errorRepeatPassword: '',
   };
-  const [errorsValidation, setErrorsValidation] = useState(initialError);
+  const [errorsValidation, setErrorsValidation] = useState<IInitialError>(initialError);
 
-  // iRegistration info
+  /**
+   * Registration info
+   */
   const [sendFormText, setSendFormText] = useState('');
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRegistrationParams({
       ...registrationParams,
       [e.target.name]: e.target.value,
     });
   };
 
-  const checkEmail = async (email) => {
-    const isEmailResponse = await isEmail(email);
-    const isValidEmail = isEmailResponse['data'][email];
-    return await isValidEmail;
+  const checkEmail = async (email:any) => {
+    const isEmailResponse:any = await isEmail(email);
+    const isValidEmail = await isEmailResponse['data'][email];
+    return isValidEmail;
   };
 
-  const checkUser = async (username) => {
-    const isUserResponse = await isUser(username);
-    const isValidUser = isUserResponse['data'][username];
-    return await isValidUser;
+  const checkUser = async (username:any) => {
+    const isUserResponse:any = await isUser(username);
+    const isValidUser = await isUserResponse['data'][username];
+    return isValidUser;
+  };
+
+  const validateEmail = async () => {
+    let errorEmail = '';
+    const isEmailChecked = await checkEmail(registrationParams.email);
+    if (isEmailChecked) {
+      errorEmail = 'This email has been already used';
+      setErrorsValidation({
+        errorEmail,
+      });
+    } else {
+      errorEmail = '';
+      setErrorsValidation({
+        errorEmail,
+      });
+    }
+    return isEmailChecked;
+  };
+
+  const validateUsername = async () => {
+    let errorUsername = '';
+    const isUserChecked = await checkUser(registrationParams.username);
+    if (isUserChecked) {
+      errorUsername = 'This username is already in use';
+      setErrorsValidation({
+        errorUsername,
+      });
+    } else {
+      errorUsername = '';
+      setErrorsValidation({
+        errorUsername,
+      });
+    }
+    return isUserChecked;
   };
 
   const validate = () => {
@@ -49,16 +95,16 @@ const Registration = () => {
     let errorPassword = '';
     let errorRepeatPassword = '';
 
+    validateEmail();
+    validateUsername();
+
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
-
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
-
-   
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';
@@ -96,7 +142,7 @@ const Registration = () => {
     }
   };
 
-  const isRegistrationToApplication = (e) => {
+  const isRegistrationToApplication = (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     const isValid = validate();
 

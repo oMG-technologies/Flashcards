@@ -53,19 +53,12 @@ const Registration = () => {
       errorEmail = 'set the email';
     }
 
-    // let checkUsedEmail = checkEmail(registrationParams.email);
-
-    // if (checkUsedEmail === 'True') {
-    //   errorEmail = 'This email has been already used';
-    // }
 
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
 
-    // if ((await checkUser(registrationParams.username)) === 'True') {
-    //   errorUsername = 'This username is already in use';
-    // }
+   
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';

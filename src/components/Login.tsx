@@ -45,14 +45,14 @@ const Login: React.FC = () => {
   const getDataToken = async () => {
     setSpinier(true);
     const isUserResponse: any = await isUser(loginParams.username);
-    const isValidUser: string = isUserResponse['data'][loginParams.username];
+    const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
     const savedTokenFromLocalStorage = localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
       setSpinier(false);
-    } else if (isValidUser === 'True') {
+    } else if (isValidUser) {
       setIsLogIn(false);
       setErrorValid('Incorrect password. Try again');
       setSpinier(false);

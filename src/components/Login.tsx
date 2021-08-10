@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import { getToken, isUser } from '../services/Authorization';
@@ -14,6 +14,8 @@ const Login: React.FC = () => {
   const [isLogIn, setIsLogIn] = useState(false);
 
   const [spinier, setSpinier] = useState(false);
+
+  const formRef = useRef<HTMLInputElement | any>();
 
   const [didMount, setDidMount] = useState(false);
 
@@ -65,6 +67,10 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     getDataToken();
+
+    if (formRef.current) {
+      formRef.current.reset();
+    }
   };
 
   if (isLogIn) {
@@ -81,7 +87,7 @@ const Login: React.FC = () => {
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
-          <form onSubmit={isLogInToApplication}>
+          <form onSubmit={isLogInToApplication} ref={formRef}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>
               <input

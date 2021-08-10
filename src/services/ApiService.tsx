@@ -19,7 +19,7 @@ export const getAllLanguages = async () => {
   }
 };
 
-export const getAllQuestionsByLanguage = async (languages) => {
+export const getAllQuestionsByLanguage = async (languages:string) => {
   try {
     return await api
       .get(`translation/?conversion=${languages}`)

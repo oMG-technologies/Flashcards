@@ -6,7 +6,7 @@ import TheBack from './TheBack';
 
 import { MainContext } from '../context/MainContext';
 
-const FlipCards = () => {
+const FlipCards: React.FC = () => {
   const {
     questionsRandom,
     numberElementInFlipCards,
@@ -23,36 +23,43 @@ const FlipCards = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [questionsPerPage] = useState(1);
 
-  // Get current Question
-  const indexOfLastQuestion = currentPage * questionsPerPage;
-  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  /**
+   * Created single question
+   */
+  const indexOfLastQuestion: number = currentPage * questionsPerPage;
+  const indexOfFirstQuestion: number = indexOfLastQuestion - questionsPerPage;
   const currentQuestion = questionsRandom.slice(
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
 
-  // Changed Page
-  const nextPage = () => {
+  /**
+   * Changed Page
+   */
+  const nextPage = (): void => {
     if (currentPage < questionsRandom.length) {
       setCurrentPage(currentPage + 1);
     }
   };
 
-  const prevPage = () => {
+  const prevPage = (): void => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
 
-  const resultTime = () => {
+  const resultTime = (): void => {
     stop();
   };
 
-  const backHome = () => {
+  const backHome = (): void => {
     reset();
   };
 
-  const clickNextAndIKnow = () => {
+  /**
+   * Result and change flip card
+   */
+  const clickNextAndIKnow = (): void => {
     nextPage();
     IknowClick();
 
@@ -61,7 +68,7 @@ const FlipCards = () => {
     }
   };
 
-  const clickNextAndIDonTKnow = () => {
+  const clickNextAndIDonTKnow = (): void => {
     nextPage();
     IdontknowClick();
 
@@ -70,9 +77,11 @@ const FlipCards = () => {
     }
   };
 
-  // Pronunciation
-  const playAudio = (i) => {
-    let audioEl = document.getElementsByClassName('audio-element')[i];
+  /**
+   * Pronunciation
+   */
+  const playAudio = (i: number): void => {
+    let audioEl: any = document.getElementsByClassName('audio-element')[i];
     audioEl.play();
   };
 
@@ -103,7 +112,7 @@ const FlipCards = () => {
       </div>
 
       <div className='mainContainer_boxIcon'>
-        {arrOfAnswers.map((answer, i) =>
+        {arrOfAnswers.map((answer: boolean, i: number) =>
           answer ? (
             <span className='mainContainer_boxIcon-check' key={i}>
               <i className='fa fa-check'></i>

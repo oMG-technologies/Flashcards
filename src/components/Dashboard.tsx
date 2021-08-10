@@ -5,8 +5,32 @@ import { MainContext } from '../context/MainContext';
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 
+export interface PropsDashboard {
+  handleChangeSelectLanguage: any;
+  numberElementInFlipCards: number;
+  setNumberElementInFlipCards: (arg?: any) => void;
+  setAnswersBad: any;
+  setAnswersGood: any;
+  start: () => void;
+  reset: () => void;
+  errors: any;
+  isErrorValidation: any;
+  setErrorValidation: any;
+  languages:
+    | [
+        {
+          id: number;
+          conversion: string;
+          target_language_iso639: string;
+          target_language_iso3166: string;
+          name: string;
+        }
+      ]
+    | never[];
+  setArrOfAnswers: any;
+}
 
-const Dashboard = ({
+const Dashboard: React.FC<PropsDashboard> = ({
   handleChangeSelectLanguage,
   numberElementInFlipCards,
   setNumberElementInFlipCards,
@@ -33,6 +57,9 @@ const Dashboard = ({
     setFlipButtonsOnCard(false);
   }, []);
 
+  /**
+   * Start using application
+   */
   const startTimerClick = () => {
     reset();
     start();
@@ -42,14 +69,25 @@ const Dashboard = ({
     setArrOfAnswers([]);
   };
 
-  const onChangeEventChandlerAndCleanup = (e) => {
+  /**
+   * Change language
+   */
+  const onChangeEventChandlerAndCleanup = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setNumberElementInFlipCards(e.target.value);
   };
 
+  /**
+   * Change side flip cards
+   */
   const changedFrontBack = () => {
     setFlip(!flip) || setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
+  /**
+   * Save user to local storage
+   */
   const savedUserFromLocalStorage = localStorage.getItem('user');
 
   return (
@@ -71,10 +109,7 @@ const Dashboard = ({
         <div className='ContainerDashboard_main-removeUser'>
           <span onClick={removeUserFromApplication}>
             Remove me
-            <i
-              className='fa fa-times'
-              style={{ color: 'red' }}
-            ></i>
+            <i className='fa fa-times' style={{ color: 'red' }}></i>
           </span>
         </div>
         <div className='ContainerDashboard_main-selectLanguage'>

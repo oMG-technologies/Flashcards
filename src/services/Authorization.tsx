@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: `https://words-translation.herokuapp.com/`,
 });
 
-export const getToken = async (data) => {
+export const getToken = async (data: { username: string; password: any }) => {
   try {
     return await api.post(`/api-token-auth/`, data).then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -15,7 +15,7 @@ export const getToken = async (data) => {
   }
 };
 
-export const isUser = (username) => {
+export const isUser = (username: string) => {
   try {
     return api.get(`/is_user/${username}/`).then((res) => {
       return res;
@@ -25,7 +25,7 @@ export const isUser = (username) => {
   }
 };
 
-export const isEmail = (email) => {
+export const isEmail = (email: string) => {
   try {
     return api.get(`/is_email/${email}/`).then((res) => {
       return res;

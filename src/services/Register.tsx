@@ -4,9 +4,14 @@ const api = axios.create({
   baseURL: `https://words-translation.herokuapp.com/`,
 });
 
-export const register = async (data) => {
+export const register = async (data: {
+  email: any;
+  username: string;
+  password: any;
+  repeatPassword: any;
+}) => {
   try {
-    const headers = { 'content-type': 'application/json' };
+    const headers: any = { 'content-type': 'application/json' };
     const response = await api.put('/user_create/user/add/', data, headers);
     console.log(response.status);
     return response.data;

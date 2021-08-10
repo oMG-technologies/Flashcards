@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 
-const Results = () => {
+const Results: React.FC = () => {
   const {
     questionsRandom,
     numberElementInFlipCards,
@@ -15,6 +15,9 @@ const Results = () => {
     removeUserFromApplication,
   } = useContext(MainContext);
 
+  /**
+   * Special function added hour 
+   */
   const h = () => {
     if (time.h === 0) {
       return '';
@@ -23,9 +26,11 @@ const Results = () => {
     }
   };
 
-  // Pronunciation
-  const playAudio = (i) => {
-    let audioEl = document.getElementsByClassName('audio-element')[i];
+  /**
+   * Pronunciation
+   */
+  const playAudio = (i: number): void => {
+    let audioEl: any = document.getElementsByClassName('audio-element')[i];
 
     audioEl.play();
   };
@@ -72,55 +77,68 @@ const Results = () => {
             </tr>
           </thead>
           <tbody>
-            {questionsRandom.map((el, i) => (
-              <tr key={i + 1}>
-                <td>{i + 1}</td>
+            {questionsRandom.map(
+              (
+                el: {
+                  id: number;
+                  frontCard: string;
+                  backCard: string;
+                  pronunciation_frontCard: string;
+                  pronunciation_backCard: string;
+                  source_language: string;
+                  target_language: string;
+                },
+                i: number
+              ) => (
+                <tr key={i + 1}>
+                  <td>{i + 1}</td>
 
-                {flip ? <td>{el.backCard}</td> : <td>{el.frontCard}</td>}
-                {flip ? (
-                  <td>
-                    {el.frontCard}
-                    <audio
-                      className='audio-element'
-                      src={el.pronunciation_frontCard}
-                    ></audio>
-                  </td>
-                ) : (
-                  <td>
-                    {el.backCard}
-                    <audio
-                      className='audio-element'
-                      src={el.pronunciation_backCard}
-                    ></audio>
-                  </td>
-                )}
+                  {flip ? <td>{el.backCard}</td> : <td>{el.frontCard}</td>}
+                  {flip ? (
+                    <td>
+                      {el.frontCard}
+                      <audio
+                        className='audio-element'
+                        src={el.pronunciation_frontCard}
+                      ></audio>
+                    </td>
+                  ) : (
+                    <td>
+                      {el.backCard}
+                      <audio
+                        className='audio-element'
+                        src={el.pronunciation_backCard}
+                      ></audio>
+                    </td>
+                  )}
 
-                <td>
-                  <button
-                    onClick={() => playAudio(i)}
-                    className='btn-pronunciation-table'
-                  >
-                    <span>
-                      <i className='fa fa-volume-up'></i>
-                    </span>
-                  </button>
-                </td>
+                  <td>
+                    <button
+                      onClick={() => playAudio(i)}
+                      className='btn-pronunciation-table'
+                    >
+                      <span>
+                        <i className='fa fa-volume-up'></i>
+                      </span>
+                    </button>
+                  </td>
 
-                {arrOfAnswers[i] ? (
-                  <td>
-                    <span className='mainContainer_boxIcon-check' key={i}>
-                      <i className='fa fa-check'></i>
-                    </span>
-                  </td>
-                ) : (
-                  <td>
-                    <span className='mainContainer_boxIcon-remove' key={i}>
-                      <i className='fa fa-remove'></i>
-                    </span>
-                  </td>
-                )}
-              </tr>
-            ))}
+                  {arrOfAnswers[i] ? (
+                    <td>
+                      <span className='mainContainer_boxIcon-check' key={i}>
+                        <i className='fa fa-check'></i>
+                      </span>
+                    </td>
+                  ) : (
+                    <td>
+                      <span className='mainContainer_boxIcon-remove' key={i}>
+                        <i className='fa fa-remove'></i>
+                      </span>
+                    </td>
+                  )}
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>

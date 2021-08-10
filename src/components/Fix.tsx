@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Fix = () => {
+const Fix: React.FC = () => {
   return (
     <div className='loaded_page'>
       <h3 className='loaded_page-text'>

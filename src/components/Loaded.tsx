@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loaded = () => {
+const Loaded: React.FC = () => {
   return (
     <div className='loaded_page'>
       <h3 className='loaded_page-text'>

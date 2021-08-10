@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { register } from '../../src/services/Register';
 import { isUser, isEmail } from '../services/Authorization';
@@ -6,14 +7,16 @@ import { isUser, isEmail } from '../services/Authorization';
 const Registration = () => {
   const [registrationParams, setRegistrationParams] = useState({
     email: '',
-    password: '',
     username: '',
+    password: '',
+    repeatPassword: '',
   });
 
   const initialError = {
     errorEmail: '',
-    errorPassword: '',
     errorUsername: '',
+    errorPassword: '',
+    errorRepeatPassword: '',
   };
   const [errorsValidation, setErrorsValidation] = useState(initialError);
 
@@ -30,74 +33,52 @@ const Registration = () => {
 
   const checkEmail = async (email) => {
     const isEmailResponse = await isEmail(email);
-    const isValidEmail = await isEmailResponse['data'][email];
-    return isValidEmail;
+    const isValidEmail = isEmailResponse['data'][email];
+    return await isValidEmail;
   };
 
   const checkUser = async (username) => {
     const isUserResponse = await isUser(username);
-    const isValidUser = await isUserResponse['data'][username];
-    return isValidUser;
-  };
-
-  const validateEmail = async () => {
-    let errorEmail = '';
-    const isEmailChecked = await checkEmail(registrationParams.email);
-    if (isEmailChecked) {
-      errorEmail = 'This email has been already used';
-      setErrorsValidation({
-        errorEmail,
-      });
-    } else {
-      errorEmail = '';
-      setErrorsValidation({
-        errorEmail,
-      });
-    }
-    return isEmailChecked;
-  };
-
-  const validateUsername = async () => {
-    let errorUsername = '';
-    const isUserChecked = await checkUser(registrationParams.username);
-    if (isUserChecked) {
-      errorUsername = 'This username is already in use';
-      setErrorsValidation({
-        errorUsername,
-      });
-    } else {
-      errorUsername = '';
-      setErrorsValidation({
-        errorUsername,
-      });
-    }
-    return isUserChecked;
+    const isValidUser = isUserResponse['data'][username];
+    return await isValidUser;
   };
 
   const validate = () => {
     let errorEmail = '';
     let errorUsername = '';
     let errorPassword = '';
-    validateEmail();
-    validateUsername();
+    let errorRepeatPassword = '';
 
     if (registrationParams.email.length === 0) {
       errorEmail = 'set the email';
     }
 
+
     if (registrationParams.username.length === 0) {
       errorUsername = 'set the user name';
     }
+
+   
 
     if (registrationParams.password.length === 0) {
       errorPassword = 'set the password';
     }
 
-    if (errorEmail || errorUsername || errorPassword) {
+    if (registrationParams.repeatPassword.length === 0) {
+      errorRepeatPassword = 'set the repeat password';
+    }
+
+    if (registrationParams.password !== registrationParams.repeatPassword) {
+      (errorPassword = 'set the same password') ||
+        (errorRepeatPassword = 'set the same password');
+    }
+
+    if (errorEmail || errorUsername || errorPassword || errorRepeatPassword) {
       setErrorsValidation({
         errorEmail,
         errorUsername,
         errorPassword,
+        errorRepeatPassword,
       });
       return false;
     }
@@ -192,18 +173,34 @@ const Registration = () => {
                 <span style={{ color: 'red', fontSize: '14px' }}>
                   {errorsValidation.errorPassword}
                 </span>
+              </div>
 
-                <input className='special' name='field_name' type='text' />
+              <div className='ContainerRegistration_main-form-input'>
+                <label style={{ margin: '15px' }}>
+                  Set repeated your password:
+                </label>
+                <input
+                  type='password'
+                  placeholder='repeated your password'
+                  name='repeatPassword'
+                  onChange={handleChange}
+                  onBlur={check}
+                  className='inputLogin'
+                />
 
-                <div className='ContainerRegistration_main-form-button'>
-                  <Link to='./' type='submit' className='btn_start'>
-                    Back to the login panel
-                  </Link>
+                <span style={{ color: 'red', fontSize: '14px' }}>
+                  {errorsValidation.errorRepeatPassword}
+                </span>
+              </div>
 
-                  <button type='submit' className='btn_createAccount'>
-                    Create account
-                  </button>
-                </div>
+              <div className='ContainerRegistration_main-form-button'>
+                <Link to='./' type='submit' className='btn_start'>
+                  Back to the login panel
+                </Link>
+
+                <button type='submit' className='btn_createAccount'>
+                  Create account
+                </button>
               </div>
             </form>
           )}

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../../src/services/Authorization';
+import { getToken, isUser } from '../services/Authorization';
 
-const Login = () => {
+const Login: React.FC = () => {
   const [loginParams, setLoginParams] = useState({
     username: '',
     password: '',
@@ -15,7 +15,7 @@ const Login = () => {
 
   const [spinier, setSpinier] = useState(false);
 
-  const formRef = useRef();
+  const formRef = useRef<HTMLInputElement | any>();
 
   const [didMount, setDidMount] = useState(false);
 
@@ -29,21 +29,23 @@ const Login = () => {
     return () => setDidMount(false);
   }, [spinier]);
 
-  const handleChange = (e) => {
+  /**
+   * Set up login params
+   */
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
     });
   };
 
+  /**
+   * Login
+   */
   const getDataToken = async () => {
-    /**
-     * Login
-     */
-
     setSpinier(true);
-    const isUserResponse = await isUser(loginParams.username);
-    const isValidUser = isUserResponse['data'][loginParams.username];
+    const isUserResponse: any = await isUser(loginParams.username);
+    const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
     const savedTokenFromLocalStorage = localStorage.getItem('token');
@@ -61,7 +63,7 @@ const Login = () => {
     }
   };
 
-  const isLogInToApplication = (e) => {
+  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
 
     getDataToken();

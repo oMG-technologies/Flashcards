@@ -1,34 +1,55 @@
 import React from 'react';
 
-const TheFront = ({
+export interface PropsTheBack {
+  currentQuestion:
+    | [
+        {
+          id: number;
+          frontCard: string;
+          backCard: string;
+          pronunciation_frontCard: string;
+          pronunciation_backCard: string;
+          source_language: string;
+          target_language: string;
+        }
+      ]
+    | never[];
+  flipButtonsOnCard: boolean;
+  clickNextAndIKnow: () => any;
+  clickNextAndIDonTKnow: () => any;
+}
+
+const TheBack: React.FC<PropsTheBack> = ({
   currentQuestion,
   flipButtonsOnCard,
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
 }) => {
   return (
-    <div className='theFront'>
-      Front
+    <div className='theBack'>
+      Back
       <p className='englishMeaning'>
         {currentQuestion.map((el) => (
           <span key={el.id}>
-            <span key={el.id}>{el.frontCard}</span>
+            <span key={el.id}>{el.backCard}</span>
 
             {flipButtonsOnCard ? (
               <audio
                 className='audio-element'
-                src={el.pronunciation_backCard}
+                src={el.pronunciation_frontCard}
               ></audio>
             ) : (
               <audio
                 className='audio-element'
-                src={el.pronunciation_frontCard}
+                src={el.pronunciation_backCard}
               ></audio>
             )}
           </span>
         ))}
       </p>
       {flipButtonsOnCard ? (
+        <div className='mainContainer_button'></div>
+      ) : (
         <div className='mainContainer_button'>
           <button
             className='btn_IDonTknow-onCard'
@@ -36,15 +57,14 @@ const TheFront = ({
           >
             I don't know
           </button>
+
           <button className='btn_Iknow-onCard' onClick={clickNextAndIKnow}>
             I know
           </button>
         </div>
-      ) : (
-        <div className='mainContainer_button'></div>
       )}
     </div>
   );
 };
 
-export default TheFront;
+export default TheBack;

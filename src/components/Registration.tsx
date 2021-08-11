@@ -115,7 +115,7 @@ const Registration:React.FC = () => {
     }
 
     if (registrationParams.password !== registrationParams.repeatPassword) {
-      (errorPassword = 'set the same password') ||
+      (errorPassword = 'set the same password') &&
         (errorRepeatPassword = 'set the same password');
     }
 

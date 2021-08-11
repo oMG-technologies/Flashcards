@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { register } from '../services/Register';
 import { isUser, isEmail } from '../services/Authorization';
 
-const Registration:React.FC = () => {
+const Registration: React.FC = () => {
   const [registrationParams, setRegistrationParams] = useState({
     email: '',
     username: '',
@@ -13,11 +13,11 @@ const Registration:React.FC = () => {
   });
 
   interface IInitialError {
-    errorEmail?: string
-    errorUsername?: string
-    errorPassword?: string
-    errorRepeatPassword?: string
-  }   
+    errorEmail?: string;
+    errorUsername?: string;
+    errorPassword?: string;
+    errorRepeatPassword?: string;
+  }
 
   /**
    * Validation input errors
@@ -28,7 +28,8 @@ const Registration:React.FC = () => {
     errorPassword: '',
     errorRepeatPassword: '',
   };
-  const [errorsValidation, setErrorsValidation] = useState<IInitialError>(initialError);
+  const [errorsValidation, setErrorsValidation] =
+    useState<IInitialError>(initialError);
 
   /**
    * Registration info
@@ -43,14 +44,14 @@ const Registration:React.FC = () => {
     });
   };
 
-  const checkEmail = async (email:any) => {
-    const isEmailResponse:any = await isEmail(email);
+  const checkEmail = async (email: any) => {
+    const isEmailResponse: any = await isEmail(email);
     const isValidEmail = await isEmailResponse['data'][email];
     return isValidEmail;
   };
 
-  const checkUser = async (username:any) => {
-    const isUserResponse:any = await isUser(username);
+  const checkUser = async (username: any) => {
+    const isUserResponse: any = await isUser(username);
     const isValidUser = await isUserResponse['data'][username];
     return isValidUser;
   };
@@ -60,16 +61,12 @@ const Registration:React.FC = () => {
     const isEmailChecked = await checkEmail(registrationParams.email);
     if (isEmailChecked) {
       errorEmail = 'This email has been already used';
-      setErrorsValidation({
-        errorEmail,
-      });
     } else {
       errorEmail = '';
-      setErrorsValidation({
-        errorEmail,
-      });
     }
-    return isEmailChecked;
+    return setErrorsValidation({
+      errorEmail,
+    });
   };
 
   const validateUsername = async () => {
@@ -77,16 +74,12 @@ const Registration:React.FC = () => {
     const isUserChecked = await checkUser(registrationParams.username);
     if (isUserChecked) {
       errorUsername = 'This username is already in use';
-      setErrorsValidation({
-        errorUsername,
-      });
     } else {
       errorUsername = '';
-      setErrorsValidation({
-        errorUsername,
-      });
     }
-    return isUserChecked;
+    return setErrorsValidation({
+      errorUsername,
+    });
   };
 
   const validate = () => {
@@ -142,7 +135,9 @@ const Registration:React.FC = () => {
     }
   };
 
-  const isRegistrationToApplication = (e: React.SyntheticEvent<EventTarget>) => {
+  const isRegistrationToApplication = (
+    e: React.SyntheticEvent<EventTarget>
+  ) => {
     e.preventDefault();
     const isValid = validate();
 

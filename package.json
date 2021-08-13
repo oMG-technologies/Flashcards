@@ -10,8 +10,6 @@
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.13",
     "@types/react": "^17.0.16",
-    "@types/react-dom": "^17.0.9",
-    "@types/react-router": "^5.1.16",
     "axios": "^0.21.1",
     "country-flag-icons": "^1.2.10",
     "heroku-cli": "^6.15.31",
@@ -57,6 +55,7 @@
   },
   "devDependencies": {
     "@types/country-flag-icons": "^1.2.0",
+    "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
     "node": "^16.1.0"
   }

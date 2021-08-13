@@ -60,7 +60,7 @@ const Dashboard: React.FC<PropsDashboard> = ({
   /**
    * Start using application
    */
-  const startTimerClick = () => {
+  const startTimerClick = (): void => {
     reset();
     start();
     setAnswersGood(0);
@@ -74,21 +74,21 @@ const Dashboard: React.FC<PropsDashboard> = ({
    */
   const onChangeEventChandlerAndCleanup = (
     e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  ): void => {
     setNumberElementInFlipCards(e.target.value);
   };
 
   /**
    * Change side flip cards
    */
-  const changedFrontBack = () => {
+  const changedFrontBack = (): void => {
     setFlip(!flip) || setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
   /**
    * Save user to local storage
    */
-  const savedUserFromLocalStorage = localStorage.getItem('user');
+  const savedUserFromLocalStorage: string | null = localStorage.getItem('user');
 
   return (
     <div className='ContainerDashboard'>

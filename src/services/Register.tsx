@@ -5,11 +5,11 @@ const api = axios.create({
 });
 
 export const register = async (data: {
-  email: any;
+  email: string;
   username: string;
-  password: any;
-  repeatPassword: any;
-}) => {
+  password: string;
+  repeatPassword: string;
+}):Promise<any> => {
   try {
     const headers: any = { 'content-type': 'application/json' };
     const response = await api.post('/user_create/user/add/', data, headers);

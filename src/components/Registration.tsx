@@ -44,20 +44,21 @@ const Registration: React.FC = () => {
     });
   };
 
-  const checkEmail = async (email: any) => {
+
+  const checkEmail = async (email: string): Promise<any> => {
     const isEmailResponse: any = await isEmail(email);
     const isValidEmail = await isEmailResponse['data'][email];
     return isValidEmail;
   };
 
-  const checkUser = async (username: any) => {
-    const isUserResponse: any = await isUser(username);
-    const isValidUser = await isUserResponse['data'][username];
-    return isValidUser;
-  };
 
-  const validateEmail = async () => {
-    let errorEmail = '';
+  const checkUser = async (username: string): Promise<any> => {
+    const isUserResponse: any = await isUser(username);
+    const isValidUser: boolean = await isUserResponse['data'][username];
+    console.log('isValidUser', isValidUser);
+
+  const validateEmail = async (): Promise<any> => {
+    let errorEmail: string = '';
     const isEmailChecked = await checkEmail(registrationParams.email);
     if (isEmailChecked) {
       errorEmail = 'This email has been already used';
@@ -69,8 +70,8 @@ const Registration: React.FC = () => {
     });
   };
 
-  const validateUsername = async () => {
-    let errorUsername = '';
+  const validateUsername = async (): Promise<any> => {
+    let errorUsername: string = '';
     const isUserChecked = await checkUser(registrationParams.username);
     if (isUserChecked) {
       errorUsername = 'This username is already in use';
@@ -82,11 +83,11 @@ const Registration: React.FC = () => {
     });
   };
 
-  const validate = () => {
-    let errorEmail = '';
-    let errorUsername = '';
-    let errorPassword = '';
-    let errorRepeatPassword = '';
+  const validate = (): boolean => {
+    let errorEmail: string = '';
+    let errorUsername: string = '';
+    let errorPassword: string = '';
+    let errorRepeatPassword: string = '';
 
     validateEmail();
     validateUsername();
@@ -124,7 +125,7 @@ const Registration: React.FC = () => {
     return true;
   };
 
-  const check = () => {
+  const check = (): void => {
     const isValid = validate();
 
     if (isValid) {
@@ -137,7 +138,8 @@ const Registration: React.FC = () => {
 
   const isRegistrationToApplication = (
     e: React.SyntheticEvent<EventTarget>
-  ) => {
+  ): void => {
+
     e.preventDefault();
     const isValid = validate();
 

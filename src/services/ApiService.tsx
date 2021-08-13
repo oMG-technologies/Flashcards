@@ -8,7 +8,7 @@ const api = axios.create({
  * API questions
  */
 
-export const getAllLanguages = async () => {
+export const getAllLanguages = async ():Promise<any> => {
   try {
     return await api
       .get(`/available_conversions/`)
@@ -19,7 +19,7 @@ export const getAllLanguages = async () => {
   }
 };
 
-export const getAllQuestionsByLanguage = async (languages:string) => {
+export const getAllQuestionsByLanguage = async (languages:string):Promise<any> => {
   try {
     return await api
       .get(`translation/?conversion=${languages}`)

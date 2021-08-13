@@ -16,9 +16,9 @@ const Results: React.FC = () => {
   } = useContext(MainContext);
 
   /**
-   * Special function added hour 
+   * Special function added hour
    */
-  const h = () => {
+  const h = (): '' | JSX.Element => {
     if (time.h === 0) {
       return '';
     } else {

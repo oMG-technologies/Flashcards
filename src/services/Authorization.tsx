@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 const api = axios.create({
   baseURL: `https://words-translation.herokuapp.com/`,
 });
 
-export const getToken = async (data: { username: string; password: any }) => {
+export const getToken = async (data: { username: string; password: string }):Promise<void> => {
   try {
     return await api.post(`/api-token-auth/`, data).then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -15,7 +15,7 @@ export const getToken = async (data: { username: string; password: any }) => {
   }
 };
 
-export const isUser = (username: string) => {
+export const isUser = (username: string):Promise<AxiosResponse<any>> | undefined => {
   try {
     return api.get(`/is_user/${username}/`).then((res) => {
       return res;
@@ -25,7 +25,7 @@ export const isUser = (username: string) => {
   }
 };
 
-export const isEmail = (email: string) => {
+export const isEmail = (email: string):Promise<AxiosResponse<any>> | undefined  => {
   try {
     return api.get(`/is_email/${email}/`).then((res) => {
       return res;
@@ -35,7 +35,7 @@ export const isEmail = (email: string) => {
   }
 };
 
-export const removeUser = () => {
+export const removeUser = ():Promise<AxiosResponse<any>> | undefined  => {
   const username = localStorage.getItem('user');
   const access_token = localStorage.getItem('token');
   try {

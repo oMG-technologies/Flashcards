@@ -30,7 +30,7 @@ const LoginEmailVerified: React.FC = () => {
   /**
    * Set up login params
    */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
@@ -40,17 +40,17 @@ const LoginEmailVerified: React.FC = () => {
   /**
    * Login
    */
-  const getDataToken = async () => {
+  const getDataToken = async ():Promise<void> => {
     setSpinier(true);
     const isUserResponse: any = await isUser(loginParams.username);
-    const isValidUser: string = isUserResponse['data'][loginParams.username];
+    const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
-    const savedTokenFromLocalStorage = localStorage.getItem('token');
+    const savedTokenFromLocalStorage: string | null = localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
       setSpinier(false);
-    } else if (isValidUser === 'True') {
+    } else if (isValidUser) {
       setIsLogIn(false);
       setErrorValid('Incorrect password. Try again');
       setSpinier(false);
@@ -61,7 +61,7 @@ const LoginEmailVerified: React.FC = () => {
     }
   };
 
-  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>) => {
+  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>):void => {
     e.preventDefault();
 
     getDataToken();

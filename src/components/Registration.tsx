@@ -44,34 +44,30 @@ const Registration: React.FC = () => {
     });
   };
 
+
   const checkEmail = async (email: string): Promise<any> => {
     const isEmailResponse: any = await isEmail(email);
     const isValidEmail = await isEmailResponse['data'][email];
     return isValidEmail;
   };
 
+
   const checkUser = async (username: string): Promise<any> => {
     const isUserResponse: any = await isUser(username);
     const isValidUser: boolean = await isUserResponse['data'][username];
     console.log('isValidUser', isValidUser);
-    return isValidUser;
-  };
 
   const validateEmail = async (): Promise<any> => {
     let errorEmail: string = '';
     const isEmailChecked = await checkEmail(registrationParams.email);
     if (isEmailChecked) {
       errorEmail = 'This email has been already used';
-      setErrorsValidation({
-        errorEmail,
-      });
     } else {
       errorEmail = '';
-      setErrorsValidation({
-        errorEmail,
-      });
     }
-    return isEmailChecked;
+    return setErrorsValidation({
+      errorEmail,
+    });
   };
 
   const validateUsername = async (): Promise<any> => {
@@ -79,16 +75,12 @@ const Registration: React.FC = () => {
     const isUserChecked = await checkUser(registrationParams.username);
     if (isUserChecked) {
       errorUsername = 'This username is already in use';
-      setErrorsValidation({
-        errorUsername,
-      });
     } else {
       errorUsername = '';
-      setErrorsValidation({
-        errorUsername,
-      });
     }
-    return isUserChecked;
+    return setErrorsValidation({
+      errorUsername,
+    });
   };
 
   const validate = (): boolean => {
@@ -117,7 +109,7 @@ const Registration: React.FC = () => {
     }
 
     if (registrationParams.password !== registrationParams.repeatPassword) {
-      (errorPassword = 'set the same password') ||
+      (errorPassword = 'set the same password') &&
         (errorRepeatPassword = 'set the same password');
     }
 
@@ -147,6 +139,7 @@ const Registration: React.FC = () => {
   const isRegistrationToApplication = (
     e: React.SyntheticEvent<EventTarget>
   ): void => {
+
     e.preventDefault();
     const isValid = validate();
 

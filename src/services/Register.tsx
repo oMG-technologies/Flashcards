@@ -12,7 +12,7 @@ export const register = async (data: {
 }):Promise<any> => {
   try {
     const headers: any = { 'content-type': 'application/json' };
-    const response = await api.put('/user_create/user/add/', data, headers);
+    const response = await api.post('/user_create/user/add/', data, headers);
     console.log(response.status);
     return response.data;
   } catch (error) {

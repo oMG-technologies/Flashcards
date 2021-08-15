@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -32,7 +33,7 @@ const Login: React.FC = () => {
   /**
    * Set up login params
    */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
@@ -42,13 +43,16 @@ const Login: React.FC = () => {
   /**
    * Login
    */
-  const getDataToken = async ():Promise<void>  => {
+  const getDataToken = async (): Promise<void> => {
     setSpinier(true);
-    const isUserResponse: any = await isUser(loginParams.username);
+    const isUserResponse: AxiosResponse | any = await isUser(
+      loginParams.username
+    );
     const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
-    const savedTokenFromLocalStorage: string | null = localStorage.getItem('token');
+    const savedTokenFromLocalStorage: string | null =
+      localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
       setSpinier(false);
@@ -63,7 +67,7 @@ const Login: React.FC = () => {
     }
   };
 
-  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>):void => {
+  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>): void => {
     e.preventDefault();
 
     getDataToken();

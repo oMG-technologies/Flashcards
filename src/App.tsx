@@ -67,7 +67,7 @@ const App: React.FC = () => {
   const [arrOfAnswers, setArrOfAnswers] = useState([]);
   const [answersGood, setAnswersGood] = useState(0);
   const [answersBad, setAnswersBad] = useState(0);
-  
+
   /**
    * Validation errors to start app
    */
@@ -93,7 +93,7 @@ const App: React.FC = () => {
    * Get data question in app
    */
 
-  const getQuestions = async (languageSetByUser: string) => {
+  const getQuestions = async (languageSetByUser: string): Promise<void> => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
 
     if (dataQuestions === undefined || dataQuestions === []) {
@@ -109,7 +109,7 @@ const App: React.FC = () => {
   /**
    * Get data language in app
    */
-  const getLanguages = async () => {
+  const getLanguages = async (): Promise<void> => {
     const dataLanguages = await getAllLanguages();
 
     if (dataLanguages === undefined || dataLanguages === []) {
@@ -139,7 +139,6 @@ const App: React.FC = () => {
     randomQuestions();
   }, [questions, numberElementInFlipCards]);
 
-
   /**
    * Slice data questions
    */
@@ -154,7 +153,7 @@ const App: React.FC = () => {
   /**
    * Create random questions
    */
-  const randomQuestions = () => {
+  const randomQuestions = (): void => {
     let newArrQuestions: [] = [];
 
     let lengthSliceArrQuestions = sliceArrQuestions.length;
@@ -206,17 +205,17 @@ const App: React.FC = () => {
     return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
   };
 
-  const start = ():void => {
+  const start = (): void => {
     run();
-    const interval = window.setInterval(() => run(), 10)
+    const interval = window.setInterval(() => run(), 10);
     setIntervalTime(interval);
   };
 
-  const stop = ():void => {
+  const stop = (): void => {
     clearInterval(intervalTime);
   };
 
-  const reset = ():void => {
+  const reset = (): void => {
     clearInterval(intervalTime);
     setTime({ ms: 0, s: 0, m: 0, h: 0 });
   };
@@ -273,11 +272,11 @@ const App: React.FC = () => {
     }
   };
 
-  const removeUserFromApplication = ():void => {
+  const removeUserFromApplication = (): void => {
     removeUser();
     isSignOut();
-  };  
-  
+  };
+
   return (
     <Router>
       <MainContext.Provider

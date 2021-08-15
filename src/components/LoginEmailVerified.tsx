@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -42,7 +43,7 @@ const LoginEmailVerified: React.FC = () => {
    */
   const getDataToken = async ():Promise<void> => {
     setSpinier(true);
-    const isUserResponse: any = await isUser(loginParams.username);
+    const isUserResponse: AxiosResponse | any  = await isUser(loginParams.username);
     const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 

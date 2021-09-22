@@ -9,7 +9,7 @@ const OptionsFlipCards: React.FC = () => {
   return (
     <div>
       <div className='ContainerOptionsFlipCards'>
-        <div className='ContainerOptionsFlipCards_header'>Option Flip Card</div>
+        <div className='ContainerOptionsFlipCards_header'>Options flip card</div>
 
         <div className='ContainerOptionsFlipCards_main'>
           <div className='ContainerOptionsFlipCards_main-welcomeUser'>

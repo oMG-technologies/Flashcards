@@ -99,11 +99,11 @@ const Dashboard: React.FC<PropsDashboard> = ({
           getUnicodeFlagIcon(`${language.target_language_iso3166}`)
         )}
         <div className='ContainerDashboard_main-welcomeUser'>
-          <span style={{ fontSize: '22px' }}>
+          {/* <span style={{ fontSize: '22px' }}>
             Welcome{' '}
             <span style={{ color: 'orange' }}>{savedUserFromLocalStorage}</span>
             ! Nice to see you!
-          </span>
+          </span> */}
         </div>
 
         <div className='ContainerDashboard_main-removeUser'>

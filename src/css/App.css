@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.btn-navigation-link, .btn_toTheFlipCard, .btn_toOptionsFlipCards, .btn_home, .btn_results, .btn_logOut, .btn_createAccount, .btn_start, .btn_start-afterRegister, .btn-back_Application_Not_Found {
+.btn-navigation-link, .btn_toTheFlipCard, .btn_toOptionsFlipCards, .btn_toDashboard, .btn_toOwnFlipCard, .btn_home, .btn_results, .btn_logOut, .btn_createAccount, .btn_start, .btn_start-afterRegister, .btn-back_Application_Not_Found {
   width: 100%;
   height: 30px;
   background-color: transparent;
@@ -94,6 +94,18 @@
 
 .btn_toOptionsFlipCards {
   border: 1px solid rgba(3, 226, 59, 0.767);
+  color: #000;
+  height: 50px;
+}
+
+.btn_toDashboard {
+  border: 1px solid rgba(3, 218, 226, 0.767);
+  color: #000;
+  height: 50px;
+}
+
+.btn_toOwnFlipCard {
+  border: 1px solid orange;
   color: #000;
   height: 50px;
 }
@@ -485,17 +497,7 @@
   align-items: center;
 }
 
-.ContainerOptionsFlipCards_main-removeUser {
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.ContainerOptionsFlipCards_main-removeUser:hover {
-  opacity: 1;
-}
-
-.ContainerOptionsFlipCards_main-selectLanguage {
+.ContainerOptionsFlipCards_main-selectOptions {
   margin-top: 20px;
   margin-bottom: 20px;
 }

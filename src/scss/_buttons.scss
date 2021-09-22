@@ -128,6 +128,20 @@
   height: 50px;
 }
 
+.btn_toDashboard {
+  @extend .btn-navigation-link;
+  border: 1px solid rgba(3, 218, 226, 0.767);
+  color: #000;
+  height: 50px;
+}
+
+.btn_toOwnFlipCard {
+  @extend .btn-navigation-link;
+  border: 1px solid rgb(255, 165, 0);
+  color: #000;
+  height: 50px;
+}
+
 .btn_home {
   @extend .btn-navigation-link;
   border: 1px solid rgb(251, 255, 0);
@@ -177,7 +191,7 @@
   font-size: calc(8px + 1vmin);
 }
 
-.btn_start-afterRegister{
+.btn_start-afterRegister {
   @extend .btn-navigation-link;
   color: #000;
   border: 1px solid rgb(255, 165, 0);

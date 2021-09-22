@@ -7,7 +7,6 @@ const OptionsFlipCards: React.FC = () => {
    */
   const savedUserFromLocalStorage: string | null = localStorage.getItem('user');
   return (
-    <div>
       <div className='ContainerOptionsFlipCards'>
         <div className='ContainerOptionsFlipCards_header'>Options flip card</div>
 
@@ -27,7 +26,7 @@ const OptionsFlipCards: React.FC = () => {
             <Link to='/Dashboard' className='btn_toDashboard'>
               Learn English
             </Link>
-            <Link to='/Dashboard' className='btn_toOwnFlipCard'>
+            <Link to='/OwnFlipCards' className='btn_toOwnFlipCard'>
               Create own flip cards
             </Link>
           </div>
@@ -35,7 +34,6 @@ const OptionsFlipCards: React.FC = () => {
 
         <div className='ContainerOptionsFlipCards_button'></div>
       </div>
-    </div>
   );
 };
 

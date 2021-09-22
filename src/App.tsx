@@ -29,6 +29,7 @@ import { removeUser } from './services/Authorization';
 import Loaded from './components/Loaded';
 import Fix from './components/Fix';
 import OptionsFlipCards from './components/OptionsFlipCards';
+import OwnFlipCards from './components/OwnFlipCards';
 
 const App: React.FC = () => {
   /**
@@ -314,6 +315,9 @@ const App: React.FC = () => {
           <ProtectedRoute>
             <Route exact path='/OptionsFlipCards'>
               <OptionsFlipCards />
+            </Route>
+            <Route exact path='/OwnFlipCards'>
+              <OwnFlipCards />
             </Route>
             <Route exact path='/Dashboard'>
               <Dashboard

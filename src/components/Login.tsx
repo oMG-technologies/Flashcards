@@ -78,7 +78,7 @@ const Login: React.FC = () => {
   };
 
   if (isLogIn) {
-    return <Redirect from='/' to='/Dashboard' />;
+    return <Redirect from='/' to='/OptionsFlipCards' />;
   }
 
   if (!didMount) {

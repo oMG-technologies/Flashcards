@@ -160,6 +160,12 @@ const Dashboard: React.FC<PropsDashboard> = ({
         </div>
       </div>
 
+  
+        <Link to='/OptionsFlipCards' className='btn_toOptionsFlipCards'>
+          Back to Options
+        </Link>
+
+      
       <div className='ContainerDashboard_button'>
         {!isErrorValidation ? (
           <Link

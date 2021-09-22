@@ -120,6 +120,14 @@
   border: 1px solid rgb(0, 0, 255);
   height: 50px;
 }
+
+.btn_toOptionsFlipCards {
+  @extend .btn-navigation-link;
+  border: 1px solid rgba(3, 226, 59, 0.767);
+  color: #000;
+  height: 50px;
+}
+
 .btn_home {
   @extend .btn-navigation-link;
   border: 1px solid rgb(251, 255, 0);

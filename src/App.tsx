@@ -28,6 +28,7 @@ import { removeUser } from './services/Authorization';
 
 import Loaded from './components/Loaded';
 import Fix from './components/Fix';
+import OptionsFlipCards from './components/OptionsFlipCards';
 
 const App: React.FC = () => {
   /**
@@ -311,6 +312,9 @@ const App: React.FC = () => {
           </Route>
 
           <ProtectedRoute>
+            <Route exact path='/OptionsFlipCards'>
+              <OptionsFlipCards />
+            </Route>
             <Route exact path='/Dashboard'>
               <Dashboard
                 languages={languages}

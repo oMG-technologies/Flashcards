@@ -120,16 +120,19 @@
 .btn_home {
   border: 1px solid #fbff00;
   height: 50px;
+  margin-right: 5px;
 }
 
 .btn_results {
   border: 1px solid #f77a06;
   height: 50px;
+  margin-left: 5px;
 }
 
 .btn_logOut {
   border: 1px solid #f70606;
   height: 50px;
+  margin-left: 5px;
 }
 
 .btn_createAccount {
@@ -137,6 +140,7 @@
   border: 1px solid #69d637;
   height: 50px;
   font-size: calc(8px + 1vmin);
+  margin-left: 5px;
 }
 
 .btn_removeUser {
@@ -159,6 +163,7 @@
   border: 1px solid orange;
   height: 50px;
   font-size: calc(8px + 1vmin);
+  margin-left: 5px;
 }
 
 .btn_start-afterRegister {

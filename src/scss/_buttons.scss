@@ -135,6 +135,12 @@
   height: 50px;
 }
 
+.btn_toSettings {
+  @extend .btn-navigation-link;
+  border: 1px solid rgba(3, 218, 226, 0.767);
+  height: 50px;
+}
+
 .btn_toOwnFlipCard {
   @extend .btn-navigation-link;
   border: 1px solid rgb(255, 165, 0);

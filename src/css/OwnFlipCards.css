@@ -1,0 +1,158 @@
+.ContainerOwnFlipCards {
+  width: 600px;
+  height: 100vh;
+  min-width: 300px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ContainerOwnFlipCards_header {
+  width: 100%;
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContainerOwnFlipCards_main-selectOptions {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ContainerOwnFlipCards_main-rangeSlider {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ContainerOwnFlipCards_main-rangeSlider::before {
+  position: absolute;
+  color: #000;
+  font-size: 0.9rem;
+  content: attr(data-min);
+  left: 10px;
+}
+
+.ContainerOwnFlipCards_main-rangeSlider::after {
+  position: absolute;
+  color: #000;
+  font-size: 0.9rem;
+  content: attr(data-max);
+  right: 10px;
+}
+
+.ContainerOwnFlipCards_main-chooseSide {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ContainerOwnFlipCards_button {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 466px) {
+  .ContainerOwnFlipCards {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .ContainerOwnFlipCards_header {
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider::before {
+    position: absolute;
+    color: #000;
+    font-size: 0.9rem;
+    content: attr(data-min);
+    left: 10px;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider::after {
+    position: absolute;
+    color: #000;
+    font-size: 0.9rem;
+    content: attr(data-max);
+    right: 10px;
+  }
+  .ContainerOwnFlipCards_button {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 465px) and (max-width: 768px) {
+  .ContainerOwnFlipCards {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .ContainerOwnFlipCards_header {
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider::before {
+    position: absolute;
+    color: #000;
+    font-size: 0.9rem;
+    content: attr(data-min);
+    left: 10px;
+  }
+  .ContainerOwnFlipCards_main-rangeSlider::after {
+    position: absolute;
+    color: #000;
+    font-size: 0.9rem;
+    content: attr(data-max);
+    right: 10px;
+  }
+  .ContainerOwnFlipCards_button {
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -38,6 +38,8 @@
   font-family: 'New Tegomin', serif;
   font-size: calc(10px + 1vmin);
   margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -507,37 +509,6 @@
   margin-bottom: 20px;
 }
 
-.ContainerOptionsFlipCards_main-rangeSlider {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.ContainerOptionsFlipCards_main-rangeSlider::before {
-  position: absolute;
-  color: #000;
-  font-size: 0.9rem;
-  content: attr(data-min);
-  left: 10px;
-}
-
-.ContainerOptionsFlipCards_main-rangeSlider::after {
-  position: absolute;
-  color: #000;
-  font-size: 0.9rem;
-  content: attr(data-max);
-  right: 10px;
-}
-
-.ContainerOptionsFlipCards_main-chooseSide {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .ContainerOptionsFlipCards_button {
   width: 100%;
   height: 60px;
@@ -562,26 +533,9 @@
     justify-content: center;
     align-items: center;
   }
-  .ContainerOptionsFlipCards_main-rangeSlider {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .ContainerOptionsFlipCards_main-rangeSlider::before {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-min);
-    left: 10px;
-  }
-  .ContainerOptionsFlipCards_main-rangeSlider::after {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-max);
-    right: 10px;
+  .ContainerOptionsFlipCards_main-selectOptions {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .ContainerOptionsFlipCards_button {
     width: 100%;
@@ -608,26 +562,9 @@
     justify-content: center;
     align-items: center;
   }
-  .ContainerOptionsFlipCards_main-rangeSlider {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .ContainerOptionsFlipCards_main-rangeSlider::before {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-min);
-    left: 10px;
-  }
-  .ContainerOptionsFlipCards_main-rangeSlider::after {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-max);
-    right: 10px;
+  .ContainerOptionsFlipCards_main-selectOptions {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .ContainerOptionsFlipCards_button {
     width: 100%;

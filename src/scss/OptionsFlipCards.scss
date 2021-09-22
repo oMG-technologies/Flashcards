@@ -25,37 +25,6 @@
       margin-top: 20px;
       margin-bottom: 20px;
     }
-
-    &-rangeSlider {
-      position: relative;
-      width: 100%;
-
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      margin-top: 20px;
-      margin-bottom: 20px;
-
-      &::before {
-        position: absolute;
-        color: #000;
-        font-size: 0.9rem;
-        content: attr(data-min);
-        left: 10px;
-      }
-      &::after {
-        position: absolute;
-        color: #000;
-        font-size: 0.9rem;
-        content: attr(data-max);
-        right: 10px;
-      }
-    }
-
-    &-chooseSide {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
   }
 
   &_button {
@@ -90,28 +59,9 @@ $desktop-width: 1024px;
     }
 
     &_main {
-      &-rangeSlider {
-        position: relative;
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        &::before {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-min);
-          left: 10px;
-        }
-        &::after {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-max);
-          right: 10px;
-        }
+      &-selectOptions {
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
     }
 
@@ -142,31 +92,11 @@ $desktop-width: 1024px;
     }
 
     &_main {
-      &-rangeSlider {
-        position: relative;
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        &::before {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-min);
-          left: 10px;
-        }
-        &::after {
-          position: absolute;
-          color: #000;
-          font-size: 0.9rem;
-          content: attr(data-max);
-          right: 10px;
-        }
+      &-selectOptions {
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
     }
-
     &_button {
       width: 100%;
       height: 60px;

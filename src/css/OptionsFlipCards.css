@@ -20,16 +20,6 @@
   align-items: center;
 }
 
-.ContainerOptionsFlipCards_main-removeUser {
-  opacity: 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.ContainerOptionsFlipCards_main-removeUser:hover {
-  opacity: 1;
-}
-
 .ContainerOptionsFlipCards_main-selectLanguage {
   margin-top: 20px;
   margin-bottom: 20px;

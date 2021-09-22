@@ -21,16 +21,9 @@
   }
 
   &_main {
-    &-removeUser {
-      opacity: 0;
-      cursor: pointer;
-      font-size: 18px;
-    }
-    &-removeUser:hover {
-      opacity: 1;
-    }
+   
 
-    &-selectLanguage {
+    &-selectOptions {
       margin-top: 20px;
       margin-bottom: 20px;
     }

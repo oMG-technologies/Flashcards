@@ -6,12 +6,6 @@ const OwnFlipCards: React.FC = () => {
     <div className='ContainerOwnFlipCards'>
       <div className='ContainerOwnFlipCards_header'>Own flip card</div>
 
-      {/* <div className='ContainerOwnFlipCards_main'>
-        <div className='ContainerOwnFlipCards_main-selectOptions'>
-          Place for own FlipCards
-        </div>
-      </div> */}
-
       <div className='ContainerOwnFlipCards_table'>
         <table className='ContainerOwnFlipCards_table-main'>
           <thead>

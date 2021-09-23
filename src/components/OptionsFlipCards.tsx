@@ -22,7 +22,7 @@ const OptionsFlipCards: React.FC = () => {
           </div>
 
           <div className='ContainerOptionsFlipCards_main-selectOptions'>
-            {/* <label style={{ margin: '15px' }}>Select options:</label> */}
+            <label style={{ margin: '15px' , fontSize: '20px'}}>Select options:</label>
             <Link to='/Dashboard' className='btn_toDashboard'>
               Learn English
             </Link>

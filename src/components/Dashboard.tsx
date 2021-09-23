@@ -167,7 +167,14 @@ const Dashboard: React.FC<PropsDashboard> = ({
 
       
       <div className='ContainerDashboard_button'>
-        {!isErrorValidation ? (
+          <Link
+            to='/FlipCards'
+            onClick={startTimerClick}
+            className='btn_toTheFlipCard'
+          >
+            Start
+          </Link>
+        {/* {!isErrorValidation ? (
           <Link
             to='/FlipCards'
             onClick={startTimerClick}
@@ -179,7 +186,7 @@ const Dashboard: React.FC<PropsDashboard> = ({
           <button className='btn_toTheFlipCard'>
             Choose language, number of flip cards and side to start
           </button>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -143,6 +143,20 @@
   height: 50px;
 }
 
+.btn_toAddNewFlipCard {
+  @extend .btn-navigation-link;
+  border: 1px solid rgba(103, 255, 2, 0.767);
+  height: 50px;
+  margin-left: 5px;
+}
+
+.btn_toStartOwnFlipCard {
+  @extend .btn-navigation-link;
+  border: 1px solid rgb(255, 165, 0);
+  height: 50px;
+  margin-left: 5px;
+}
+
 .btn_toOwnFlipCard {
   @extend .btn-navigation-link;
   border: 1px solid rgb(255, 165, 0);
@@ -193,6 +207,36 @@
 
 .btn_removeUser:hover {
   opacity: 1;
+}
+
+.btn-editFlipCard {
+  margin: 0;
+  padding: 0;
+
+  width: 50%;
+  height: 20px;
+
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid rgb(8, 32, 247);
+  color: rgb(8, 32, 247);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.btn-removeFlipCard {
+  margin: 0;
+  padding: 0;
+
+  width: 50%;
+  height: 20px;
+
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid rgb(247, 8, 20);
+  color: rgb(247, 8, 20);
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 .btn_start {

@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.btn-navigation-link, .btn_toTheFlipCard, .btn_toOptionsFlipCards, .btn_toDashboard, .btn_toSettings, .btn_toOwnFlipCard, .btn_home, .btn_results, .btn_logOut, .btn_createAccount, .btn_start, .btn_start-afterRegister, .btn-back_Application_Not_Found {
+.btn-navigation-link, .btn_toTheFlipCard, .btn_toOptionsFlipCards, .btn_toDashboard, .btn_toSettings, .btn_toAddNewFlipCard, .btn_toStartOwnFlipCard, .btn_toOwnFlipCard, .btn_home, .btn_results, .btn_logOut, .btn_createAccount, .btn_start, .btn_start-afterRegister, .btn-back_Application_Not_Found {
   width: 100%;
   height: 30px;
   background-color: transparent;
@@ -111,6 +111,18 @@
   height: 50px;
 }
 
+.btn_toAddNewFlipCard {
+  border: 1px solid rgba(103, 255, 2, 0.767);
+  height: 50px;
+  margin-left: 5px;
+}
+
+.btn_toStartOwnFlipCard {
+  border: 1px solid orange;
+  height: 50px;
+  margin-left: 5px;
+}
+
 .btn_toOwnFlipCard {
   border: 1px solid orange;
   color: #000;
@@ -156,6 +168,32 @@
 
 .btn_removeUser:hover {
   opacity: 1;
+}
+
+.btn-editFlipCard {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #0820f7;
+  color: #0820f7;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.btn-removeFlipCard {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #f70814;
+  color: #f70814;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 .btn_start {
@@ -582,7 +620,7 @@
 }
 
 .ContainerOwnFlipCards {
-  width: 600px;
+  width: 1000px;
   height: 100vh;
   min-width: 300px;
   background-color: #fff;
@@ -608,35 +646,20 @@
   margin-bottom: 20px;
 }
 
-.ContainerOwnFlipCards_main-rangeSlider {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.ContainerOwnFlipCards_table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
 }
 
-.ContainerOwnFlipCards_main-rangeSlider::before {
-  position: absolute;
-  color: #000;
-  font-size: 0.9rem;
-  content: attr(data-min);
-  left: 10px;
+.ContainerOwnFlipCards_table tr,
+.ContainerOwnFlipCards_table th,
+.ContainerOwnFlipCards_table td {
+  width: 100vw;
 }
 
-.ContainerOwnFlipCards_main-rangeSlider::after {
-  position: absolute;
-  color: #000;
-  font-size: 0.9rem;
-  content: attr(data-max);
-  right: 10px;
-}
-
-.ContainerOwnFlipCards_main-chooseSide {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.ContainerOwnFlipCards_table-main {
+  width: 800px;
 }
 
 .ContainerOwnFlipCards_button {
@@ -663,26 +686,19 @@
     justify-content: center;
     align-items: center;
   }
-  .ContainerOwnFlipCards_main-rangeSlider {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  .ContainerOwnFlipCards_table {
+    font-size: 16px;
   }
-  .ContainerOwnFlipCards_main-rangeSlider::before {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-min);
-    left: 10px;
+  .ContainerOwnFlipCards_table tr,
+  .ContainerOwnFlipCards_table th,
+  .ContainerOwnFlipCards_table td {
+    width: 98vw;
   }
-  .ContainerOwnFlipCards_main-rangeSlider::after {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-max);
-    right: 10px;
+  .ContainerOwnFlipCards_table-main {
+    width: 95%;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .ContainerOwnFlipCards_button {
     width: 100%;
@@ -709,26 +725,19 @@
     justify-content: center;
     align-items: center;
   }
-  .ContainerOwnFlipCards_main-rangeSlider {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  .ContainerOwnFlipCards_table {
+    font-size: 16px;
   }
-  .ContainerOwnFlipCards_main-rangeSlider::before {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-min);
-    left: 10px;
+  .ContainerOwnFlipCards_table tr,
+  .ContainerOwnFlipCards_table th,
+  .ContainerOwnFlipCards_table td {
+    width: 96vw;
   }
-  .ContainerOwnFlipCards_main-rangeSlider::after {
-    position: absolute;
-    color: #000;
-    font-size: 0.9rem;
-    content: attr(data-max);
-    right: 10px;
+  .ContainerOwnFlipCards_table-main {
+    width: 90%;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .ContainerOwnFlipCards_button {
     width: 100%;

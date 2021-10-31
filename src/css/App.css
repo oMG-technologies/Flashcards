@@ -181,7 +181,8 @@
 }
 
 .ContainerLogin_main-form {
-  width: 35vw;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .ContainerLogin_main-form-text {
@@ -338,7 +339,8 @@
 }
 
 .ContainerRegistration_main-form {
-  width: 35vw;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .ContainerRegistration_main-form-button {

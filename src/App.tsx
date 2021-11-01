@@ -137,6 +137,7 @@ const App: React.FC = () => {
    */
   useEffect(() => {
     randomQuestions();
+    // eslint-disable-next-line
   }, [questions, numberElementInFlipCards]);
 
   /**

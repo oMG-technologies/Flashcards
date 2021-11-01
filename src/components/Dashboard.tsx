@@ -55,6 +55,7 @@ const Dashboard: React.FC<PropsDashboard> = ({
   useEffect(() => {
     setFlip(false);
     setFlipButtonsOnCard(false);
+    // eslint-disable-next-line
   }, []);
 
   /**

@@ -11,19 +11,20 @@ const MockLogin = () => {
   );
 };
 
-describe('Login tests', () => {
+describe('Login tests - render', () => {
   it('snapshot', () => {
     const tree = render(<MockLogin />);
 
     expect(tree).toMatchSnapshot();
   });
+
+  it('render without crashing', () => {
+    render(<MockLogin />);
+  });
+
 });
 
-it('render without crashing', () => {
-  render(<MockLogin />);
-});
-
-describe('Tests UI', () => {
+describe('Tests elements UI', () => {
   it('render input username', () => {
     render(<MockLogin />);
 
@@ -40,14 +41,20 @@ describe('Tests UI', () => {
     expect(checkInputPassword).toBeInTheDocument();
   });
 
-   it('render button Create account', () => {
-     render(<MockLogin />);
+  it('render button Create account', () => {
+    render(<MockLogin />);
 
-     const buttonCreateAccount = screen.getByRole('textbox', {
-       name: '',
-     });
+    const buttonCreateAccount = screen.getByText(/Create Account/i);
 
-     expect(buttonCreateAccount).toBeInTheDocument();
-   });
+    expect(buttonCreateAccount).toBeInTheDocument();
+  });
+
+  it('render button Lets get started', () => {
+    render(<MockLogin />);
+
+    const buttonLetsGetStarted = screen.getByText(/Let's get started!/i);
+
+    expect(buttonLetsGetStarted).toBeInTheDocument();
+  });
 
 });

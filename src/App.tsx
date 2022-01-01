@@ -8,7 +8,7 @@ import {
 
 import './css/App.css';
 
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import LoginEmailVerified from './components/LoginEmailVerified';
 import Registration from './components/Registration';
 import ProtectedRoute from './components/ProtectedRoute';

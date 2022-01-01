@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../services/Authorization';
+import { getToken, isUser } from '../../services/Authorization';
 
 const Login: React.FC = () => {
   const [loginParams, setLoginParams] = useState({
@@ -55,6 +55,7 @@ const Login: React.FC = () => {
       localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
+      setErrorValid('Try again set the credentials');
       setSpinier(false);
     } else if (isValidUser) {
       setIsLogIn(false);
@@ -100,6 +101,7 @@ const Login: React.FC = () => {
                 name='username'
                 onChange={handleChange}
                 className='inputLogin'
+                data-testid='input-username'
               />
             </div>
             <div className='ContainerLogin_main-form-input'>
@@ -110,6 +112,7 @@ const Login: React.FC = () => {
                 name='password'
                 onChange={handleChange}
                 className='inputLogin'
+                data-testid='input-password'
               />
 
               <div

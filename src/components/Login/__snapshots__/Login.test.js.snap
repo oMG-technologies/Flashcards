@@ -1,5 +1,224 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Login Tests - render snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ContainerLogin"
+      >
+        <div
+          class="ContainerLogin_header"
+        >
+          Login Panel
+        </div>
+        <div
+          class="ContainerLogin_main"
+        >
+          <div
+            class="ContainerLogin_main-form"
+          >
+            <form>
+              <div
+                class="ContainerLogin_main-form-input"
+              >
+                <label
+                  style="margin: 15px;"
+                >
+                  Enter your user name:
+                </label>
+                <input
+                  class="inputLogin"
+                  data-testid="input-username"
+                  name="username"
+                  placeholder="username"
+                  type="text"
+                />
+              </div>
+              <div
+                class="ContainerLogin_main-form-input"
+              >
+                <label
+                  style="margin: 15px;"
+                >
+                  Enter your password:
+                </label>
+                <input
+                  class="inputLogin"
+                  data-testid="input-password"
+                  name="password"
+                  placeholder="password"
+                  type="password"
+                />
+                <div
+                  class="fa-3x"
+                  style="color: orange; font-size: 25px;"
+                />
+                <span
+                  style="color: red; font-size: 14px;"
+                />
+                <div
+                  class="ContainerLogin_main-form-button"
+                >
+                  <a
+                    class="btn_createAccount"
+                    href="/Registration"
+                    type="submit"
+                  >
+                    Create Account
+                  </a>
+                  <button
+                    class="btn_start"
+                    type="submit"
+                  >
+                    Let's get started!
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="ContainerLogin_footer"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ContainerLogin"
+    >
+      <div
+        class="ContainerLogin_header"
+      >
+        Login Panel
+      </div>
+      <div
+        class="ContainerLogin_main"
+      >
+        <div
+          class="ContainerLogin_main-form"
+        >
+          <form>
+            <div
+              class="ContainerLogin_main-form-input"
+            >
+              <label
+                style="margin: 15px;"
+              >
+                Enter your user name:
+              </label>
+              <input
+                class="inputLogin"
+                data-testid="input-username"
+                name="username"
+                placeholder="username"
+                type="text"
+              />
+            </div>
+            <div
+              class="ContainerLogin_main-form-input"
+            >
+              <label
+                style="margin: 15px;"
+              >
+                Enter your password:
+              </label>
+              <input
+                class="inputLogin"
+                data-testid="input-password"
+                name="password"
+                placeholder="password"
+                type="password"
+              />
+              <div
+                class="fa-3x"
+                style="color: orange; font-size: 25px;"
+              />
+              <span
+                style="color: red; font-size: 14px;"
+              />
+              <div
+                class="ContainerLogin_main-form-button"
+              >
+                <a
+                  class="btn_createAccount"
+                  href="/Registration"
+                  type="submit"
+                >
+                  Create Account
+                </a>
+                <button
+                  class="btn_start"
+                  type="submit"
+                >
+                  Let's get started!
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="ContainerLogin_footer"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`Login tests - render snapshot 1`] = `
 Object {
   "asFragment": [Function],

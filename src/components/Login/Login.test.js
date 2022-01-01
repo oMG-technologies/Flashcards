@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import Login from './Login';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -11,7 +11,7 @@ const MockLogin = () => {
   );
 };
 
-describe('Login tests - render', () => {
+describe('Login Tests - render', () => {
   it('snapshot', () => {
     const tree = render(<MockLogin />);
 
@@ -21,10 +21,9 @@ describe('Login tests - render', () => {
   it('render without crashing', () => {
     render(<MockLogin />);
   });
-
 });
 
-describe('Tests elements UI', () => {
+describe('Tests Elements UI', () => {
   it('render input username', () => {
     render(<MockLogin />);
 
@@ -56,5 +55,42 @@ describe('Tests elements UI', () => {
 
     expect(buttonLetsGetStarted).toBeInTheDocument();
   });
+});
 
+describe('Tests Business Logic', () => {
+  it('render input element with value ', () => {
+    render(<MockLogin />);
+
+    const checkInputName = screen.getByTestId('input-username');
+    fireEvent.change(checkInputName, { target: { value: 'Admin' } });
+
+    expect(checkInputName.value).toBe('Admin');
+  });
+
+  it('render empty input after clicked ', () => {
+    render(<MockLogin />);
+
+    const checkInputName = screen.getByTestId('input-username');
+    const buttonLetsGetStarted = screen.getByText(/Let's get started!/i);
+
+    fireEvent.change(checkInputName, { target: { value: 'Admin' } });
+    fireEvent.click(buttonLetsGetStarted);
+
+    expect(checkInputName.value).toBe('');
+  });
+
+  it('render validation info ', async () => {
+    render(<MockLogin />);
+
+    const checkInputName = screen.getByTestId('input-username');
+    const buttonLetsGetStarted = screen.getByText(/Let's get started!/i);
+    const validationInfo = 'User does not exist. Try to register first';
+
+    fireEvent.change(checkInputName, { target: { value: 'Random' } });
+    fireEvent.click(buttonLetsGetStarted);
+
+    await waitFor(() => {
+      expect(validationInfo).toBeDefined();
+    });
+  });
 });

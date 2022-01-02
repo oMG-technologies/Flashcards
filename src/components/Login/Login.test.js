@@ -79,7 +79,7 @@ describe('Tests Business Logic', () => {
     expect(checkInputName.value).toBe('');
   });
 
-  it('render validation info ', async () => {
+  it('render validation info when user does not exist', async () => {
     render(<MockLogin />);
 
     const checkInputName = screen.getByTestId('input-username');
@@ -88,9 +88,29 @@ describe('Tests Business Logic', () => {
 
     fireEvent.change(checkInputName, { target: { value: 'Random' } });
     fireEvent.click(buttonLetsGetStarted);
+    
 
     await waitFor(() => {
-      expect(validationInfo).toBeDefined();
+      const spanMassageValidation = screen.getByTestId('span-validation');
+
+      expect(spanMassageValidation).toHaveTextContent(validationInfo);
+    });
+  });
+
+  it('render validation info when you forget add password or password is incorrect', async () => {
+    render(<MockLogin />);
+
+    const checkInputName = screen.getByTestId('input-username');
+    const buttonLetsGetStarted = screen.getByText(/Let's get started!/i);
+    const validationInfo = 'Incorrect password. Try again';
+
+    fireEvent.change(checkInputName, { target: { value: 'Admin' } });
+    fireEvent.click(buttonLetsGetStarted);
+
+    await waitFor(() => {
+      const spanMassageValidation = screen.getByTestId('span-validation');
+
+      expect(spanMassageValidation).toHaveTextContent(validationInfo);
     });
   });
 });

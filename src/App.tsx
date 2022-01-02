@@ -9,12 +9,12 @@ import {
 import './css/App.css';
 
 import Login from './components/Login/Login';
-import LoginEmailVerified from './components/LoginEmailVerified';
+import LoginEmailVerified from './components/LoginEmailVerified/LoginEmailVerified';
 import Registration from './components/Registration/Registration';
-import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './components/Dashboard';
-import FlipCards from './components/FlipCards';
-import Results from './components/Results';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Dashboard from './components/Dashboard/Dashboard';
+import FlipCards from './components/FlipCards/FlipCards';
+import Results from './components/Results/Results';
 import NotFound from './components/NotFound/NotFound';
 
 import { MainContext } from './context/MainContext';

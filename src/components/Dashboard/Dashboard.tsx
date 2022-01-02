@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 
-import { MainContext } from '../context/MainContext';
+import { MainContext } from '../../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';

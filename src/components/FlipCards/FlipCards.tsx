@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import TheFront from './TheFront';
-import TheBack from './TheBack';
+import TheFront from '../TheFront/TheFront';
+import TheBack from '../TheBack/TheBack';
 
-import { MainContext } from '../context/MainContext';
+import { MainContext } from '../../context/MainContext';
 
 const FlipCards: React.FC = () => {
   const {

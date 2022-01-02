@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../services/Authorization';
+import { getToken, isUser } from '../../services/Authorization';
 
 const LoginEmailVerified: React.FC = () => {
   const [loginParams, setLoginParams] = useState({

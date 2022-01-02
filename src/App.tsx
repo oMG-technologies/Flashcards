@@ -10,7 +10,7 @@ import './css/App.css';
 
 import Login from './components/Login/Login';
 import LoginEmailVerified from './components/LoginEmailVerified';
-import Registration from './components/Registration';
+import Registration from './components/Registration/Registration';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import FlipCards from './components/FlipCards';

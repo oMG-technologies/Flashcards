@@ -122,7 +122,7 @@ const Login: React.FC = () => {
                 {spinier ? <i className='fa fa-spinner fa-pulse'></i> : ''}
               </div>
 
-              <span style={{ color: 'red', fontSize: '14px' }} data-testid='span-validation'>
+              <span style={{ color: 'red', fontSize: '14px' }} data-testid='span-validation-message'>
                 {errorValid}
               </span>
 

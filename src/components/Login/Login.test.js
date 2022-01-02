@@ -58,7 +58,7 @@ describe('Tests Elements UI', () => {
 });
 
 describe('Tests Business Logic', () => {
-  it('render input element with value ', () => {
+  it('render input element with value', () => {
     render(<MockLogin />);
 
     const checkInputName = screen.getByTestId('input-username');
@@ -67,7 +67,7 @@ describe('Tests Business Logic', () => {
     expect(checkInputName.value).toBe('Admin');
   });
 
-  it('render empty input after clicked ', () => {
+  it('render empty input after clicked', () => {
     render(<MockLogin />);
 
     const checkInputName = screen.getByTestId('input-username');
@@ -91,7 +91,9 @@ describe('Tests Business Logic', () => {
     
 
     await waitFor(() => {
-      const spanMassageValidation = screen.getByTestId('span-validation');
+      const spanMassageValidation = screen.getByTestId(
+        'span-validation-message'
+      );
 
       expect(spanMassageValidation).toHaveTextContent(validationInfo);
     });
@@ -108,7 +110,9 @@ describe('Tests Business Logic', () => {
     fireEvent.click(buttonLetsGetStarted);
 
     await waitFor(() => {
-      const spanMassageValidation = screen.getByTestId('span-validation');
+      const spanMassageValidation = screen.getByTestId(
+        'span-validation-message'
+      );
 
       expect(spanMassageValidation).toHaveTextContent(validationInfo);
     });

@@ -56,7 +56,7 @@ Object {
                   style="color: orange; font-size: 25px;"
                 />
                 <span
-                  data-testid="span-validation"
+                  data-testid="span-validation-message"
                   style="color: red; font-size: 14px;"
                 />
                 <div
@@ -138,7 +138,7 @@ Object {
                 style="color: orange; font-size: 25px;"
               />
               <span
-                data-testid="span-validation"
+                data-testid="span-validation-message"
                 style="color: red; font-size: 14px;"
               />
               <div

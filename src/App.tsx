@@ -15,7 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import FlipCards from './components/FlipCards';
 import Results from './components/Results';
-import NotFound from './components/NotFound';
+import NotFound from './components/NotFound/NotFound';
 
 import { MainContext } from './context/MainContext';
 
@@ -26,8 +26,8 @@ import {
 
 import { removeUser } from './services/Authorization';
 
-import Loaded from './components/Loaded';
-import Fix from './components/Fix';
+import Loaded from './components/Loaded/Loaded';
+import Fix from './components/Fix/Fix';
 
 const App: React.FC = () => {
   /**

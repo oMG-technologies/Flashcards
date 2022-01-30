@@ -6,7 +6,7 @@ import TheBack from './TheBack';
 
 import { MainContext } from '../context/MainContext';
 
-const FlipCards: React.FC = () => {
+const FlipCards: React.FC = ():JSX.Element => {
   const {
     questionsRandom,
     numberElementInFlipCards,
@@ -20,8 +20,8 @@ const FlipCards: React.FC = () => {
     setFlip,
   } = useContext(MainContext);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [questionsPerPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [questionsPerPage] = useState<number>(1);
 
   /**
    * Created single question

@@ -1,24 +1,27 @@
 import { AxiosResponse } from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import { getToken, isUser } from '../services/Authorization';
 
-const Login: React.FC = () => {
-  const [loginParams, setLoginParams] = useState({
+export type LoginInitial = {
+  username: string;
+  password: string;
+};
+
+const Login: React.FC = (): JSX.Element | null => {
+  const [loginParams, setLoginParams] = useState<LoginInitial>({
     username: '',
     password: '',
   });
 
-  const [errorValid, setErrorValid] = useState('');
+  const [errorValid, setErrorValid] = useState<string>('');
 
-  const [isLogIn, setIsLogIn] = useState(false);
+  const [isLogIn, setIsLogIn] = useState<boolean>(false);
 
-  const [spinier, setSpinier] = useState(false);
+  const [spinier, setSpinier] = useState<boolean>(false);
 
-  const formRef = useRef<HTMLInputElement | any>();
-
-  const [didMount, setDidMount] = useState(false);
+  const [didMount, setDidMount] = useState<boolean>(false);
 
   useEffect(() => {
     setDidMount(true);
@@ -71,10 +74,6 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     getDataToken();
-
-    if (formRef.current) {
-      formRef.current.reset();
-    }
   };
 
   if (isLogIn) {
@@ -91,7 +90,7 @@ const Login: React.FC = () => {
 
       <div className='ContainerLogin_main'>
         <div className='ContainerLogin_main-form'>
-          <form onSubmit={isLogInToApplication} ref={formRef}>
+          <form onSubmit={isLogInToApplication}>
             <div className='ContainerLogin_main-form-input'>
               <label style={{ margin: '15px' }}>Enter your user name:</label>
               <input

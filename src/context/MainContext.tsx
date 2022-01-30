@@ -10,13 +10,13 @@ export type ContextType = {
   reset: () => void;
   stop: () => void;
   arrOfAnswers: boolean[];
-  time: {ms:number, s:number, m:number, h:number};
+  time: { ms: number; s: number; m: number; h: number };
   flip: boolean;
-  setFlip: any;
+  setFlip: (arg: boolean) => void;
+  setFlipButtonsOnCard: (arg: boolean) => void;
   flipButtonsOnCard: boolean;
-  setFlipButtonsOnCard: any;
-  isSignOut: any;
+  isSignOut: () => JSX.Element | undefined;
   removeUserFromApplication: () => void;
 };
 
-export const MainContext = createContext<ContextType>({} as ContextType)
+export const MainContext = createContext<ContextType>({} as ContextType);

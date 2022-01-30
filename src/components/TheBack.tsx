@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface PropsTheBack {
+export interface IPropsTheBack {
   currentQuestion:
     | [
         {
@@ -15,16 +15,16 @@ export interface PropsTheBack {
       ]
     | never[];
   flipButtonsOnCard: boolean;
-  clickNextAndIKnow: () => any;
-  clickNextAndIDonTKnow: () => any;
+  clickNextAndIKnow: () => void;
+  clickNextAndIDonTKnow: () => void;
 }
 
-const TheBack: React.FC<PropsTheBack> = ({
+const TheBack: React.FC<IPropsTheBack> = ({
   currentQuestion,
   flipButtonsOnCard,
   clickNextAndIKnow,
   clickNextAndIDonTKnow,
-}) => {
+}): JSX.Element => {
   return (
     <div className='theBack'>
       Back

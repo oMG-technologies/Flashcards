@@ -4,19 +4,21 @@ import { Link, Redirect } from 'react-router-dom';
 
 import { getToken, isUser } from '../../services/Authorization';
 
-const LoginEmailVerified: React.FC = () => {
-  const [loginParams, setLoginParams] = useState({
+import { LoginInitial } from '../Login/Login'
+
+const LoginEmailVerified: React.FC = (): JSX.Element | null => {
+  const [loginParams, setLoginParams] = useState<LoginInitial>({
     username: '',
     password: '',
   });
 
-  const [errorValid, setErrorValid] = useState('');
+  const [errorValid, setErrorValid] = useState<string>('');
 
-  const [isLogIn, setIsLogIn] = useState(false);
+  const [isLogIn, setIsLogIn] = useState<boolean>(false);
 
-  const [spinier, setSpinier] = useState(false);
+  const [spinier, setSpinier] = useState<boolean>(false);
 
-  const [didMount, setDidMount] = useState(false);
+  const [didMount, setDidMount] = useState<boolean>(false);
 
   useEffect(() => {
     setDidMount(true);
@@ -31,7 +33,7 @@ const LoginEmailVerified: React.FC = () => {
   /**
    * Set up login params
    */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
@@ -41,13 +43,16 @@ const LoginEmailVerified: React.FC = () => {
   /**
    * Login
    */
-  const getDataToken = async ():Promise<void> => {
+  const getDataToken = async (): Promise<void> => {
     setSpinier(true);
-    const isUserResponse: AxiosResponse | any  = await isUser(loginParams.username);
+    const isUserResponse: AxiosResponse | any = await isUser(
+      loginParams.username
+    );
     const isValidUser: boolean = isUserResponse['data'][loginParams.username];
     await getToken(loginParams);
 
-    const savedTokenFromLocalStorage: string | null = localStorage.getItem('token');
+    const savedTokenFromLocalStorage: string | null =
+      localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
       setSpinier(false);
@@ -62,7 +67,7 @@ const LoginEmailVerified: React.FC = () => {
     }
   };
 
-  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>):void => {
+  const isLogInToApplication = (e: React.SyntheticEvent<EventTarget>): void => {
     e.preventDefault();
 
     getDataToken();

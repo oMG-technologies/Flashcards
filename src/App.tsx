@@ -29,65 +29,74 @@ import { removeUser } from './services/Authorization';
 import Loaded from './components/Loaded/Loaded';
 import Fix from './components/Fix/Fix';
 
+export type InitialError = {
+   selectError: string,
+}
 const App: React.FC = () => {
   /**
    * Loaded
    */
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState<boolean>(true);
   /**
    * Log out in application
    */
-  const [isLogOut, setIsLogOut] = useState(false);
+  const [isLogOut, setIsLogOut] = useState<boolean>(false);
 
   /**
    * Pending
    */
-  const [isPending, setIsPending] = useState(true);
+  const [isPending, setIsPending] = useState<boolean>(true);
 
   /**
    * Data questions in app
    */
-  const [questions, setQuestions] = useState([]);
-  const [questionsRandom, setQuestionsRandom] = useState([]);
+  const [questions, setQuestions] = useState<never[]>([]);
+  const [questionsRandom, setQuestionsRandom] = useState<never[]>([]);
 
   /**
    * Data languages in app
    */
-  const [languages, setLanguages] = useState([]);
-  const [languageSetByUser, setLanguageSetByUser] = useState('');
+  const [languages, setLanguages] = useState<never[]>([]);
+  const [languageSetByUser, setLanguageSetByUser] = useState<string>('');
 
   /**
    * Amount flip cards
    */
-  const [numberElementInFlipCards, setNumberElementInFlipCards] = useState(10);
+  const [numberElementInFlipCards, setNumberElementInFlipCards] = useState<number>(10);
 
   /**
    * Answers
    */
-  const [arrOfAnswers, setArrOfAnswers] = useState([]);
-  const [answersGood, setAnswersGood] = useState(0);
-  const [answersBad, setAnswersBad] = useState(0);
+  const [arrOfAnswers, setArrOfAnswers] = useState<never[]>([]);
+  const [answersGood, setAnswersGood] = useState<number>(0);
+  const [answersBad, setAnswersBad] = useState<number>(0);
 
   /**
    * Validation errors to start app
    */
-  const initialError = {
+  const initialError:InitialError = {
     selectError: '',
   };
-  const [errors, setErrors] = useState(initialError);
-  const [isErrorValidation, setErrorValidation] = useState(true);
+  const [errors, setErrors] = useState<InitialError>(initialError);
+  const [isErrorValidation, setErrorValidation] = useState<boolean>(true);
 
   /**
    * Timer app
    */
-  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
+  type InitialTime = {
+    ms: number;
+    s: number;
+    m: number;
+    h: number;
+}
+  const [time, setTime] = useState<InitialTime>({ ms: 0, s: 0, m: 0, h: 0 });
   const [intervalTime, setIntervalTime] = useState<number>();
 
   /**
    * Switch the cards in app
    */
-  const [flip, setFlip] = useState(false);
-  const [flipButtonsOnCard, setFlipButtonsOnCard] = useState(false);
+  const [flip, setFlip] = useState<boolean>(false);
+  const [flipButtonsOnCard, setFlipButtonsOnCard] = useState<boolean>(false);
 
   /**
    * Get data question in app
@@ -157,8 +166,8 @@ const App: React.FC = () => {
   const randomQuestions = (): void => {
     let newArrQuestions: [] = [];
 
-    let lengthSliceArrQuestions = sliceArrQuestions.length;
-    let numberOfIndexOfSliceQuestion = 0;
+    let lengthSliceArrQuestions:number = sliceArrQuestions.length;
+    let numberOfIndexOfSliceQuestion:number = 0;
 
     while (lengthSliceArrQuestions--) {
       numberOfIndexOfSliceQuestion = Math.floor(
@@ -189,7 +198,7 @@ const App: React.FC = () => {
     updatedM: number = time.m,
     updatedH: number = time.h;
 
-  const run = () => {
+  const run = ():void => {
     if (updatedM === 60) {
       updatedH++;
       updatedM = 0;
@@ -221,8 +230,8 @@ const App: React.FC = () => {
     setTime({ ms: 0, s: 0, m: 0, h: 0 });
   };
 
-  const validation = (selectedLanguage: string) => {
-    let selectError = '';
+  const validation = (selectedLanguage: string): boolean => {
+    let selectError:string = '';
 
     if (selectedLanguage === '') {
       selectError = 'Please choose language';
@@ -250,7 +259,7 @@ const App: React.FC = () => {
   const handleChangeSelectLanguage = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const selectedLanguage = e.target.value;
+    const selectedLanguage:string = e.target.value;
 
     setLanguageSetByUser(selectedLanguage);
 
@@ -263,7 +272,7 @@ const App: React.FC = () => {
     return <Fix />;
   }
 
-  const isSignOut = () => {
+  const isSignOut = ():JSX.Element | undefined => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setIsLogOut(!isLogOut);

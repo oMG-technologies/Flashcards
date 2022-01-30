@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MainContext } from '../../context/MainContext';
 
-const Results: React.FC = () => {
+const Results: React.FC = (): JSX.Element => {
   const {
     questionsRandom,
     numberElementInFlipCards,
@@ -18,7 +18,7 @@ const Results: React.FC = () => {
   /**
    * Special function added hour
    */
-  const h = (): '' | JSX.Element => {
+  const h = (): string | JSX.Element => {
     if (time.h === 0) {
       return '';
     } else {

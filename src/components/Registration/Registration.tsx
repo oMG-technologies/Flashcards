@@ -5,20 +5,28 @@ import { register } from '../../services/Register';
 import { isUser, isEmail } from '../../services/Authorization';
 import { AxiosResponse } from 'axios';
 
-const Registration: React.FC = () => {
-  const [registrationParams, setRegistrationParams] = useState({
-    email: '',
-    username: '',
-    password: '',
-    repeatPassword: '',
-  });
+type InitialRegistration = {
+  email: string;
+  username: string;
+  password: string;
+  repeatPassword: string;
+};
 
-  interface IInitialError {
-    errorEmail?: string;
-    errorUsername?: string;
-    errorPassword?: string;
-    errorRepeatPassword?: string;
-  }
+type InitialError = {
+  errorEmail?: string;
+  errorUsername?: string;
+  errorPassword?: string;
+  errorRepeatPassword?: string;
+};
+
+const Registration: React.FC = (): JSX.Element => {
+  const [registrationParams, setRegistrationParams] =
+    useState<InitialRegistration>({
+      email: '',
+      username: '',
+      password: '',
+      repeatPassword: '',
+    });
 
   /**
    * Validation input errors
@@ -30,35 +38,36 @@ const Registration: React.FC = () => {
     errorRepeatPassword: '',
   };
   const [errorsValidation, setErrorsValidation] =
-    useState<IInitialError>(initialError);
+    useState<InitialError>(initialError);
 
   /**
    * Registration info
    */
-  const [sendFormText, setSendFormText] = useState('');
-  const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
+  const [sendFormText, setSendFormText] = useState<string>('');
+  const [showRegistrationInfo, setShowRegistrationInfo] =
+    useState<boolean>(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setRegistrationParams({
       ...registrationParams,
       [e.target.name]: e.target.value,
     });
   };
 
-  const checkEmail = async (email: string) => {
+  const checkEmail = async (email: string): Promise<boolean> => {
     const isEmailResponse: AxiosResponse | any = await isEmail(email);
     const isValidEmail = await isEmailResponse['data'][email];
     return isValidEmail;
   };
 
-  const checkUser = async (username: string) => {
+  const checkUser = async (username: string): Promise<boolean> => {
     const isUserResponse: AxiosResponse | any = await isUser(username);
     const isValidUser: boolean = await isUserResponse['data'][username];
     console.log('isValidUser', isValidUser);
     return isValidUser;
   };
 
-  const validateEmail = async (): Promise<any> => {
+  const validateEmail = async (): Promise<boolean> => {
     let errorEmail: string = '';
     const isEmailChecked = await checkEmail(registrationParams.email);
     if (isEmailChecked) {
@@ -75,7 +84,7 @@ const Registration: React.FC = () => {
     return isEmailChecked;
   };
 
-  const validateUsername = async (): Promise<any> => {
+  const validateUsername = async (): Promise<boolean> => {
     let errorUsername: string = '';
     const isUserChecked = await checkUser(registrationParams.username);
     if (isUserChecked) {
@@ -92,7 +101,7 @@ const Registration: React.FC = () => {
     return isUserChecked;
   };
 
-  const validate = () => {
+  const validate = (): boolean => {
     let errorEmail: string = '';
     let errorUsername: string = '';
     let errorPassword: string = '';

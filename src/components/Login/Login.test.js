@@ -67,7 +67,7 @@ describe('Tests Business Logic', () => {
     expect(checkInputName.value).toBe('Admin');
   });
 
-  it('render empty input after clicked', () => {
+  it('render input with value after clicked', () => {
     render(<MockLogin />);
 
     const checkInputName = screen.getByTestId('input-username');
@@ -76,7 +76,7 @@ describe('Tests Business Logic', () => {
     fireEvent.change(checkInputName, { target: { value: 'Admin' } });
     fireEvent.click(buttonLetsGetStarted);
 
-    expect(checkInputName.value).toBe('');
+    expect(checkInputName.value).toBe('Admin');
   });
 
   it('render validation info when user does not exist', async () => {

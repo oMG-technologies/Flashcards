@@ -1,21 +1,34 @@
-import React, { useEffect, useContext } from 'react';
+import React, {
+  useEffect,
+  useContext,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
 import { MainContext } from '../../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 
-export interface PropsDashboard {
-  handleChangeSelectLanguage: any;
+import { InitialError } from '../../App';
+type IntrinsicAttributes = /*unresolved*/ any;
+
+interface IDashboardProps {
+  handleChangeSelectLanguage: (
+    arg: IntrinsicAttributes & IDashboardProps & { children?: ReactNode }
+  ) => void;
   numberElementInFlipCards: number;
-  setNumberElementInFlipCards: (arg?: any) => void;
-  setAnswersBad: any;
-  setAnswersGood: any;
+  setNumberElementInFlipCards: (
+    arg: IntrinsicAttributes & IDashboardProps & { children?: ReactNode }
+  ) => void;
+  setAnswersBad: (arg: number) => void;
+  setAnswersGood: (arg: number) => void;
   start: () => void;
   reset: () => void;
-  errors: any;
-  isErrorValidation: any;
-  setErrorValidation: any;
+  errors: InitialError;
+  isErrorValidation: boolean;
+  setErrorValidation: (arg: boolean) => void;
   languages:
     | [
         {
@@ -27,10 +40,10 @@ export interface PropsDashboard {
         }
       ]
     | never[];
-  setArrOfAnswers: any;
+  setArrOfAnswers: Dispatch<SetStateAction<never[]>>;
 }
 
-const Dashboard: React.FC<PropsDashboard> = ({
+const Dashboard: React.FC<IDashboardProps> = ({
   handleChangeSelectLanguage,
   numberElementInFlipCards,
   setNumberElementInFlipCards,
@@ -43,7 +56,7 @@ const Dashboard: React.FC<PropsDashboard> = ({
   setErrorValidation,
   languages,
   setArrOfAnswers,
-}) => {
+}): JSX.Element => {
   const {
     flip,
     setFlip,
@@ -83,7 +96,8 @@ const Dashboard: React.FC<PropsDashboard> = ({
    * Change side flip cards
    */
   const changedFrontBack = (): void => {
-    setFlip(!flip) || setFlipButtonsOnCard(!flipButtonsOnCard);
+    setFlip(!flip);
+    setFlipButtonsOnCard(!flipButtonsOnCard);
   };
 
   /**

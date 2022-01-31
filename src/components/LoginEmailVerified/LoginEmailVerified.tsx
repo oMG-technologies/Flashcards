@@ -2,9 +2,9 @@ import { AxiosResponse } from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../services/Authorization';
+import { getToken, isUser } from '../../services/Authorization';
 
-import { LoginInitial } from './Login';
+import { LoginInitial } from '../Login/Login'
 
 const LoginEmailVerified: React.FC = (): JSX.Element | null => {
   const [loginParams, setLoginParams] = useState<LoginInitial>({

@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { getToken, isUser } from '../services/Authorization';
+import { getToken, isUser } from '../../services/Authorization';
 
 export type LoginInitial = {
   username: string;
@@ -58,6 +58,7 @@ const Login: React.FC = (): JSX.Element | null => {
       localStorage.getItem('token');
     if (savedTokenFromLocalStorage !== null) {
       setIsLogIn(true);
+      setErrorValid('Try again set the credentials');
       setSpinier(false);
     } else if (isValidUser) {
       setIsLogIn(false);
@@ -99,6 +100,7 @@ const Login: React.FC = (): JSX.Element | null => {
                 name='username'
                 onChange={handleChange}
                 className='inputLogin'
+                data-testid='input-username'
               />
             </div>
             <div className='ContainerLogin_main-form-input'>
@@ -109,6 +111,7 @@ const Login: React.FC = (): JSX.Element | null => {
                 name='password'
                 onChange={handleChange}
                 className='inputLogin'
+                data-testid='input-password'
               />
 
               <div
@@ -118,7 +121,7 @@ const Login: React.FC = (): JSX.Element | null => {
                 {spinier ? <i className='fa fa-spinner fa-pulse'></i> : ''}
               </div>
 
-              <span style={{ color: 'red', fontSize: '14px' }}>
+              <span style={{ color: 'red', fontSize: '14px' }} data-testid='span-validation-message'>
                 {errorValid}
               </span>
 

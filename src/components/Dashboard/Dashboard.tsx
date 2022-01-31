@@ -6,12 +6,12 @@ import React, {
   SetStateAction,
 } from 'react';
 
-import { MainContext } from '../context/MainContext';
+import { MainContext } from '../../context/MainContext';
 
 import { Link } from 'react-router-dom';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 
-import { InitialError } from '../App';
+import { InitialError } from '../../App';
 type IntrinsicAttributes = /*unresolved*/ any;
 
 interface IDashboardProps {
@@ -56,7 +56,7 @@ const Dashboard: React.FC<IDashboardProps> = ({
   setErrorValidation,
   languages,
   setArrOfAnswers,
-}):JSX.Element => {
+}): JSX.Element => {
   const {
     flip,
     setFlip,

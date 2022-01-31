@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
-import { register } from '../services/Register';
-import { isUser, isEmail } from '../services/Authorization';
+import { register } from '../../services/Register';
+import { isUser, isEmail } from '../../services/Authorization';
 import { AxiosResponse } from 'axios';
 
 type InitialRegistration = {
@@ -199,7 +199,10 @@ const Registration: React.FC = (): JSX.Element => {
                 />
               </div>
 
-              <span style={{ color: 'red', fontSize: '14px' }}>
+              <span
+                style={{ color: 'red', fontSize: '14px' }}
+                data-testid='span-validationEmail-message'
+              >
                 {errorsValidation.errorEmail}
               </span>
 
@@ -215,7 +218,10 @@ const Registration: React.FC = (): JSX.Element => {
                 />
               </div>
 
-              <span style={{ color: 'red', fontSize: '14px' }}>
+              <span
+                style={{ color: 'red', fontSize: '14px' }}
+                data-testid='span-validationUsername-message'
+              >
                 {errorsValidation.errorUsername}
               </span>
 
@@ -230,7 +236,10 @@ const Registration: React.FC = (): JSX.Element => {
                   className='inputLogin'
                 />
 
-                <span style={{ color: 'red', fontSize: '14px' }}>
+                <span
+                  style={{ color: 'red', fontSize: '14px' }}
+                  data-testid='span-validationPassword-message'
+                >
                   {errorsValidation.errorPassword}
                 </span>
               </div>
@@ -248,7 +257,10 @@ const Registration: React.FC = (): JSX.Element => {
                   className='inputLogin'
                 />
 
-                <span style={{ color: 'red', fontSize: '14px' }}>
+                <span
+                  style={{ color: 'red', fontSize: '14px' }}
+                  data-testid='span-validationRepeatPassword-message'
+                >
                   {errorsValidation.errorRepeatPassword}
                 </span>
               </div>

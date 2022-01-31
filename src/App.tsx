@@ -8,14 +8,14 @@ import {
 
 import './css/App.css';
 
-import Login from './components/Login';
-import LoginEmailVerified from './components/LoginEmailVerified';
-import Registration from './components/Registration';
-import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './components/Dashboard';
-import FlipCards from './components/FlipCards';
-import Results from './components/Results';
-import NotFound from './components/NotFound';
+import Login from './components/Login/Login';
+import LoginEmailVerified from './components/LoginEmailVerified/LoginEmailVerified';
+import Registration from './components/Registration/Registration';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Dashboard from './components/Dashboard/Dashboard';
+import FlipCards from './components/FlipCards/FlipCards';
+import Results from './components/Results/Results';
+import NotFound from './components/NotFound/NotFound';
 
 import { MainContext } from './context/MainContext';
 
@@ -26,8 +26,8 @@ import {
 
 import { removeUser } from './services/Authorization';
 
-import Loaded from './components/Loaded';
-import Fix from './components/Fix';
+import Loaded from './components/Loaded/Loaded';
+import Fix from './components/Fix/Fix';
 
 export type InitialError = {
    selectError: string,

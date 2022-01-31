@@ -72,6 +72,7 @@ describe('Tests Business Logic', () => {
 
     const checkInputName = screen.getByTestId('input-username');
     const buttonLetsGetStarted = screen.getByText(/Let's get started!/i);
+     expect(checkInputName.value).toBe('');
 
     fireEvent.change(checkInputName, { target: { value: 'Admin' } });
     fireEvent.click(buttonLetsGetStarted);
@@ -90,13 +91,14 @@ describe('Tests Business Logic', () => {
     fireEvent.click(buttonLetsGetStarted);
     
 
+    const spanMassageValidation = screen.getByTestId(
+      'span-validation-message'
+    );
     await waitFor(() => {
-      const spanMassageValidation = screen.getByTestId(
-        'span-validation-message'
-      );
 
       expect(spanMassageValidation).toHaveTextContent(validationInfo);
     });
+    
   });
 
   it('render validation info when you forget add password or password is incorrect', async () => {

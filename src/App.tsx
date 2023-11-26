@@ -105,7 +105,7 @@ const App: React.FC = () => {
   const getQuestions = async (languageSetByUser: string): Promise<void> => {
     const dataQuestions = await getAllQuestionsByLanguage(languageSetByUser);
 
-    if (dataQuestions === undefined || dataQuestions === []) {
+    if (dataQuestions === undefined ) {
       setIsPending(true);
       setIsLoaded(false);
     } else {
@@ -121,7 +121,7 @@ const App: React.FC = () => {
   const getLanguages = async (): Promise<void> => {
     const dataLanguages = await getAllLanguages();
 
-    if (dataLanguages === undefined || dataLanguages === []) {
+    if (dataLanguages === undefined ) {
       setIsPending(true);
       setIsLoaded(false);
     } else {
